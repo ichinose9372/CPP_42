@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 13:46:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 19:12:44 by yichinos         ###   ########.fr       */
+/*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
+/*   Updated: 2023/05/09 19:15:03 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include <stdio.h>
 #include "phonebook.hpp"
 #include "contact.hpp"
 
-int main(void)
+phonebook::phonebook() : num_contacts_(0) {}
+
+void phonebook::addContact(const contact &new_contact)
 {
-	std::string	cmd;
-	phonebook	pb;
-	contact		new_con;
-
-
-	while (1)
+	if (num_contacts_ > 8)
 	{
-		std::cout<<"put cmd : ";
-		std::cin>>cmd;
-		if (cmd.compare("ADD") == 0)
-		{
-			std::cin>>setName();
-			std::cin>>setPhone_num();
-			pb.addContact(new_con);
-		}
-		else if (cmd.compare("SEARCH") == 0)
-			std::cout<<"SEARCH"<<std::endl;
-		else if (cmd.compare("EXIT") == 0)
-		{
-			std::cout<<"EXIT"<<std::endl;
-			break ;
-		}
+		std::cout<<"It's FULL"<< std::endl;
+		return ;
 	}
-	return (0);
+	contact[num_contacts_] = new_contact;
+	num_contacts_++;
+}
+
+void phonebook::printContact() const
+{
+	int	i;
+	for(i = 0; i < num_contacts_; i++)
+	{
+		std::cout << "NAME: " << contacts_[i].getName() << ", num: " << contacts_[i].getPhoneNumber() << std::endl;
+	}
 }

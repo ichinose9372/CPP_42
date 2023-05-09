@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:47:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 17:37:49 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:35:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 
-class	contact {
+class	contact
+{
 	public:
 		void setName(const std::string &name);
 		void setPhone_num(const std::string &phone_num);

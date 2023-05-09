@@ -6,25 +6,25 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:16:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 17:28:29 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:14:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_NUMBER_HPP
-#define PHONE_NUMBER_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-#include <string>
+#include "contact.hpp"
 
 class phonebook
 {
-	private:
-		phonebook()
-		void	addContact(const contact &new_contact, const contct &new_phone_num)
-		void	ptinfCntact() const;
 	public:
+		phonebook();
+		void	addContact(const contact &new_contact);
+		void	printContact() const;
+	private:
 		contact contacts_[8];
 		int num_contacts_;
 
 };
 
-#endid
+#endif

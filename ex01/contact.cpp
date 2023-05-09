@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 17:37:13 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:11:17 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void contact::setPhone_num(const std::string &phone_num)
 	phone_num_ = phone_num;
 }
 
-std::string Contact::getName() const {
+std::string contact::getName() const {
 	return name_;
 }
 
-std::string Contact::getPhoneNumber() const {
+std::string contact::getPhoneNumber() const {
 	return phone_num_;
 }
