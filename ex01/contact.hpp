@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:47:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 18:35:10 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 21:53:17 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 class	contact
 {
 	public:
-		void setName(const std::string &name);
-		void setPhone_num(const std::string &phone_num);
+		contact() : name(""), phone_num("") {}
+		void setName(const std::string &str);
+		void setPhone_num(const std::string &num);
 		std::string getName() const;
 		std::string getPhoneNumber() const;
 	private:
-		std::string name_;
-		std::string	phone_num_;
+		std::string name;
+		std::string	phone_num;
 };
 
 #endif

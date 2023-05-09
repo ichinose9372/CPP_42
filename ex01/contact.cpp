@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 19:11:17 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 21:37:40 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 
-void contact::setName(const	std::string &name)
+void contact::setName(const	std::string &str)
 {
-	name_ = name;
+	name = str;
 }
 
-void contact::setPhone_num(const std::string &phone_num)
+void contact::setPhone_num(const std::string &num)
 {
-	phone_num_ = phone_num;
+	phone_num = num;
 }
 
 std::string contact::getName() const {
-	return name_;
+	return name;
 }
 
 std::string contact::getPhoneNumber() const {
-	return phone_num_;
+	return phone_num;
 }

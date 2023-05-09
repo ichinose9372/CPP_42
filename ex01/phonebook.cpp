@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 19:15:03 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:02:18 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,15 @@
 #include "phonebook.hpp"
 #include "contact.hpp"
 
-phonebook::phonebook() : num_contacts_(0) {}
-
 void phonebook::addContact(const contact &new_contact)
 {
-	if (num_contacts_ > 8)
+	for (int i = 0; i < 8; i++)
 	{
-		std::cout<<"It's FULL"<< std::endl;
-		return ;
+		if (contacts_[i].getName() == "")
+		{
+			contacts_[i] = new_contact;
+			return;
+		}
 	}
-	contact[num_contacts_] = new_contact;
-	num_contacts_++;
-}
-
-void phonebook::printContact() const
-{
-	int	i;
-	for(i = 0; i < num_contacts_; i++)
-	{
-		std::cout << "NAME: " << contacts_[i].getName() << ", num: " << contacts_[i].getPhoneNumber() << std::endl;
-	}
+	std::cout << "Cannot add new contact - phonebook is full." << std::endl;
 }

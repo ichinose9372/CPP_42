@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:46:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 19:12:44 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:19:48 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main(void)
 {
 	std::string	cmd;
 	phonebook	pb;
-	contact		new_con;
-
+	contact		new_contact;
+	std::string name, phone_num;
 
 	while (1)
 	{
@@ -29,9 +29,13 @@ int main(void)
 		std::cin>>cmd;
 		if (cmd.compare("ADD") == 0)
 		{
-			std::cin>>setName();
-			std::cin>>setPhone_num();
-			pb.addContact(new_con);
+			std::cout<<"NAME :";
+			std::cin>>name;
+			std::cout<<"TEL : ";
+			std::cin>>phone_num;
+			new_contact.setName(name);
+			new_contact.setPhone_num(phone_num);
+			pb.addContact(new_contact);
 		}
 		else if (cmd.compare("SEARCH") == 0)
 			std::cout<<"SEARCH"<<std::endl;
