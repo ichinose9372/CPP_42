@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:16:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/09 22:18:35 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/05/11 12:57:55 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ class phonebook
 {
 	public:
 		void	addContact(const contact &new_contact);
+		void	printContact();
 	private:
-		contact contacts_[8];
+		contact arry[8];
 };
 
 #endif
