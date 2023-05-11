@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/11 13:26:08 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:58:45 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,33 @@ void contact::setDarkest_secret(const std::string &str)
 	darkest_secret = str;
 }
 
-std::string contact::getFirst_name() const {
+void contact::setTimestamp()
+{
+	timestamp = std::chrono::system_clock::time_point();
+}
+
+std::chrono::system_clock::time_point contact::getTimestamp()const
+{
+	return timestamp;
+}
+
+std::string contact::getFirst_name() const
+{
 	return first_name;
 }
 
-std::string contact::getLast_name() const {
+std::string contact::getLast_name() const
+{
 	return last_name;
 }
 
-std::string contact::getNick_name() const {
+std::string contact::getNick_name() const
+{
 	return nick_name;
 }
 
-std::string contact::getPhoneNumber() const {
+std::string contact::getPhoneNumber() const
+{
 	return phone_num;
 }
 
@@ -50,4 +64,5 @@ contact::contact()
 	setName("","","");
 	setPhone_num("");
 	setDarkest_secret("");
+	setTimestamp();
 }

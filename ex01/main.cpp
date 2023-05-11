@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:46:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/11 13:48:59 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:14:17 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ int main(void)
 		else if (cmd.compare("SEARCH") == 0)
 		{
 			pb.printContact();
+			std::cout<<"\n\nどの番号を表示しますか？ : ";
+			std::cin>>cmd;
+			pb.printContact_num(cmd);
 		}
 		else if (cmd.compare("EXIT") == 0)
 		{
