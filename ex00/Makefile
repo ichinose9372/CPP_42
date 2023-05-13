@@ -6,12 +6,12 @@
 #    By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 12:27:54 by yichinos          #+#    #+#              #
-#    Updated: 2023/05/09 12:41:29 by yichinos         ###   ########.fr        #
+#    Updated: 2023/05/11 18:16:13 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wall -std=c++98
 SRC = megaphone.cpp
 OBJS_DIR = objs/
