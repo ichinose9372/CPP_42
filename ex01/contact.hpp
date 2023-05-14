@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:47:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/11 14:57:51 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/14 23:55:41 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ class	contact
 		void setName(const std::string &f_name, const std::string &l_name, const std::string &n_name);
 		void setPhone_num(const std::string &str);
 		void setDarkest_secret(const std:: string &str);
+		void setTimestamp();
 		std::string getFirst_name() const;
 		std::string getLast_name() const;
 		std::string getNick_name() const;
 		std::string getPhoneNumber() const;
+		std::string getDarkesr_secret() const;
 		std::chrono::system_clock::time_point	getTimestamp()const;
-		void		setTimestamp();
+		int	check_phonenum(std::string phone_num);
 	private:
 		std::string	first_name;
 		std::string	last_name;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/11 14:58:45 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/14 23:53:47 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void contact::setName(const std::string &f_name, const std::string &l_name, cons
 
 void contact::setPhone_num(const std::string &str)
 {
+
 	phone_num = str;
 }
 
@@ -59,10 +60,35 @@ std::string contact::getPhoneNumber() const
 	return phone_num;
 }
 
+std::string contact::getDarkesr_secret() const
+{
+	return darkest_secret;
+}
+
 contact::contact()
 {
 	setName("","","");
 	setPhone_num("");
 	setDarkest_secret("");
 	setTimestamp();
+}
+
+int contact::check_phonenum(std::string phone_num)
+{
+	int size = phone_num.size();
+	if (size >= 9 && size <= 13)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (!isdigit(phone_num[i]))
+			{
+				return 0;
+			}
+		}
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }

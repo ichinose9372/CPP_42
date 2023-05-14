@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/11 17:03:20 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/15 00:03:33 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,44 @@ void phonebook::addContact(const contact &new_contact)
 	arry[old_index] = new_contact;
 }
 
-void phonebook::printContact()
+int phonebook::printContact()
 {
 	int	i;
-	
+
+	i = 0;
+	if (arry[i].getFirst_name() == "")
+		return(0);
+	std::cout << "+------------------------------------------------------------------+\n";
 	for(i = 0; i < 8; i++)
 	{
 		if (arry[i].getFirst_name() == "")
-			return ;
-		std::cout<<std::setw(10)<<std::right<<i + 1<<'|';
-		std::cout<<std::setw(10)<<std::right<<(arry[i].getFirst_name().size()>10 ? arry[i].getFirst_name().substr(0,9)+"." : arry[i].getFirst_name())<<'|';
-		std::cout<<std::setw(10)<<std::right<<(arry[i].getLast_name().size()>10 ? arry[i].getLast_name().substr(0,9)+"." : arry[i].getLast_name())<<'|';
-		std::cout<<std::setw(10)<<std::right<<(arry[i].getNick_name().size()>10 ? arry[i].getNick_name().substr(0,9)+"." : arry[i].getNick_name())<<'|';
-		std::cout<<std::setw(10)<<std::right<<(arry[i].getPhoneNumber().size()>10 ? arry[i].getPhoneNumber().substr(0,9)+"." : arry[i].getPhoneNumber())<<'\n';
+		{
+			std::cout << "+------------------------------------------------------------------+\n";
+			return (1);
+		}
+		std::cout << "|"<<std::setw(10)<<std::right<<i + 1<<'|';
+		std::cout <<std::setw(13)<<std::right<<(arry[i].getFirst_name().size()>10 ? arry[i].getFirst_name().substr(0,9)+"." : arry[i].getFirst_name())<<'|';
+		std::cout <<std::setw(13)<<std::right<<(arry[i].getLast_name().size()>10 ? arry[i].getLast_name().substr(0,9)+"." : arry[i].getLast_name())<<'|';
+		std::cout <<std::setw(13)<<std::right<<(arry[i].getNick_name().size()>10 ? arry[i].getNick_name().substr(0,9)+"." : arry[i].getNick_name())<<'|';
+		std::cout <<std::setw(13)<<std::right<<(arry[i].getPhoneNumber().size()>10 ? arry[i].getPhoneNumber().substr(0,9)+"." : arry[i].getPhoneNumber())<<"|\n";
 	}
+	return (1);
 }
 
 void phonebook::printContact_num(std::string cmd)
 {
 	int	i;
+	std::cout << "+-------------------------------\n";
 	for(i = 0; i < 8; i++)
 	{
 		if (i + 1 == stoi(cmd))
 		{
-			std::cout<<"FIRSTNAME : "<<arry[i].getFirst_name()<<'\n';
-			std::cout<<"LASTNAME  : "<<arry[i].getLast_name()<<'\n';
-			std::cout<<"NICKNAME  : "<<arry[i].getNick_name()<<'\n';
-			std::cout<<"TEL       : "<<arry[i].getPhoneNumber()<<'\n';
+			std::cout<<"| FIRSTNAME : "<<arry[i].getFirst_name()<<'\n';
+			std::cout<<"| LASTNAME  : "<<arry[i].getLast_name()<<'\n';
+			std::cout<<"| NICKNAME  : "<<arry[i].getNick_name()<<'\n';
+			std::cout<<"| TEL       : "<<arry[i].getPhoneNumber()<<'\n';
+			std::cout<<"| SECRET    : "<<arry[i].getDarkesr_secret()<<'\n';
 		}
 	}
+	std::cout << "+-------------------------------\n";
 }
