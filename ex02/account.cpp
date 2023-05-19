@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:37:41 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/12 16:39:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/15 00:23:11 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int	Account::getNbWithdrawals( void )
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-	std::cout<<" index:"<<getNbAccounts()<<";amount:"<<getTotalAmount()<<";deposits:"<<getNbDeposits()<<";winthdrawals:"<<getNbWithdrawals()<<'\n';
+	std::cout<<" index:"<<_accountIndex<<
+				";amount:"<<_amount<<
+				";deposits:"<<_nbDeposits<<
+				";winthdrawals:"<<_nbWithdrawals<<'\n';
 }
 
 void	Account::displayAccountsInfos( void )
@@ -58,13 +61,14 @@ void	Account::displayAccountsInfos( void )
 
 Account::Account( int initial_deposit)
 {
-	_accountIndex = ++_nbAccounts;
+	_accountIndex = _nbAccounts;
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	_totalAmount = _totalAmount + initial_deposit;
 	_displayTimestamp();
 	std::cout<<" index:"<<getNbAccounts()<<";amount:"<<initial_deposit<<";created\n";
+	_nbAccounts++;
 }
 
 Account::~Account(void)
