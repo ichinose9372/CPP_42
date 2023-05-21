@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:29:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/05/19 16:15:31 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/05/20 12:59:27 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,10 @@ void	Weapon::setType(std::string type)
 Weapon::Weapon(std::string str)
 {
 	setType(str);
+}
+
+Weapon::Weapon()
+{
+	setType("");
 }
 

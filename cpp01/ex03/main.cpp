@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:51:21 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/05/19 15:52:56 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/05/20 12:56:57 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
@@ -21,13 +22,13 @@ int main()
 		club.setType("some other type of club");
 		bob.attack();
 	}
-	// {
-	// 	Weapon club = Weapon("crude spiked club");
-	// 	HumanB jim("Jim");
-	// 	jim.setWeapon(club);
-	// 	jim.attack();
-	// 	club.setType("some other type of club");
-	// 	jim.attack();
-	// }
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return 0;
 }

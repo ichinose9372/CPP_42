@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/18 12:17:04 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/05/21 12:42:28 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,29 @@ int phonebook::printContact()
 void phonebook::printContact_num(std::string cmd)
 {
 	int	i;
-	std::cout << "+-------------------------------\n";
 	for(i = 0; i < 8; i++)
 	{
 		if (i + 1 == stoi(cmd))
 		{
-			std::cout<<"| FIRSTNAME : "<<arry[i].getFirst_name()<<'\n';
-			std::cout<<"| LASTNAME  : "<<arry[i].getLast_name()<<'\n';
-			std::cout<<"| NICKNAME  : "<<arry[i].getNick_name()<<'\n';
-			std::cout<<"| TEL       : "<<arry[i].getPhoneNumber()<<'\n';
-			std::cout<<"| SECRET    : "<<arry[i].getDarkesr_secret()<<'\n';
+			if (arry[i].getFirst_name() == "")
+			{
+				std::cout << "\n\n\n番号が正しくありません\n\n\n";
+				return ;
+			}
+			else
+			{
+				std::cout << "+-------------------------------\n";
+				std::cout<<"| FIRSTNAME : "<<arry[i].getFirst_name()<<'\n';
+				std::cout<<"| LASTNAME  : "<<arry[i].getLast_name()<<'\n';
+				std::cout<<"| NICKNAME  : "<<arry[i].getNick_name()<<'\n';
+				std::cout<<"| TEL       : "<<arry[i].getPhoneNumber()<<'\n';
+				std::cout<<"| SECRET    : "<<arry[i].getDarkesr_secret()<<'\n';
+				std::cout << "+-------------------------------\n";
+				return ;
+			}
 		}
 	}
-	std::cout << "+-------------------------------\n";
+	std::cout << "\n\n\n番号が正しくありません\n\n\n";
 }
 
 int	phonebook::add_func(phonebook &pb)

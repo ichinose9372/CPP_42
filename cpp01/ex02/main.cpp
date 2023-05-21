@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:52:23 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/05/19 15:15:22 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/05/20 13:10:20 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	std::string str = "HI THIS IS BRAIN";
 	std::string *stringPTR = &str;
-	std::string & stringREF = str;
+	std::string &stringREF = str;
 
 	std::cout << std::hex << &str << std::endl;
 	std::cout << std::hex << stringPTR << std::endl;
