@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/21 12:42:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:46:50 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "phonebook.hpp"
 #include "contact.hpp"
 #include <iomanip>
+#include <sstream>
 
 void phonebook::all_view(std::string f_name, std::string l_name, std::string n_name, std::string phone_num, std::string d_secret)
 {
@@ -28,13 +29,11 @@ void phonebook::all_view(std::string f_name, std::string l_name, std::string n_n
 
 int	phonebook::inputandcheck(std::string &name)
 {
-	if (!(std::cin >> name))
+	std::cin >> name;
+	if (std::cin.eof())
 	{
-		if (std::cin.eof())
-		{
-			std::cout<< "入力エラー\n";
-			return (1);
-		}
+		std::cout<< "入力エラー\n";
+		return (1);
 	}
 	return (0);
 }
@@ -90,10 +89,17 @@ int phonebook::printContact()
 
 void phonebook::printContact_num(std::string cmd)
 {
-	int	i;
-	for(i = 0; i < 8; i++)
+	int	num;
+	std::istringstream iss(cmd);
+
+	if (!(iss >> num))
 	{
-		if (i + 1 == stoi(cmd))
+		std::cout << "\n\n\n番号が正しくありません\n\n\n";
+		return;
+	}
+	for(int i = 0; i < 8; i++)
+	{
+		if (i + 1 == num)
 		{
 			if (arry[i].getFirst_name() == "")
 			{

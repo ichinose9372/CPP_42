@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/14 23:53:47 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/06/11 13:37:42 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,13 @@ contact::contact()
 int contact::check_phonenum(std::string phone_num)
 {
 	int size = phone_num.size();
-	if (size >= 9 && size <= 13)
+
+	for (int i = 0; i < size; i++)
 	{
-		for (int i = 0; i < size; i++)
+		if (!isdigit(phone_num[i]))
 		{
-			if (!isdigit(phone_num[i]))
-			{
-				return 0;
-			}
+			return 0;
 		}
-		return 1;
 	}
-	else
-	{
-		return 0;
-	}
+	return 1;
 }
