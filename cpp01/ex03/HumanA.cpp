@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:39:43 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/05/21 12:05:40 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:09:39 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void HumanA::attack()
 
 HumanA::HumanA(std::string name, Weapon &tmp) : _A(tmp)
 {
+	std::cout << "HumanA constructor called" << std::endl;
 	setName(name);
 }
 
+HumanA::~HumanA()
+{
+	std::cout << "HumanA destructor called" << std::endl;
+}

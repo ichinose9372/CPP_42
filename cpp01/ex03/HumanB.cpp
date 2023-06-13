@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:30:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/21 11:53:20 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:34:56 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ void	HumanB::attack()
 HumanB::HumanB(std::string name)
 {
 	setName(name);
+}
+
+HumanB::~HumanB()
+{
+	std::cout << "HumanB destructor called" << std::endl;
 }

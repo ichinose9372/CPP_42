@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:21:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/19 14:07:08 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/06/12 12:26:18 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Zombie
 		std::string getName(void);
 		void		announce(void);
 		Zombie();
+		~Zombie();
 	private :
 		std::string name;
 };

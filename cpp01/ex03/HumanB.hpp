@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:36:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/21 11:50:25 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:34:28 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class HumanB
 		void	setWeapon(Weapon &tmp);
 		std::string getName(void);
 		HumanB(std::string name);
+		~HumanB();
 	private:
 		Weapon *_b;
 		std::string _name;

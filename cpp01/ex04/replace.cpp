@@ -3,64 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/23 13:44:30 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:17:37 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
-void	File::setIfs(const char *argv)
+File::File(std::string filename)
 {
-	_ifs.open(argv);
-	if (!_ifs)
+	_filename = filename;
+	_out_filename = filename + ".replace";
+}
+
+File::~File()
+{
+	std::cout << "File destructor called" << std::endl;
+}
+
+void	File::replace(std::string s1, std::string s2)
+{
+	std::ifstream ifs(_filename);
+	std::ofstream ofs(_out_filename);
+	std::string line;
+	std::string replace;
+	size_t pos;
+
+	if (!ifs)
 	{
-		std::cout << "failed to open" << std::endl;
+		std::cout << "Error: cannot open file" << std::endl;
+		return ;
 	}
-	return ;
-}
-
-void	File::get_line(std::ifstream &ifs, char *argv2, char *argv3)
-{
-	std::string tmp;
-	std::string remake_line;
-
-	while(std::getline(ifs, tmp))
-		_line += tmp + '\n';
-	remake_line = std::regex_replace(_line, std::regex(argv2), argv3);
-	_line = remake_line;
-}
-
-std::ifstream&	File::getIfs(void)
-{
-	return _ifs;
-}
-
-void	File::setOfs(void)
-{
-	_ofs.open("new_file");
-	if (!_ofs)
+	if (!ofs)
 	{
-		std::cout << "failed to open" << std::endl;
+		std::cout << "Error: cannot open file" << std::endl;
+		return ;
 	}
-	return ;
-}
-
-void	File::writefile(void)
-{
-	_ofs << _line;
-	_ofs.close();
-}
-
-
-File::File(const char *argv)
-{
-	setIfs(argv);
-}
-
-File::~File(void)
-{
-	_ifs.close();
+	if (s1 == s2)
+	{
+		std::cout << "Error: same string" << std::endl;
+		return ;
+	}
+	while (std::getline(ifs, line))
+	{
+		pos = line.find(s1);
+		while (s1 != s2 && pos != std::string::npos)
+		{
+			replace = line.substr(0, pos);
+			replace = replace + s2;
+			replace = replace + line.substr(pos + s1.length());
+			line = replace;
+			pos = line.find(s1, pos + s2.size());
+		}
+		if (ifs.peek() != EOF)
+			ofs << line << std::endl;
+		else
+			ofs << line;
+	}
 }

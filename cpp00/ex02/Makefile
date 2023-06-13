@@ -6,7 +6,7 @@
 #    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 12:04:49 by yichinos          #+#    #+#              #
-#    Updated: 2023/06/12 12:17:40 by yichinos         ###   ########.fr        #
+#    Updated: 2023/06/12 17:49:11 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ALL : $(NAME)
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(OBJS_DIR)%.o : %.cpp $(INCLUDE) | $(OBJS_DIR)
+$(OBJS_DIR)%.o : %.cpp $(INCLUDE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJS_DIR) :

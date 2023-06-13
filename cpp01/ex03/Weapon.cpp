@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:29:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/05/20 12:59:27 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:11:35 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,7 @@ Weapon::Weapon()
 	setType("");
 }
 
+Weapon::~Weapon()
+{
+	std::cout << "Weapon destructor called" << std::endl;
+}

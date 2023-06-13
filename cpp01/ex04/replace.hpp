@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 14:58:31 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/23 13:41:34 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:52:11 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,11 @@
 class File
 {
 	public:
-		File(const char *argv);
+		File(std::string filename);
 		~File();
-		std::ifstream &getIfs(void);
-		void	setIfs(const char *argv);
-		void	setOfs(void);
-		void	get_line(std::ifstream &ifs, char *argv2, char *argv3);
-		void	writefile(void);
+		void	replace(std::string s1, std::string s2);
 	private:
-		std::ifstream	_ifs;
-		std::ofstream	_ofs;
-		std::string		_line;
+		std::string _filename;
+		std::string _out_filename;
 };
-
 #endif
