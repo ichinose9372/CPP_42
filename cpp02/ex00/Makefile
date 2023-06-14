@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/12 12:36:46 by yichinos          #+#    #+#              #
-#    Updated: 2023/06/14 11:31:24 by yichinos         ###   ########.fr        #
+#    Created: 2023/06/12 13:36:26 by yichinos          #+#    #+#              #
+#    Updated: 2023/06/14 15:03:47 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = program
+NAME = a.out
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
-INCLUDE = HumanA.hpp HumanB.hpp Weapon.hpp
+SRC = main.cpp Fixed.cpp
+INCLUDE = Fixed.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

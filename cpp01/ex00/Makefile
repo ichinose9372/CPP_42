@@ -6,7 +6,7 @@
 #    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 12:19:06 by yichinos          #+#    #+#              #
-#    Updated: 2023/06/12 17:48:50 by yichinos         ###   ########.fr        #
+#    Updated: 2023/06/14 11:32:45 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,8 @@ $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 $(OBJS_DIR)%.o : %.cpp $(INCLUDE)
+	@mkdir -p $(OBJS_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(OBJS_DIR) : $(SRC)
-	mkdir -p $(OBJS_DIR)
 
 clean :
 	$(RM) $(OBJS_DIR)
