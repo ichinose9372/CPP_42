@@ -6,7 +6,7 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 14:17:37 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:08:59 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 File::File(std::string filename)
 {
+	std::cout << "File constructor called" << std::endl;
 	_filename = filename;
 	_out_filename = filename + ".replace";
 }
