@@ -6,7 +6,7 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:09:51 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/14 14:57:16 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:50:02 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ class Fixed
 	Fixed &operator=(const Fixed &other);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
+	//get___________________test//
 };
