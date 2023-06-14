@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Herl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 17:53:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/14 11:06:10 by yichinos         ###   ########.fr       */
+/*   Created: 2023/06/14 11:06:14 by yichinos          #+#    #+#             */
+/*   Updated: 2023/06/14 11:26:09 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HERL_HPP
-# define HERL_HPP
+#include "Herl.hpp"
 
-# include <iostream>
-# include <string>
-
-class Herl
+int main(int argc, char **argv)
 {
-	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
-	public:
-		void complain( std::string level);
-};
+	Herl herl;
 
-#endif
+	if (argc != 2)
+	{
+		std::cout << "Invalid argument" << std::endl;
+		return (1);
+	}
+	herl.complain(argv[1]);
+	return (0);
+}
