@@ -5,27 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/11 17:04:11 by yichinos          #+#    #+#              #
-#    Updated: 2023/07/01 13:04:05 by yichinos         ###   ########.fr        #
+#    Created: 2023/06/12 13:36:26 by yichinos          #+#    #+#              #
+#    Updated: 2023/06/14 15:03:47 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = program
+NAME = a.out
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp contact.cpp phonebook.cpp
-INCLUDE = phonebook.hpp contact.hpp
+SRC = main.cpp Fixed.cpp
+INCLUDE = Fixed.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-ALL : $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 $(OBJS_DIR)%.o : %.cpp $(INCLUDE)
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :

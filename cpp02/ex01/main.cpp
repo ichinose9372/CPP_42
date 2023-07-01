@@ -6,11 +6,12 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:12:14 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/14 15:12:19 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/01 19:18:50 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "Fixed.hpp"
+
 int main(void)
 {
 	Fixed a;
