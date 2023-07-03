@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:09:51 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/01 19:19:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/02 12:58:06 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define FIXD_HPP
+#ifndef FIXED_HPP
 # define FIXED_HPP
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
@@ -31,5 +32,8 @@ class Fixed
 	int getRawBits(void) const;
 	void setRawBits(int const num);
 	int toInt(void) const;
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &other);
+	float toFloat(void) const;
 };
+std::ostream &operator<<(std::ostream &os, const Fixed &other);
+
+#endif

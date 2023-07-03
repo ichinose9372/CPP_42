@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 12:15:48 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/03 13:44:58 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:20:17 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,33 +47,6 @@ int	Fixed::getRawBits(void) const
 	 return (raw);
 }
 
-Fixed &Fixed::operator=(const Fixed &other)
-{
-	// std::cout << "Assignation operator called" << std::endl;
-	raw = other.getRawBits();
-	return (*this);
-}
-
-Fixed &Fixed::operator*(const Fixed &other)
-{
-	// std::cout << "Multiplication operator called" << std::endl;
-	this->setRawBits(this->getRawBits() * other.getRawBits() / (1 << fractional_bits));
-	return (*this);
-}
-
-Fixed &Fixed::operator++(void)
-{
-	this->raw++;
-	return (*this);
-}
-
-Fixed Fixed::operator++(int)
-{
-	Fixed tmp(*this);
-	this->raw++;
-	return (tmp);
-}
-
 void Fixed::setRawBits(int const num)
 {
 	raw = num;
@@ -89,24 +62,141 @@ float Fixed::toFloat(void) const
 	return (float(raw) / float(1 << fractional_bits));
 }
 
+bool Fixed::operator>(const Fixed &other) const
+{
+	if (raw > other.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator<(const Fixed &other) const
+{
+	if (raw < other.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator>=(const Fixed &other) const
+{
+	if (raw >= other.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator<=(const Fixed &other) const
+{
+	if (raw <= other.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	if (raw == other.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	if (raw != other.getRawBits())
+		return (true);
+	return (false);
+}	
+
+Fixed Fixed::operator+(const Fixed &other) const
+{
+	Fixed tmp;
+	tmp.setRawBits(this->raw + other.getRawBits());
+	return (tmp);
+}
+
+Fixed Fixed::operator-(const Fixed &other) const
+{
+	Fixed tmp;
+	tmp.setRawBits(this->raw - other.getRawBits());
+	return (tmp);
+}
+
+Fixed Fixed::operator/(const Fixed &other) const
+{
+	Fixed tmp;
+	tmp.setRawBits(this->raw / other.getRawBits());
+	return (tmp);
+}
+
+
+Fixed &Fixed::operator=(const Fixed &other)
+{
+	// std::cout << "Assignation operator called" << std::endl;
+	this->raw = other.getRawBits();
+	return (*this);
+}
+
+Fixed Fixed::operator*(const Fixed &other) const
+{
+	// std::cout << "Multiplication operator called" << std::endl;
+	Fixed tmp;
+	tmp.setRawBits((this->raw * other.getRawBits()) >> fractional_bits);
+	return (tmp);
+}
+
+Fixed &Fixed::operator++(void)
+{
+	this->raw++;
+	return (*this);
+}
+
+Fixed &Fixed::operator--(void)
+{
+	this->raw--;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	this->raw--;
+	return (tmp);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	this->raw++;
+	return (tmp);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+} 
+
 std::ostream &operator<<(std::ostream &os, const Fixed &other)
 {
 	os << other.toFloat();
 	return (os);
-}
-
-Fixed Fixed::max(const Fixed &a, const Fixed &b)
-{
-	if (a.getRawBits() > b.getRawBits())
-		return (a);
-	else
-		return (b);
-}
-
-Fixed Fixed::min(const Fixed &a, const Fixed &b)
-{
-	if (a.getRawBits() < b.getRawBits())
-		return (a);
-	else
-		return (b);
 }
