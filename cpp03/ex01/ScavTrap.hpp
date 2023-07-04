@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 15:27:07 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/04 13:31:40 by yichinos         ###   ########.fr       */
+/*   Created: 2023/07/04 16:07:34 by yichinos          #+#    #+#             */
+/*   Updated: 2023/07/04 17:11:29 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
+#include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 
-int main(void)
+class ScavTrap : public ClapTrap
 {
-	ClapTrap claptrap("ICHNIOS");
-	ClapTrap claptrap2("SATAHARU");
-	ClapTrap claptrap3("BUN");
-	claptrap.attack("BUN");
-	claptrap2.takeDamage(11);
-	claptrap.beRepaired(100);
-	claptrap3.attack("SATAHARU");
-	claptrap3.takeDamage(10);
-	claptrap3.beRepaired(100);
-	return (0);
-}
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &old_obj);
+		~ScavTrap();
+	private:
+};
+
+#endif
