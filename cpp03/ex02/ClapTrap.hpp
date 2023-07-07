@@ -6,7 +6,7 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:03 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 15:53:22 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/07 16:07:08 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class ClapTrap
 		void attack(std::string const & target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		//getter and setter
 	protected:
 		std::string name;
 		int		hit_points;//体力

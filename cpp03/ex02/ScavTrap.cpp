@@ -6,7 +6,7 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:07:32 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 16:00:00 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:59:31 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	ScavTrap::guardGate(void)
 
 void	ScavTrap::attack(std::string const & target)
 {
-	std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
+	std::cout << "ScavTrap " << this->name  << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
 }

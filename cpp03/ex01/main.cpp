@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:07 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/04 17:13:45 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:50:03 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int main(void)
 	ScavTrap scavtrap("TASHIRO");
 	ScavTrap scavtrap2("KAWAMURA");
 	ScavTrap scavtrap3(scavtrap2);
-	std::cout << scavtrap3.getName() << std::endl;
-	std::cout << scavtrap3.getHitPoints() << std::endl;
+	scavtrap.guardGate();
+	scavtrap2.guardGate();
+	scavtrap.attack("KAWAMURA");
 	return (0);
 }

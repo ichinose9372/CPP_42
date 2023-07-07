@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 16:07:34 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 15:43:00 by yichinos         ###   ########.fr       */
+/*   Created: 2023/07/03 15:27:07 by yichinos          #+#    #+#             */
+/*   Updated: 2023/07/07 16:23:08 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "FragTrap.hpp"
 
-#include <iostream>
-#include <string>
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int main(void)
 {
-	public:
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &old_obj);
-		~ScavTrap();
-		void	guardGate(void);
-		void	attack(std::string const & target);
-	private:
-};
-
-#endif
+	return (0);
+}
