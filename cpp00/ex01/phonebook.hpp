@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:16:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/05/18 12:17:17 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:13:07 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class phonebook
 		int		inputandcheck(std::string &name);
 		void	all_view(std::string f_name, std::string l_name, std::string n_name, std::string phone_num, std::string d_secret);
 	private:
-		contact arry[7];
+		contact arry[8];
 };
 
 #endif

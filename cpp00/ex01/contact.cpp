@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/11 13:37:42 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:30:36 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,6 @@ void contact::setPhone_num(const std::string &str)
 void contact::setDarkest_secret(const std::string &str)
 {
 	darkest_secret = str;
-}
-
-void contact::setTimestamp()
-{
-	timestamp = std::chrono::system_clock::time_point();
-}
-
-std::chrono::system_clock::time_point contact::getTimestamp()const
-{
-	return timestamp;
 }
 
 std::string contact::getFirst_name() const
@@ -65,12 +55,9 @@ std::string contact::getDarkesr_secret() const
 	return darkest_secret;
 }
 
-contact::contact()
+contact::contact() : first_name(""), last_name(""), nick_name(""), phone_num(""), darkest_secret("")
 {
-	setName("","","");
-	setPhone_num("");
-	setDarkest_secret("");
-	setTimestamp();
+	return ;
 }
 
 int contact::check_phonenum(std::string phone_num)
