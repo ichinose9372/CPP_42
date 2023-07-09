@@ -6,7 +6,7 @@
 /*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:02:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 16:26:18 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:43:36 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 class FragTrap : public ClapTrap
 {
@@ -21,8 +22,7 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &old_obj);
 		~FragTrap();
-		void	highFivesGuys(void);
-	private:
+		void highFivesGuys(void);
 };
 
 #endif
