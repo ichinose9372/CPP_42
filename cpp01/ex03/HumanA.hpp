@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:34:48 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/06/12 13:08:53 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:42:15 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA
 		HumanA(std::string name, Weapon &tmp);
 		~HumanA();
 	private:
-		Weapon &_A;
-		std::string _name;
+		Weapon &A_Weapon;
+		std::string name;
 };
 #endif

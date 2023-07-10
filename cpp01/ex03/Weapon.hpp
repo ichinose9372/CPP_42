@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:24:44 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/06/12 13:11:15 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:31:32 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Weapon
 	public:
 		std::string getType(void) const;
 		void		setType(std::string type);
-		Weapon(std::string str);
 		Weapon();
+		Weapon(std::string str);
 		~Weapon();
 	private:
 		std::string _type;

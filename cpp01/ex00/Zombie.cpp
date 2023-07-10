@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:21:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 12:31:23 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:22:20 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	Zombie::setName(std::string str)
 {
-	name = str;
-}
-
-std::string Zombie::getName(void)
-{
-	return name;
+	this->name = str;
 }
 
 void	Zombie::announce(void)
 {
-	std::cout<<getName()<<": BraiiiiiiinnnzzzZ...\n";
+	std::cout<< this->name <<": BraiiiiiiinnnzzzZ...\n";
 }
 
 
@@ -36,6 +31,6 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
-	std::cout<<getName()<<" destractor called\n";
+	std::cout<< this->name <<" destractor called\n";
 	return ;
 }

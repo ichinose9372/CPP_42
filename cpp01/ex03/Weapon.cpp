@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:29:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/06/12 13:11:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:35:20 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ void	Weapon::setType(std::string type)
 	_type = type;
 }
 
-Weapon::Weapon(std::string str)
+Weapon::Weapon(std::string str) : _type(str)
 {
-	setType(str);
+	std::cout << "Weapon constructor called (string)" << std::endl;
+	return ;
 }
 
-Weapon::Weapon()
+Weapon::Weapon() : _type("default")
 {
-	setType("");
+	std::cout << "Weapon constructor called (default)" << std::endl;
+	return ;
 }
 
 Weapon::~Weapon()

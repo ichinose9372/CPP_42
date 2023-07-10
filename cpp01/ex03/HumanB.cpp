@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:30:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 13:34:56 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:47:12 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,34 @@
 
 void	HumanB::setWeapon(Weapon &tmp)
 {
-	_b = &tmp;
+	B_Weapon = &tmp;
 }
 
 void	HumanB::setName(std::string name)
 {
-	_name = name;
+	this->name = name;
 }
 
 std::string HumanB::getName(void)
 {
-	return _name;
+	return this->name;
 }
 
 void	HumanB::attack()
 {
-	std::cout << getName() << "  attacks with their " << _b->getType() << std::endl;
+	if (B_Weapon == NULL)
+	{
+		std::cout << getName() << "  attacks but no Weapon " << std::endl;
+		return ;
+	}
+	std::cout << getName() << "  attacks with their " << B_Weapon->getType() << std::endl;
 }
 
 HumanB::HumanB(std::string name)
 {
+	std::cout << "HumanB constructor called" << std::endl;
 	setName(name);
+	B_Weapon = NULL;
 }
 
 HumanB::~HumanB()

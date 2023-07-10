@@ -1,5 +1,5 @@
-objes/*
+*/objes/*
 *.o
-a.out
+*/*/a.out
 .DS_Store
 test*
