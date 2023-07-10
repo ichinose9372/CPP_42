@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/14 12:08:59 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:50:53 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
-File::File(std::string filename)
+File::File(std::string filename) : _filename(filename)
 {
 	std::cout << "File constructor called" << std::endl;
-	_filename = filename;
 	_out_filename = filename + ".replace";
 }
 
