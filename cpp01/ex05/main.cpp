@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:41:54 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 14:43:34 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:15:35 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,13 @@ int main(int argc, char **argv)
 	}
 	Herl herl;
 	herl.complain(argv[1]);
+	herl.complain("ERROR");
+	herl.complain("WARNING");
+	herl.complain("INFO");
+	herl.complain("DEBUG");
+	std::cout << "----------------------------" << std::endl;
+	herl.complain("ERRORRRRRRRR");
+	herl.complain("");
+	herl.complain("\n");
 	return (0);
 }

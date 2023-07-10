@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Herl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:53:21 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/14 11:22:57 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:20:33 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ void Herl::error(void)
 void	Herl::complain(std::string level)
 {
 	std::string name[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int num = 0;;
+	int num = 0;
 
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i <= 4; i++)
 	{
 		if (level == name[i])
 		{
 			num = i;
 			break;
 		}
-		else if (i == 3)
+		else if (i == 4)
 		{
 			std::cout << "Invalid level" << std::endl;
 			return ;

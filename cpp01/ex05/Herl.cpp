@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Herl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:41:44 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 17:00:50 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:11:14 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Herl::complain(std::string level)
 			return ;
 		}
 	}
-
+	std::cout << "Error: invalid level" << std::endl;
 }
 Herl::Herl()
 {
