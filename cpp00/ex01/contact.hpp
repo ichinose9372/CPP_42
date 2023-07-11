@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:47:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/09 21:31:31 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/11 15:57:20 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,8 @@ class	contact
 {
 	public:
 		contact();
-		void setName(const std::string &f_name, const std::string &l_name, const std::string &n_name);
-		void setPhone_num(const std::string &str);
-		void setDarkest_secret(const std:: string &str);
-		std::string getFirst_name() const;
-		std::string getLast_name() const;
-		std::string getNick_name() const;
-		std::string getPhoneNumber() const;
-		std::string getDarkesr_secret() const;
+		void	set_Data(std::string type, std::string data);
+		std::string	get_Data(std::string type);
 		int	check_phonenum(std::string phone_num);
 	private:
 		std::string	first_name;

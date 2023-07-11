@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:32:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 12:25:15 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:54:06 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int	phonebook::inputandcheck(std::string &name)
 {
 	std::getline(std::cin, name);
 	if (std::cin.eof())
+	{
+		std::cout<< "入力エラー\n";
+		return (1);
+	}
+	if (name == "")
 	{
 		std::cout<< "入力エラー\n";
 		return (1);
@@ -115,73 +120,84 @@ void phonebook::printContact_num(std::string cmd)
 	std::cout << "\n\n\n番号が正しくありません\n\n\n";
 }
 
-int	phonebook::add_func(phonebook &pb)
-{
-	contact		n_contact;
-	std::string	f_name,l_name,n_name,phone_num,d_secret;
-	std::string secret;
+// int	phonebook::add_func(void)
+// {
+// 	contact		new_contact;
+// 	std::string	f_name,l_name,n_name,phone_num,d_secret;
+// 	std::string num;
 
-	std::cout<<"追加する情報を入力してください\n";
-	while(1)
-	{	
-		std::cout << "FIRSTNAME : ";
-		if (inputandcheck(f_name))
-			return (1);
-		if (f_name.empty())
-			continue;
-		std::cout<<"LASTNAME  : ";
-		if (inputandcheck(l_name))
-			return (1);
-		if (l_name.empty())
-			continue;
-		std::cout<<"NICKTNAME : ";
-		if (inputandcheck(n_name))
-			return (1);
-		if (n_name.empty())
-			continue;
-		break;
-	}
-	while(1)
-	{
-		std::cout<<"TEL       : ";
-		if (inputandcheck(phone_num))
-			return (1);
-		if (phone_num.empty())
-			continue;
-		if (n_contact.check_phonenum(phone_num))
-			break;
-		else
-			std::cout<<"番号が正しくありません。\n";
-	}
+// 	while(1)
+// 	{	
+// 		std::cout << "FIRSTNAME : ";
+// 		if (inputandcheck(f_name))
+// 			return (1);
+// 		if (f_name.empty())
+// 			continue;
+// 		std::cout<<"LASTNAME  : ";
+// 		if (inputandcheck(l_name))
+// 			return (1);
+// 		if (l_name.empty())
+// 			continue;
+// 		std::cout<<"NICKTNAME : ";
+// 		if (inputandcheck(n_name))
+// 			return (1);
+// 		if (n_name.empty())
+// 			continue;
+// 		break;
+// 	}
+// 	while(1)
+// 	{
+// 		std::cout<<"TEL       : ";
+// 		if (inputandcheck(phone_num))
+// 			return (1);
+// 		if (phone_num.empty())
+// 			continue;
+// 		if (n_contact.check_phonenum(phone_num))
+// 			break;
+// 		else
+// 			std::cout<<"番号が正しくありません。\n";
+// 	}
+// 	while (1)
+// 	{
+// 		std::cout << "SECRET    : ";
+// 		if (inputandcheck(d_secret))
+// 			return (1);
+// 		if (d_secret.empty())
+// 			continue;
+// 		break;
+// 	}
+// 	all_view(f_name,l_name,n_name,phone_num,d_secret);
+// 	while(1)
+// 	{
+// 		std::cout<<"追加しますか？ ";
+// 		std::cout<<"[YES / NO] : ";
+// 		if (inputandcheck(secret))
+// 			return (1);
+// 		if (secret.compare("yes")== 0 || secret.compare("YES") == 0 || secret.compare("y") == 0)
+// 		{
+// 			n_contact.setName(f_name,l_name,n_name);
+// 			n_contact.setPhone_num(phone_num);
+// 			n_contact.setDarkest_secret(d_secret);
+// 			pb.addContact(n_contact);
+// 			std::cout<<"\n\n追加しました\n\n";
+// 			return (0);
+// 		}
+// 		else if (secret.compare("NO") == 0 || secret.compare("no") == 0 || secret.compare("n") == 0)
+// 		{
+// 			std::cout<<"・\n・\n・\n破棄しました \\(^ O ^ ) /\n";
+// 			return (0);
+// 		}
+// 	}
+// }
+
+void phonebook::add_func(void)
+{
+	contact		new_contact;
+	std::string		f_name,l_name,n_name,phone_num,d_secret;
+	std::string		num;
+	
 	while (1)
 	{
-		std::cout << "SECRET    : ";
-		if (inputandcheck(d_secret))
-			return (1);
-		if (d_secret.empty())
-			continue;
-		break;
-	}
-	all_view(f_name,l_name,n_name,phone_num,d_secret);
-	while(1)
-	{
-		std::cout<<"追加しますか？ ";
-		std::cout<<"[YES / NO] : ";
-		if (inputandcheck(secret))
-			return (1);
-		if (secret.compare("yes")== 0 || secret.compare("YES") == 0 || secret.compare("y") == 0)
-		{
-			n_contact.setName(f_name,l_name,n_name);
-			n_contact.setPhone_num(phone_num);
-			n_contact.setDarkest_secret(d_secret);
-			pb.addContact(n_contact);
-			std::cout<<"\n\n追加しました\n\n";
-			return (0);
-		}
-		else if (secret.compare("NO") == 0 || secret.compare("no") == 0 || secret.compare("n") == 0)
-		{
-			std::cout<<"・\n・\n・\n破棄しました \\(^ O ^ ) /\n";
-			return (0);
-		}
+		
 	}
 }
