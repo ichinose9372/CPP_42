@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:16:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 15:54:02 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:45:30 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class phonebook
 		void	addContact(const contact &new_contact);
 		int		printContact();
 		void	printContact_num(std::string cmd);
-		void	add_func(void);
-		int		inputandcheck(std::string &name);
+		void	add(void);
+		void	input(std::string type, std::string data, contact &new_contact);
 		void	all_view(std::string f_name, std::string l_name, std::string n_name, std::string phone_num, std::string d_secret);
 	private:
 		contact arry[8];

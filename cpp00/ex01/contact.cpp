@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:26 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 15:58:21 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:11:58 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@ void contact::set_Data(std::string type, std::string data)
 		phone_num = data;
 	else if (type == "darkest_secret")
 		darkest_secret = data;
+}
+
+std::string contact::get_Data(std::string type)
+{
+	if (type == "first_name")
+		return (first_name);
+	else if (type == "last_name")
+		return (last_name);
+	else if (type == "nick_name")
+		return (nick_name);
+	else if (type == "phone_num")
+		return (phone_num);
+	else if (type == "darkest_secret")
+		return (darkest_secret);
+	else
+		return ("");
 }
 
 
