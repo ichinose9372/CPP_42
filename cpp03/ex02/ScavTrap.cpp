@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:07:32 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 15:59:31 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/10 16:15:27 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {

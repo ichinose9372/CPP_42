@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:01 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 15:39:43 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:49:11 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap &old_obj)
 {
-	this->name = old_obj.name;
-	this->hit_points = old_obj.hit_points;
-	this->energy_points = old_obj.energy_points;
-	this->attack_damage = old_obj.attack_damage;
+	*this = old_obj;
 	std::cout << "\033[31m ClapTrap copy constructor <" << this->name << "> called \033[m" << std::endl;
 }
 
@@ -52,7 +49,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &old_obj)
 		this->hit_points = old_obj.hit_points;
 		this->energy_points = old_obj.energy_points;
 		this->attack_damage = old_obj.attack_damage;
-		std::cout << "ClapTrap assignation operator (" << this->name  << ") called" << std::endl;
 	}
 	return (*this);
 }
@@ -60,7 +56,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &old_obj)
 void ClapTrap::attack(std::string const & target)
 {
 	if (this->hit_points < 1)
-		std::cout << "NO MORE HIT POINT POINT" << std::endl;
+		std::cout << "NO MORE HIT POINT " << std::endl;
 	if (this->energy_points < 1)
 		std::cout << "NO MORE ENERGEY POINT" << std::endl;
 	else
