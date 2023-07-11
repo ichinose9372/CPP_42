@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:03:33 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 16:17:29 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:01:44 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &old_obj) : ClapTrap(old_obj)
 {
+	*this = old_obj;
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	hit_points = 100;
-	energy_points = 100;
-	attack_damage = 30;
 }
 
 FragTrap::~FragTrap()

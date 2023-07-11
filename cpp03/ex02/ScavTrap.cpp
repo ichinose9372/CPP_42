@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:07:32 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 16:15:27 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:01:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,25 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap &old_obj) : ClapTrap(old_obj)
 {
+	*this = old_obj;
 	std::cout << "\033[32m ScavTrap copy constructor called \033[0m" << std::endl;
-	this->hit_points = 100;
-	this->energy_points = 50;
-	this->attack_damage = 20;
 }
 
 ScavTrap::~ScavTrap()
 {
 	std::cout << "\033[34m ScavTrap destructor called \033[0m" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &old_obj)
+{
+	if (this != &old_obj)
+	{
+		this->name = old_obj.name;
+		this->hit_points = old_obj.hit_points;
+		this->energy_points = old_obj.energy_points;
+		this->attack_damage = old_obj.attack_damage;
+	}
+	return (*this);
 }
 
 void	ScavTrap::guardGate(void)

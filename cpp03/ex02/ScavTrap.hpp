@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:07:34 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 16:15:38 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:56:39 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &old_obj);
 		~ScavTrap();
+		ScavTrap &operator=(const ScavTrap &old_obj);
 		void	guardGate(void);
 		void	attack(std::string const & target);
 	private:
