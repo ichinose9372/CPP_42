@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:16:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 17:45:30 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/11 21:48:06 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class phonebook
 {
 	public:
 		void	addContact(const contact &new_contact);
-		int		printContact();
+		void	printContact();
 		void	printContact_num(std::string cmd);
 		void	add(void);
 		void	input(std::string type, std::string data, contact &new_contact);

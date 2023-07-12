@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:46:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 17:42:05 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/11 21:41:19 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main(void)
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 			pb.add();
-		// else if ( cmd == "SEARCH")
-		// 	pb.printContact(); 
+		else if ( cmd == "SEARCH")
+			pb.printContact(); 
 		else if (cmd == "EXIT")
 		{
 			std::cout<<"EXIT"<<std::endl;
