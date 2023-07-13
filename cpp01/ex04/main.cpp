@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:08:58 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 12:00:51 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:37:01 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int main(int argc, char **argv)
 
 	File file(filename);
 	file.replace(s1, s2);
+	system("leaks program");
 	return 0;
 }

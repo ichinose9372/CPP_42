@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.cpp                                        :+:      :+:    :+:   */
+/*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 11:50:53 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:48:16 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@ void	File::replace(std::string s1, std::string s2)
 			line = replace;
 			pos = line.find(s1, pos + s2.size());
 		}
-		if (ifs.peek() != EOF)
-			ofs << line << std::endl;
-		else
-			ofs << line;
+		ofs << line;
 	}
 }
