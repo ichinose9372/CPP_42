@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:21:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 11:22:20 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:45:58 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	Zombie::setName(std::string str)
 {
-	this->name = str;
+	if (str != "")
+		this->name = str;
+	else
+		this->name = "default";
 }
 
 void	Zombie::announce(void)

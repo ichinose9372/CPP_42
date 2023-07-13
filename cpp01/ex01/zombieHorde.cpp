@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:05:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/07/10 11:25:30 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:43:40 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Zombie *zombieHorde(int N, std::string name)
 	for(int i = 0; i < N; i++)
 	{
 		tmp[i].setName(name);
-		tmp[i].announce();
 	}
 	return tmp;
 }

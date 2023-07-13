@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/13 11:48:16 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:46:59 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ void	File::replace(std::string s1, std::string s2)
 			line = replace;
 			pos = line.find(s1, pos + s2.size());
 		}
-		ofs << line;
+		if (ifs.eof())
+			ofs << line;
+		else
+			ofs << line << std::endl;
 	}
 }

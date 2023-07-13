@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
+#    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 14:40:55 by yichinos          #+#    #+#              #
-#    Updated: 2023/06/12 17:13:47 by yichinos         ###   ########.fr        #
+#    Updated: 2023/07/13 15:50:02 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = program
+NAME = harlFilter
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Herl.cpp
