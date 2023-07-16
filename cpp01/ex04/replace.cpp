@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:18:37 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/13 15:46:59 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:34:29 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ File::~File()
 void	File::replace(std::string s1, std::string s2)
 {
 	std::ifstream ifs(_filename);
-	std::ofstream ofs(_out_filename);
 	std::string line;
 	std::string replace;
 	size_t pos;
@@ -36,6 +35,7 @@ void	File::replace(std::string s1, std::string s2)
 		std::cout << "Error: cannot open file" << std::endl;
 		return ;
 	}
+	std::ofstream ofs(_out_filename);
 	if (!ofs)
 	{
 		std::cout << "Error: cannot open file" << std::endl;

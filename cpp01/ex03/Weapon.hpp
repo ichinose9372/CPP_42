@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:24:44 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/07/10 11:31:32 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:31:42 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Weapon
 {
 	public:
-		std::string getType(void) const;
+		std::string &getType(void) const;
 		void		setType(std::string type);
 		Weapon();
 		Weapon(std::string str);

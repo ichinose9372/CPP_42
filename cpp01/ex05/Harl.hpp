@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Herl.hpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:59:13 by yichinos          #+#    #+#             */
-/*   Updated: 2023/06/12 16:33:07 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:40:46 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HERL_HPP
-#define HERL_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 #include <string>
 
-class Herl
+class Harl
 {
 	public:
 		void	complain(std::string level);
-		Herl();
-		~Herl();
+		Harl();
+		~Harl();
 	private:
 		void	debug(void);
 		void	info(void);

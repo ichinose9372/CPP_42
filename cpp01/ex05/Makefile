@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
+#    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 14:40:55 by yichinos          #+#    #+#              #
-#    Updated: 2023/06/12 17:13:47 by yichinos         ###   ########.fr        #
+#    Updated: 2023/07/16 18:41:04 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = program
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Herl.cpp
-INCLUDE = Herl.hpp
+SRC = main.cpp Harl.cpp
+INCLUDE = Harl.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

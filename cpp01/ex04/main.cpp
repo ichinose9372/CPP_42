@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:08:58 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/13 15:48:19 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:33:35 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string s2 = argv[3];
-	if (s2 == "\0")
-	{
-		std::cout << "Error: empty string" << std::endl;
-		return 1;
-	}
+	// if (s2 == "\0")
+	// {
+	// 	std::cout << "Error: empty string" << std::endl;
+	// 	return 1;
+	// }
 
 	File file(filename);
 	file.replace(s1, s2);

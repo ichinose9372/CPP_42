@@ -6,15 +6,15 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 15:29:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/07/10 11:35:20 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:32:56 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-std::string  Weapon::getType(void) const
+std::string  &Weapon::getType(void) const
 {
-	return _type;
+	return (std::string &)_type;
 }
 
 void	Weapon::setType(std::string type)

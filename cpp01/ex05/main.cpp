@@ -6,11 +6,11 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:41:54 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 12:15:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:41:31 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Herl.hpp"
+#include "Harl.hpp"
 
 int main(int argc, char **argv)
 {
@@ -19,15 +19,15 @@ int main(int argc, char **argv)
 		std::cout << "Usage: ./herl [debug|info|warning|error]" << std::endl;
 		return (0);
 	}
-	Herl herl;
-	herl.complain(argv[1]);
-	herl.complain("ERROR");
-	herl.complain("WARNING");
-	herl.complain("INFO");
-	herl.complain("DEBUG");
+	Harl harl;
+	harl.complain(argv[1]);
+	harl.complain("ERROR");
+	harl.complain("WARNING");
+	harl.complain("INFO");
+	harl.complain("DEBUG");
 	std::cout << "----------------------------" << std::endl;
-	herl.complain("ERRORRRRRRRR");
-	herl.complain("");
-	herl.complain("\n");
+	harl.complain("ERRORRRRRRRR");
+	harl.complain("");
+	harl.complain("\n");
 	return (0);
 }

@@ -6,15 +6,15 @@
 #    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 14:40:55 by yichinos          #+#    #+#              #
-#    Updated: 2023/07/13 15:50:02 by yichinos         ###   ########.fr        #
+#    Updated: 2023/07/16 18:42:30 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harlFilter
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Herl.cpp
-INCLUDE = Herl.hpp
+SRC = main.cpp Harl.cpp
+INCLUDE = Harl.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
