@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:20:01 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/11 12:50:36 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:38:54 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void Fixed::setRawBits(int const num)
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
+	std::cout << "Copy assingation operator called" << std::endl;
 	this->raw = other.raw;
 	return	(*this);
 }
