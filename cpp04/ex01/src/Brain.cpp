@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:14:31 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/19 15:16:42 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:21:32 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Brain::Brain()
 {
 	std::cout << "Brain default constructor called" << std::endl;
+	for (int i; i < 100; i++)
+	{
+		ideas[i] = "\0";
+	}
 }
 
 Brain::Brain(const Brain &other)

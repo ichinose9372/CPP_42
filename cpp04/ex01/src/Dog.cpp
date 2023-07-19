@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:01:50 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/19 15:21:43 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:29:21 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ Dog::Dog(const Dog &other)
 Dog &Dog::operator=(const Dog &other)
 {
 	std::cout << "Dog assignation operator called" << std::endl;
-	this->brain = new Brain();
 	if (this != &other)
 	{
 		this->type = other.type;
-		*(this->brain) = *(other.brain);
+		this->brain = new Brain();
+		for (int i = 0; i < 100; i++)
+		{
+			this->brain->ideas[i] = other.brain->ideas[i];
+		}
 	}
 	return (*this);
 }
