@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:03 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/04 16:37:38 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:32:54 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ClapTrap
 		ClapTrap(const ClapTrap &old_obj);
 		~ClapTrap();
 		ClapTrap &operator=(const ClapTrap &old_obj);
-		void attack(std::string const & target);
+		void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 	private:

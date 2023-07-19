@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:02:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 16:16:20 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:27:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &old_obj);
 		~FragTrap();
+		FragTrap &operator=(const FragTrap &old_obj);
 		void highFivesGuys(void);
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:03 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/07 15:53:22 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:05:29 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ class ClapTrap
 		ClapTrap(const ClapTrap &old_obj);
 		~ClapTrap();
 		ClapTrap &operator=(const ClapTrap &old_obj);
-		void attack(std::string const & target);
+		void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		//getter and setter
 	protected:
 		std::string name;
 		int		hit_points;//体力

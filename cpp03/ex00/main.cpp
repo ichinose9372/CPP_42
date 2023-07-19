@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:07 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/10 13:45:04 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:35:39 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int main(void)
 {
-	ClapTrap yichinos("ICHNIOS");
-	ClapTrap sataharu("SATAHARU");
-	ClapTrap bun("BUN");
-	yichinos.attack("BUN");
-	sataharu.takeDamage(0);
-	yichinos.beRepaired(100);
-	bun.attack("SATAHARU");
-	bun.takeDamage(10);
-	bun.beRepaired(100);
+	ClapTrap RED("RED");
+	ClapTrap BLUE("BLUE");
+	ClapTrap GREEN("GREEN");
+	ClapTrap DEMON("DEMON");
+	RED.attack("DEMON");
+	DEMON.takeDamage(10);
+	RED.beRepaired(10);
+	GREEN.attack("DEMON");
+	DEMON.takeDamage(10);
+	GREEN.beRepaired(100);
 	return (0);
 }
