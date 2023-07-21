@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 12:15:48 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/03 15:20:17 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:43:55 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ Fixed Fixed::operator-(const Fixed &other) const
 Fixed Fixed::operator/(const Fixed &other) const
 {
 	Fixed tmp;
-	tmp.setRawBits(this->raw / other.getRawBits());
+	tmp.setRawBits(this->raw / other.getRawBits() << fractional_bits);
 	return (tmp);
 }
 
