@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:43:43 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/21 13:16:02 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/21 13:37:04 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,12 @@
 int main()
 {
 	std::cout << "------------constructor----------------------------" << std::endl;
-	const Animal *animal[4];
-	for (int i = 0; i < 4; i++)
-	{
-		if (i < 2)
-			animal[i] = new Dog();
-		else
-			animal[i] = new Cat();
-	}
+	const Dog dog;
+	const Cat cat;
 	std::cout << "--------------makesound-----------------------------" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		animal[i]->makeSound();
-	}
+	dog.makeSound();
+	cat.makeSound();	
 	std::cout << "--------------destructor----------------------------" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		delete animal[i];
-	}
-	std::cout << "---------------leaks--------------------------------" << std::endl;
 	return 0;
 }
 
