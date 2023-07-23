@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:27:07 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/19 12:37:24 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/23 16:20:13 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int main()
 		frag2.attack("Bob");
 		frag2.takeDamage(5);
 		frag2.beRepaired(3);
+		frag1.highFivesGuys();
+		frag2.highFivesGuys();
 	}
 	return (0);
 }
