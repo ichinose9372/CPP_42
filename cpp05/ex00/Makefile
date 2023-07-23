@@ -1,8 +1,8 @@
 NAME = a.out
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-INCLUDE = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+SRC = main.cpp Bureaucrat.cpp 
+INCLUDE = Bureaucrat.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

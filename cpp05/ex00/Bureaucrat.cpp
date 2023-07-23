@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/23 13:55:39 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/23 15:44:19 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ Bureaucrat::Bureaucrat() : grade(0), name("default")
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : grade(other.getGrade()), name(other.getName()) 
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;	
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+		
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade)
+{
+	std::cout << "Bureaucrat constructor called" << std::endl;	
 }
 
 Bureaucrat::~Bureaucrat()
@@ -39,6 +45,13 @@ std::string Bureaucrat::getName(void) const
 	return (this->name);
 }
 
+void Bureaucrat::incrementGrade(void)
+{
+	if (this->grade == 1)
+		throw Bureaucrat::GradeTooHighException();
+	this->grade--;
+}
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignation operator called" << std::endl;
@@ -52,6 +65,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other)
 {
-	os << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
+	os << other.getName() << ", bureaucrat grade " << other.getGrade();
 	return (os);
 }
