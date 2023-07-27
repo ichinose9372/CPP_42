@@ -6,11 +6,12 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/25 22:24:43 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/26 13:12:26 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
@@ -44,19 +45,7 @@ int main(void)
 	}
 	//例外発生ケース
 	{
-		std::cout << "------------------constractor---------------------"<< std::endl;
-		Bureaucrat b1("b1", 151);
-		Bureaucrat b2("b2", 149);
-		std::cout << "--------------------init----------------------"<< std::endl;
-		std::cout << b1 << std::endl;
-		std::cout << b2 << std::endl;
-		std::cout << "-------------------increment---------------------"<< std::endl;
-		b1.incrementGrade();
-		b2.incrementGrade();
-		std::cout << "-------------------decrement---------------------"<< std::endl;
-		b1.decrementGrade();
-		b2.decrementGrade();
-		std::cout << "-------------------destructor---------------------"<< std::endl;
+		
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/25 22:25:11 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/26 13:06:42 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,5 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw() {
 const char*	Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Bureaucrat grade too high!";
 }
+
+

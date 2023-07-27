@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/25 22:15:28 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/07/26 13:06:52 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat
 {
