@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:07:59 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/21 11:18:08 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:17:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat default constructor called" << std::endl;
-	this->brain = new Brain();
+	this->brain = new Brain("Cat Brain");
 }
 
 Cat::Cat(const Cat &other)

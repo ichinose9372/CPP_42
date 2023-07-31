@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:01:50 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/21 11:17:36 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:16:58 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
-	this->brain = new Brain();
+	this->brain = new Brain("Dog Brain");
 }
 
 Dog::Dog(const Dog &other)

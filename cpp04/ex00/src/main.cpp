@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:43:43 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/19 15:10:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:08:40 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ int main()
 	{
 		const WrongAnimal* metameta = new WrongAnimal();
 		const WrongAnimal* jj = new WrongCat();
+		const WrongCat ii = WrongCat();
 		std::cout << metameta->getType() << " " << std::endl;
 		std::cout << jj->getType() << " " << std::endl;
+		std::cout << ii.getType() << " " << std::endl;
 		jj->makeSound();
 		metameta->makeSound();
+		ii.makeSound();
 		delete metameta;
 		delete jj;
 	}
@@ -46,5 +49,5 @@ int main()
 
 __attribute__((destructor)) static void destructor()
 {
-    system("leaks -q a.out");
+	system("leaks -q a.out");
 }
