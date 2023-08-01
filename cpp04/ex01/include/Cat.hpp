@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:47:49 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/19 15:17:50 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:12:21 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Cat : public Animal
 		Cat &operator=(const Cat &other);
 		~Cat();
 		void makeSound(void) const;
+		std::string getIdea(int i) const;
+		void setIdea(int i, std::string idea);
 	private :
 		Brain *brain;
 };

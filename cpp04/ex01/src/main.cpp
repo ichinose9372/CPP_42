@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:43:43 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/31 16:16:25 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:30:15 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int main()
 {
-	std::cout << "------------constructor----------------------------" << std::endl;
+	std::cout << "--------------------constructor----------------------------" << std::endl;
 	const Animal *animal[4];
 	for (int i = 0; i < 4; i++)
 	{
@@ -27,22 +27,47 @@ int main()
 		else
 			animal[i] = new Cat();
 	}
-	std::cout << "--------------makesound-----------------------------" << std::endl;
+	std::cout << "---------------------makesound-----------------------------" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
+		animal[i]->getType();
 		animal[i]->makeSound();
 	}
-	
-	std::cout << "--------------destructor----------------------------" << std::endl;
+	std::cout << "--------------------destructor----------------------------" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		delete animal[i];
 	}
-	std::cout << "---------------leaks--------------------------------" << std::endl;
+	std::cout <<"\n---------------- Test deep copy -------------------- \n" << std::endl;
+	std::cout <<"----------------------- Cat ----------------------------- \n" << std::endl;
+
+	Cat old_cat;
+	std::cout << "old_cat init ideas  = " << old_cat.getIdea(42) << std::endl;
+	std::cout <<"\n ------------- change ideas (old_cat) -------------------- \n" << std::endl;
+	old_cat.setIdea(42, "old old old old cat");
+	Cat new_cat(old_cat);
+
+	std::cout <<" -------------------- check deepcopy ----------------------------- \n" << std::endl;
+	std::cout << "old_cat ideas  = " << old_cat.getIdea(42) << std::endl;
+	std::cout << "new_cat ideas  = " << new_cat.getIdea(42) << std::endl;
+	
+	std::cout <<"\n--------------------- Dog ----------------------------- \n" << std::endl;
+
+	Dog old_dog;
+	std::cout << "old_dogold_dog init ideas  = " <<old_dog.getIdea(42) << std::endl;
+	std::cout <<"\n-------------- change ideas (old_dogold_dog) -------------------- \n" << std::endl;
+	old_dog.setIdea(42, "old old old old dog");
+	Dog new_dog(old_dog);
+	
+	std::cout <<"------------------- check deepcopy ----------------------------- \n" << std::endl;
+	std::cout << "old_dogold_dog ideas  = " <<old_dog.getIdea(42) << std::endl;
+	std::cout << "old_dogold_dog2 ideas  = " <<new_dog.getIdea(42) << std::endl;
+
+	std::cout << "----------------------leaks--------------------------------" << std::endl;
 	return 0;
 }
 
-__attribute__((destructor)) static void destructor()
-{
-    system("leaks -q a.out");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+//     system("leaks -q a.out");
+// }

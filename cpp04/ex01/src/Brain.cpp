@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:14:31 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/31 16:17:53 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:12:01 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ Brain::~Brain()
 	std::cout << "Brain destructor called" << std::endl;
 }
 
-void Brain::setIdea(std::string idea)
+void Brain::setIdea(int i, std::string idea)
 {
-	for (int i = 0; i < 100; i++)
-	{
-		ideas[i] = idea;
-	}
+	ideas[i] = idea;
+}
+
+std::string Brain::getIdea(int i) const
+{
+	return (ideas[i]);
 }
