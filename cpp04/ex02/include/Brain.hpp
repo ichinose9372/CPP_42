@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:13:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/21 11:19:39 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:11:30 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ class Brain
 	public:
 		Brain();
 		Brain(const Brain &other);
+		Brain(std::string ideas);
 		Brain &operator=(const Brain &other);
 		~Brain();
+		void setIdea(int i, std::string idea);
+		std::string getIdea(int i) const;
 };
 
 #endif

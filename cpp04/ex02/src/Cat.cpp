@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:07:59 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/21 11:18:08 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:12:42 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat default constructor called" << std::endl;
-	this->brain = new Brain();
+	this->brain = new Brain("Cat Brain");
 }
 
 Cat::Cat(const Cat &other)
@@ -46,4 +46,14 @@ Cat::~Cat()
 void Cat::makeSound(void) const
 {
 	std::cout << " - - - - - - - - - - - -(cat)" << std::endl;
+}
+
+std::string Cat::getIdea(int i) const
+{
+	return (this->brain->getIdea(i));
+}
+
+void Cat::setIdea(int i, std::string idea)
+{
+	this->brain->setIdea(i, idea);
 }
