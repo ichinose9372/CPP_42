@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:43:43 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/01 20:30:15 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/02 15:25:16 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int main()
 	return 0;
 }
 
-// __attribute__((destructor)) static void destructor()
-// {
-//     system("leaks -q a.out");
-// }
+__attribute__((destructor)) static void destructor()
+{
+    system("leaks -q a.out");
+}

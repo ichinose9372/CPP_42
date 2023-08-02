@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:07:59 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/01 20:12:42 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/02 15:24:50 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Cat::Cat(const Cat &other)
 Cat &Cat::operator=(const Cat &other)
 {
 	std::cout << "Cat assignation operator called" << std::endl;
-	this->brain = new Brain();
 	if (this != &other)
 	{
 		this->type = other.type;
