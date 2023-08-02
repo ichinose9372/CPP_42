@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/25 22:25:11 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/02 14:17:29 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : grade(0), name("default") 
+Bureaucrat::Bureaucrat() : grade(150), name("default") 
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;	
 }
@@ -61,7 +61,7 @@ void Bureaucrat::incrementGrade(void)
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (this->grade > 150)
+	if (this->grade > 149)
 		throw GradeTooLowException();
 	this->grade++;
 }
