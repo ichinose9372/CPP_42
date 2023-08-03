@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:08:33 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/02 16:31:50 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/03 12:12:34 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ Form::Form(const Form &other) : name(other.name), isSigned(other.isSigned), grad
 
 Form::Form(std::string name, int gradeTosin, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeTosin), gradeToExecute(gradeToExecute)
 {
+	if (gradeTosin < 1 || gradeToExecute < 1)
+		throw GradeTooHighException();
+	else if (gradeTosin > 150 || gradeToExecute > 150)
+		throw GradeTooLowException();
 	std::cout << "Form constructor called" << std::endl;
 }
 
@@ -34,9 +38,6 @@ Form::~Form()
 
 Form &Form::operator=(const Form &other)
 {
-	std::cout << "Form assignation operator called" << std::endl;
-	if (this == &other)
-		return (*this);
 	this->isSigned = other.isSigned;
 	return (*this);
 }
