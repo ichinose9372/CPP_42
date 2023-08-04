@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:17:05 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/03 12:26:57 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/03 17:32:12 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 
 class Breaucrat;
 
-class ShurubberyCreationForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     public :
-        ShurubberyCreationForm();
-        ShurubberyCreationForm(const ShurubberyCreationForm &other);
-        ShurubberyCreationForm(std::string target);
-        ShurubberyCreationForm &operator=(const ShurubberyCreationForm &other);
-        ~ShurubberyCreationForm();
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(const ShrubberyCreationForm &other);
+        ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
+        ~ShrubberyCreationForm();
         void execute(Bureaucrat const &executor) const;
     private :
         std::string target;
