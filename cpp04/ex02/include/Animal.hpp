@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:39:56 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/01 20:48:13 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/17 13:23:17 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
