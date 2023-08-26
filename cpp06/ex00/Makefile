@@ -1,16 +1,25 @@
-NAME =  a.out
-SRCS =  main.cpp ScalarConversion.cpp
-INC = ScalarConversion.hpp
-CXXFLAGS = -Wall -Wextra -Werror
+NAME = a.out
 CXX = c++
-OBJS = $(SRCS:.cpp=.o)
-OBJS_DIR = objs
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = main.cpp ScalarConverter.cpp 
+INCLUDE = ScalarConverter.hpp
+RM = rm -rf
+OBJS_DIR= objs/
+OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-ALL : $(NAME)
+all : $(NAME)
 
-$(NAME) : $(OBJS) $(INC)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-OBJS : 
-	mkdir -p $(OBJS_DIR)
-	$(CXX) $(CXXFLAGS) -c $(SRCS)
+$(OBJS_DIR)%.o : %.cpp $(INCLUDE)
+	@mkdir -p $(OBJS_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean :
+	$(RM) $(OBJS_DIR)
+
+fclean : clean
+	$(RM) $(NAME)
+
+re : fclean all
