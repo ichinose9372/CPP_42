@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/26 18:26:47 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/26 19:24:48 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,59 +38,52 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 	return (*this);
 }
 
-// int ScalarConverter::desicion_type(void)
-// {
-// 	if (this->str.length() == 1 && !isdigit(this->str[0]))
-// 		return (CHAR);
-// 	else if (this->str == "nan" || this->str == "nanf")
-// 		return (UNKNOWN);
-// 	else if (this->str == "inf" || this->str == "+inf" || this->str == "-inf"
-// 			|| this->str == "inff" || this->str == "+inff" || this->str == "-inff")
-// 		return (UNKNOWN);
-// 	else if (this->str.find('.') != std::string::npos)
-// 	{
-// 		if (this->str.find('f') != std::string::npos)
-// 			return (FLOAT);
-// 		else
-// 			return (DOUBLE);
-// 	}
-// 	else
-// 		return (INT);
-// }
-
-char ScalarConverter::to_char(void)
+int ScalarConverter::desicion_type(void)
 {
-	char c;
-
 	if (this->str.length() == 1 && !isdigit(this->str[0]))
-		c = this->str[0];
+		return (CHAR);
+	else if (this->str == "nan" || this->str == "nanf")
+		return (UNKNOWN);
+	else if (this->str == "inf" || this->str == "+inf" || this->str == "-inf"
+			|| this->str == "inff" || this->str == "+inff" || this->str == "-inff")
+		return (UNKNOWN);
+	else if (this->str.find('.') != std::string::npos)
+	{
+		if (this->str.find('f') != std::string::npos)
+			return (FLOAT);
+		else
+			return (DOUBLE);
+	}
 	else
-		c = static_cast<char>(this->to_int());
-	if (isprint(c))
-		return (c);
-	else
-		return ('.');
+		return (INT);
 }
 
-int ScalarConverter::to_int(void)
+char ScalarConverter::to_char(int num)
+{
+	if (num == CHAR)
+		return (static_cast<char>(this->str[0]));
+	else if (num == UNKNOWN)
+		return (static_cast<char>(0));
+	else if (num == FLOAT)
+		return (static_cast<char>(this->to_float(num)));
+	else if (num == DOUBLE)
+		return (static_cast<char>(this->to_double(num)));
+	else
+		return (static_cast<char>(this->to_int(num)));
+}
+
+int ScalarConverter::to_int(int num)
 {
 	int i;
 
-	if (this->str == "nan" || this->str == "nanf")
-		return (0);
-	else if (this->str == "inf" || this->str == "+inf" || this->str == "inff" || this->str == "+inff")
-		return (0);
-	else if (this->str == "-inf" || this->str == "-inff")
-		return (0);
-	else if (this->str.length() == 1 && !isdigit(this->str[0]))
+	if (num == CHAR)
 		return (static_cast<int>(this->str[0]));
-	// else if (this->str.find('.') != std::string::npos)
-	// {
-	// 	if (this->str.find('f') != std::string::npos)
-	// 		return (static_cast<int>(this->to_float()));
-	// 	else
-	// 		return (static_cast<int>(this->to_double()));
-	// }
+	else if (num == UNKNOWN)
+		return (static_cast<int>(0));
+	else if (num == FLOAT)
+		return (static_cast<int>(this->to_float(num)));
+	else if (num == DOUBLE)
+		return (static_cast<int>(this->to_double(num)));
 	else
 	{
 		i = std::stoi(this->str);
@@ -98,12 +91,51 @@ int ScalarConverter::to_int(void)
 	}
 }
 
+float ScalarConverter::to_float(int num)
+{
+	float f;
+
+	if (num == CHAR)
+		return (static_cast<float>(this->str[0]));
+	else if (num == UNKNOWN)
+		return (static_cast<float>(0));
+	else if (num == FLOAT)
+		return (static_cast<float>(this->to_float(num)));
+	else if (num == DOUBLE)
+		return (static_cast<float>(this->to_double(num)));
+	else
+	{
+		f = std::stof(this->str);
+		return (f);
+	}
+}
+
+double ScalarConverter::to_double(int num)
+{
+	double d;
+
+	if (num == CHAR)
+		return (static_cast<double>(this->str[0]));
+	else if (num == UNKNOWN)
+		return (static_cast<double>(0));
+	else if (num == FLOAT)
+		return (static_cast<double>(this->to_float(num)));
+	else if (num == DOUBLE)
+		return (static_cast<double>(this->to_double(num)));
+	else
+	{
+		d = std::stod(this->str);
+		return (d);
+	}
+}
+
 
 
 void ScalarConverter::print_all(void)
 {
-	std::cout << "char: " << this->to_char() << std::endl;
-	std::cout << "int: " << this->to_int() << std::endl;
-	std::cout << "float: " << this->to_float() << std::endl;
-	std::cout << "double: " << this->to_double() << std::endl;
+	int num = this->desicion_type();
+	std::cout << "char: " << this->to_char(num) << std::endl;
+	std::cout << "int: " << this->to_int(num) << std::endl;
+	std::cout << "float: " << this->to_float(num) << std::endl;
+	std::cout << "double: " << this->to_double(num) << std::endl;
 }

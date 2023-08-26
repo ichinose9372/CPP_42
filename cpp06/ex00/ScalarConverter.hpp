@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:21:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/26 18:24:26 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/26 19:22:16 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class ScalarConverter
 		ScalarConverter &operator=(const ScalarConverter &other);
 		int desicion_type(void);
 		void print_all(void);
-		char to_char(void);
-		int to_int(void);
-		// float to_float(void);
-		// double to_double(void);
+		char to_char(int num);
+		int to_int(int num);
+		float to_float(int num);
+		double to_double(int num);
 	private:
 		std::string str;
 };

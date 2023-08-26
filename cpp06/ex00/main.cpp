@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	ScalarConverter sc(argv[1]);
-	std::cout << sc.desicion_type() << std::endl;
 	sc.print_all();
 	return (0);
 }
