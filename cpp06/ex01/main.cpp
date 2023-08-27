@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:24:51 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/27 21:39:26 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/27 21:52:03 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int main(void)
     Data *tmp;
     tmp = Serializer::deserialize(return1);
     std::cout << tmp << std::endl;
+    return (0);
     
 }
