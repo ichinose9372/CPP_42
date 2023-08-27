@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/26 19:24:48 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:47:07 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,84 +58,111 @@ int ScalarConverter::desicion_type(void)
 		return (INT);
 }
 
-char ScalarConverter::to_char(int num)
+void ScalarConverter::to_char(int type)
 {
-	if (num == CHAR)
-		return (static_cast<char>(this->str[0]));
-	else if (num == UNKNOWN)
-		return (static_cast<char>(0));
-	else if (num == FLOAT)
-		return (static_cast<char>(this->to_float(num)));
-	else if (num == DOUBLE)
-		return (static_cast<char>(this->to_double(num)));
-	else
-		return (static_cast<char>(this->to_int(num)));
+    std::string dst;
+    
+	if (type == CHAR)
+    {
+        if (!isprint(str[0]))
+        {
+            std::cout << "char: Non displayable" << std::endl;
+            return ;
+        }
+        dst = str[0];
+    }
+	else if (type == UNKNOWN)
+    {
+		std::cout << "char: impossible" << std::endl;
+        return ;
+    }
+	else if (type == INT)
+    {
+        if (this->num < 0 || this->num > 127)
+        {
+            std::cout << "char: impossible" << std::endl;
+            return ;
+        }
+        dst = static_cast<char>(this->num);
+    }
+    else if (type == FLOAT || type == DOUBLE)
+    {
+        if (this->num < 0 || this->num > 127)
+        {
+            std::cout << "char: impossible" << std::endl;
+            return ;
+        }
+        dst = static_cast<char>(this->num);
+    }
+    else
+        dst = static_cast<char>(this->num);
+    if (!isprint(dst[0]))
+    {
+        std::cout << "char: Non displayble" << std::endl;
+        return ;
+    }
+    else
+        std::cout << "char:  '" << dst << "'"<< std::endl;
 }
 
-int ScalarConverter::to_int(int num)
+void ScalarConverter::to_int(int type)
 {
 	int i;
 
-	if (num == CHAR)
-		return (static_cast<int>(this->str[0]));
-	else if (num == UNKNOWN)
-		return (static_cast<int>(0));
-	else if (num == FLOAT)
-		return (static_cast<int>(this->to_float(num)));
-	else if (num == DOUBLE)
-		return (static_cast<int>(this->to_double(num)));
+	if (type == CHAR)
+		i = static_cast<int>(str[0]);
+	else if (type == UNKNOWN)
+    {
+        std::cout << "int: impossible" << std::endl;
+        return ;
+    }
+	else if (type == FLOAT || type == DOUBLE)
+		i = static_cast<int>(this->num);
 	else
-	{
-		i = std::stoi(this->str);
-		return (i);
-	}
+        i = static_cast<int>(this->num);
+    std::cout << "int: " << i << std::endl;
 }
 
-float ScalarConverter::to_float(int num)
+void ScalarConverter::to_float(int type)
 {
 	float f;
 
-	if (num == CHAR)
-		return (static_cast<float>(this->str[0]));
-	else if (num == UNKNOWN)
-		return (static_cast<float>(0));
-	else if (num == FLOAT)
-		return (static_cast<float>(this->to_float(num)));
-	else if (num == DOUBLE)
-		return (static_cast<float>(this->to_double(num)));
+	if (type == CHAR)
+		f = static_cast<float>(this->str[0]);
+	else if (type == UNKNOWN)
+    {
+        std::cout << "float: nanf" << std::endl;
+        return ;
+    }	
 	else
-	{
-		f = std::stof(this->str);
-		return (f);
-	}
+		f = static_cast<float>(this->num);
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 }
 
-double ScalarConverter::to_double(int num)
+void ScalarConverter::to_double(int type)
 {
 	double d;
 
-	if (num == CHAR)
-		return (static_cast<double>(this->str[0]));
-	else if (num == UNKNOWN)
-		return (static_cast<double>(0));
-	else if (num == FLOAT)
-		return (static_cast<double>(this->to_float(num)));
-	else if (num == DOUBLE)
-		return (static_cast<double>(this->to_double(num)));
-	else
+	if (type == CHAR)
+		d = static_cast<double>(this->str[0]);
+	else if (type == UNKNOWN)
 	{
-		d = std::stod(this->str);
-		return (d);
-	}
+        std::cout << "double: nan" << std::endl;
+        return ;   
+    }
+	else
+		d = static_cast<double>(this->num);
+    std::cout << "doubel: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
 
 
 void ScalarConverter::print_all(void)
 {
-	int num = this->desicion_type();
-	std::cout << "char: " << this->to_char(num) << std::endl;
-	std::cout << "int: " << this->to_int(num) << std::endl;
-	std::cout << "float: " << this->to_float(num) << std::endl;
-	std::cout << "double: " << this->to_double(num) << std::endl;
+	int type = this->desicion_type();
+    this->num = std::stod(this->str);
+    to_char(type);
+	to_int(type);
+	to_float(type);
+	to_double(type);
 }
