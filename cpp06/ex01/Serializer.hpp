@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:49:42 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/27 21:39:06 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/28 11:58:47 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 
 class Serializer
 {
-    public:
+	private:
         Serializer();
         ~Serializer();
+    public:
         Serializer(const Serializer &other);
         Serializer &operator=(const Serializer &other);
         static uintptr_t serialize(Data *ptr);

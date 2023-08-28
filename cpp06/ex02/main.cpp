@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 07:31:27 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/28 13:10:31 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:12:57 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void identify(Base &p)
 	}
 	catch(std::bad_cast){}
 	std::cout << "Unknown class" << std::endl;
-	
-	
 }
 
 int main(void)

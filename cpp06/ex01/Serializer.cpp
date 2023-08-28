@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:09:18 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/27 21:37:19 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/28 11:58:58 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
-Serializer::Serializer()
-{   
-}
-
-Serializer::~Serializer()
-{   
-}
-
-// Serializer::Serializer(const Serializer &other)
-// {   
-//     *this = other;
-// }
-
-// Serializer& Serializer::operator=(const Serializer &other)
-// {
-   
-// }
  
 uintptr_t Serializer::serialize(Data *ptr)
 {
