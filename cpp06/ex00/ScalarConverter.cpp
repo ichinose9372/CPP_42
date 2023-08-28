@@ -3,40 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/27 17:47:07 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/28 11:59:55 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-ScalarConverter::ScalarConverter()
-{
-}
-
-ScalarConverter::ScalarConverter(std::string str) : str(str)
-{
-}
-
-ScalarConverter::~ScalarConverter()
-{
-}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &other)
-{
-	*this = other;
-}
-
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
-{
-	if (this != &other)
-	{
-		this->str = other.str;
-	}
-	return (*this);
-}
 
 int ScalarConverter::desicion_type(void)
 {

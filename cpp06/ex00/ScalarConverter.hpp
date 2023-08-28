@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:21:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/27 17:35:07 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/08/28 11:59:36 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ typedef enum	e_type
 class ScalarConverter
 {
 	public:
-		ScalarConverter();
-		ScalarConverter(std::string str);
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &other);
-		ScalarConverter &operator=(const ScalarConverter &other);
 		int desicion_type(void);
 		void print_all(void);
 		void to_char(int num);
@@ -41,6 +36,8 @@ class ScalarConverter
 		void to_float(int num);
 		void to_double(int num);
 	private:
+		ScalarConverter();
+		~ScalarConverter();
 		std::string str;
 		double num;
 };
