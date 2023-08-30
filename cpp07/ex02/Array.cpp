@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:40:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/30 16:53:04 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:00:53 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Array<T>::Array(void)
 template <typename T>
 Array<T>::~Array()
 {
-	delete array;
+	delete[] array;
 }
 
 template <typename T>
@@ -41,15 +41,18 @@ Array<T>::Array(const Array &other)
 template <typename T>
 Array<T>& Array<T>::operator=(const Array &other)
 {
-	delete array;
-	size_t size = other.size();
-	
-	array = new T[size];
-	for(size_t i = 0; i < size; i++)
+	if (this != other)
 	{
-		array[i] = other.array[i];
+		delete[] array;
+		size_t size = other.size();
+	
+		array = new T[size];
+		for(size_t i = 0; i < size; i++)
+		{
+			array[i] = other.array[i];
+		}
 	}
-	return *array;
+	return *this;
 }
 
 template <typename T>
