@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.cpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:40:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/30 17:00:53 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/01 18:19:43 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_TPP
+# define ARRAY_TPP
 
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array(void)
-{
-	array = new T();
-	array_size = 0;
-}
+Array<T>::Array(void) : array(NULL), array_size(0)
+{}
 
 template <typename T>
 Array<T>::~Array()
 {
-	delete[] array;
+	std::cout << "destructor called" << std::endl;
+	if (array)
+		delete[] array;
 }
 
 template <typename T>
@@ -35,16 +37,22 @@ Array<T>::Array(T num)
 template <typename T>
 Array<T>::Array(const Array &other)
 {
-	*this = other;
+	size_t size = other.getsize();
+	
+	array = new T[size];
+	for(size_t i = 0; i < size; i++)
+	{
+		array[i] = other.array[i];
+	}
 }
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array &other)
 {
-	if (this != other)
+	if (this != &other)
 	{
 		delete[] array;
-		size_t size = other.size();
+		size_t size = other.getsize();
 	
 		array = new T[size];
 		for(size_t i = 0; i < size; i++)
@@ -66,13 +74,15 @@ T& Array<T>::operator[](unsigned long index)
 }
 
 template <typename T>
-size_t Array<T>::size()
+size_t Array<T>::getsize(void) const
 {
-	T *tmp = array;
-	while (tmp)
-	{
-		array_size++;
-		tmp++;
-	}
 	return array_size;
 }
+
+template <typename T>
+const char* Array<T>::OutOfRangeException::what() const throw()
+{
+	return "Index out of range";
+}
+
+#endif

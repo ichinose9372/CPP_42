@@ -1,8 +1,8 @@
 NAME = a.out
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Array.cpp
-INCLUDE = Array.hpp 
+SRC = main.cpp 
+INCLUDE = Array.hpp Array.tpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
