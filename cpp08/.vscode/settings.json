@@ -59,6 +59,16 @@
 		"typeinfo": "cpp",
 		"unordered_map": "cpp",
 		"utility": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"*.tpp": "c",
+		"__bits": "cpp",
+		"__verbose_abort": "cpp",
+		"clocale": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"variant": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"numeric": "cpp"
 	}
 }
