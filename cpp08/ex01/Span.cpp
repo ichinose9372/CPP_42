@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/03 12:29:17 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/03 13:17:24 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,29 @@ Span::Span() : maxsize(0), data(0), currentIndex(0)
 
 Span::Span(unsigned int size) : maxsize(size), data(maxsize), currentIndex(0)
 {}
+
+Span::Span(const Span &other)
+{
+	this->currentIndex = other.currentIndex;
+	this->maxsize = other.data.size();
+	data.resize(this->maxsize);
+	for(size_t i = 0; i < other.data.size(); ++i)
+	{	
+		this->data[i] = other.data[i];
+	}
+}
+
+Span& Span::operator=(const Span &other)
+{
+	this->currentIndex = other.currentIndex;
+	this->maxsize = other.data.size();
+	data.resize(this->maxsize);
+	for(size_t i = 0; i < other.data.size(); ++i)
+	{	
+		this->data[i] = other.data[i];
+	}
+	return (*this);
+}
 
 Span::~Span()
 {}

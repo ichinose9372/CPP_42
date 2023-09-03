@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:13:01 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/03 12:17:55 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/03 13:02:13 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Span
 	public:
 		Span();
 		Span(unsigned int size);
+		Span(const Span &other);
+		Span& operator=(const Span &other);
 		~Span();
 		void addNumber(int num);
 		int shortestSpan(void);
