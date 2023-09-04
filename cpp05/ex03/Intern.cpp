@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:11:28 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/21 12:46:42 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:21:54 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm *Intern::createShrubberyForm(const std::string target) const
 
 AForm *Intern::makeForm(std::string formName, std::string target)
 {
-	std::string formNames[3] = {"robotomyrequest", "presidentialpardon", "shrubberycreation"};
+	std::string formNames[3] = {"RobotomyRequest", "PresidentialPardon", "ShrubberyCreation"};
 	AForm *(Intern::*createForms[3])(const std::string target) const = {&Intern::createRobotomyForm, &Intern::createPresidentialForm, &Intern::createShrubberyForm};
 
 	for (int i = 0; i < 3; i++)

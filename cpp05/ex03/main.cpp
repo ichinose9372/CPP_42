@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/21 12:51:02 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:28:25 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,25 @@
 
 int main()
 {
-	Intern		I1;
-	AForm		*FormPtr;
-	Bureaucrat	B1("Naelle", 1);
+	Intern intern;
+	try
 	{
-		FormPtr = I1.makeForm("shrubberycreation", "Manuel");
+		AForm *form = intern.makeForm("RobotomyRequest", "Bender");
+		form->execute(Bureaucrat("Bender", 1));
 
-		if (FormPtr)
-		{
-			std::cout << *FormPtr << std::endl;
-			B1.signForm(*FormPtr);
-			FormPtr->execute(B1);
+		AForm *form2 = intern.makeForm("PresidentialPardon", "Bender");
+		form2->execute(Bureaucrat("Bender", 1));
 
-			delete (FormPtr);
-		}
+		AForm *form3 = intern.makeForm("ShrubberyCreation", "Bender");
+		form3->execute(Bureaucrat("Bender", 1));
+
+		AForm *form4 = intern.makeForm("-----------------", "Bender");
+		form4->execute(Bureaucrat("Bender", 1));
+		
 	}
-
+	catch(const std::exception& e)
+	{
+    	std::cerr << "Failed to create form." << e.what()<< std::endl;
+	}
+	return (0);
 }

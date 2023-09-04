@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:08:24 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/21 12:47:39 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:15:48 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class Intern
 		AForm *createPresidentialForm(const std::string target) const;
 		AForm *createRobotomyForm(const std::string target) const;
 		AForm *createShrubberyForm(const std::string target) const;
-		class InvalidFormException : public std::exception {
+		class InvalidFormException : public std::exception 
+		{
 			public:
 				const char* what(void) const throw();
 		};

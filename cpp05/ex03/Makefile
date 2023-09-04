@@ -18,9 +18,9 @@ $(OBJS_DIR)%.o : %.cpp $(INCLUDE)
 
 clean :
 	$(RM) $(OBJS_DIR)
-	if [ -f "Manuel_shrubbery" ]; then $(RM) Manuel_shrubbery; fi
 
 fclean : clean
 	$(RM) $(NAME)
+	$(RM) *_shrubbery
 
 re : fclean all

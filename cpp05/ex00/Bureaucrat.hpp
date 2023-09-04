@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/02 11:06:33 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:03:46 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ class Bureaucrat
 		int grade;
 		std::string name;
 };
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other);
 #endif
