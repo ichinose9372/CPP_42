@@ -2,7 +2,7 @@ NAME = a.out
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp  
-INCLUDE = MutantStack.hpp MutantStack.tpp
+INCLUDE = MutantStack.hpp 
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

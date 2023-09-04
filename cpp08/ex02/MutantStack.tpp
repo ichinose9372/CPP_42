@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:57:21 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/03 16:36:56 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/03 17:07:37 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,4 @@ unsigned int  MutantStack<T>::size(void)
 {
 	return (data.size());
 }
-
 #endif 

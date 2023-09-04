@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:07:21 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/03 16:38:29 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/04 11:43:46 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@ int main(void)
 
     std::cout << mstack.size() << std::endl;
     
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
     
+
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    std::stack<int> s(mstack);
     return (0);
 }
