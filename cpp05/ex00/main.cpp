@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/02 14:17:59 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:02:24 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,29 @@
 
 int main(void)
 {
+	
 	{
-		Bureaucrat def;
-		std::cout << def << std::endl;
-		Bureaucrat bob("bob", 42);
-		std::cout << bob << std::endl;
-		Bureaucrat bob2(bob);
-		std::cout << bob2 << std::endl;
-		Bureaucrat bob3;
-		bob3 = bob2;
-		std::cout << bob3 << std::endl;
-		std::cout << "---------------------" << std::endl;
+		try
+		{
+			std::cout << "<<<<<<<<<<<<<< grade increment  decrement >>>>>>>>>>>>>>" << std::endl;
+			Bureaucrat bob("bob", 50);
+			std::cout << bob << std::endl;
+			bob.incrementGrade();
+			std::cout << bob << std::endl;
+			bob.incrementGrade();
+			std::cout << bob << std::endl;
+			bob.decrementGrade();
+			std::cout << bob << std::endl;
+			bob.decrementGrade();
+			std::cout << bob << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	{
-		Bureaucrat bob("bob", 50);
-		std::cout << bob << std::endl;
-		bob.incrementGrade();
-		std::cout << bob << std::endl;
-		bob.incrementGrade();
-		std::cout << bob << std::endl;
-		bob.decrementGrade();
-		std::cout << bob << std::endl;
-		bob.decrementGrade();
-		std::cout << bob << std::endl;
-		std::cout << "---------------------" << std::endl;
-	}
-	{
+		std::cout << "<<<<<<<<<<<<<<<<<<<<<<< grade too low >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
 		try
 		{
 			Bureaucrat bob("bob", 42);
@@ -53,7 +50,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "---------------------" << std::endl;
+		std::cout << "<<<<<<<<<<<<<<< grade too hight >>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
 		try
 		{
 			Bureaucrat bob("bob", 42);
@@ -68,7 +65,7 @@ int main(void)
 		
 	}
 	{
-		std::cout << "---------------------" << std::endl;
+		std::cout << "<<<<<<<<<<<<< construction error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
 		try
 		{
 			Bureaucrat bob("bob", 42);
@@ -82,7 +79,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "---------------------" << std::endl;
+		std::cout << "<<<<<<<<<<<<<<<< grade increment >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
 		try
 		{
 			Bureaucrat bob("bob", 3);
@@ -100,7 +97,7 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "---------------------" << std::endl;
+		std::cout << "<<<<<<<<<<<<<<<< grade decrement >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
 		try
 		{
 			Bureaucrat bob("bob", 148);

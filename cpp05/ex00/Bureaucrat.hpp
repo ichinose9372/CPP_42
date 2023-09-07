@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/04 12:03:46 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/07 21:50:56 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		};
 	private:
 		int grade;
-		std::string name;
+		const std::string name;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other);

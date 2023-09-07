@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/02 14:17:29 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:55:33 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : grade(150), name("default") 
+Bureaucrat::Bureaucrat() : grade(150), name("default")
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;	
 }
@@ -30,8 +30,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 	else if (grade > 150)
 		throw GradeTooHighException();
 	this->grade = grade;
-	if (name.empty())
-		this->name = "default";
 	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
@@ -72,7 +70,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 	if (this != &other)
 	{
 		this->grade = other.getGrade();
-		this->name = other.getName();
 	}
 	return (*this);
 }
