@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/28 16:08:26 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/10 14:43:07 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,93 +40,144 @@ int ScalarConverter::desicion_type(std::string literal)
 
 void ScalarConverter::print_all(int type, std::string literal)
 {
-	to_char(type, literal);
-	to_int(type, literal);
-	to_float(type, literal);
-	to_double(type, literal);
-}
-
-void ScalarConverter::to_char(int type, std::string literal)
-{
-	char c;
-	if (type == CHAR)
-		c = literal[0];
-	else if (type == INT)
-		c = static_cast<char>(stoi(literal));
-	else if (type == FLOAT)
-		c = static_cast<char>(stof(literal));
-	else if (type == DOUBLE)
-		c = static_cast<char>(stod(literal));
-	else 
+	switch (type)
 	{
-		std::cout << "char: impossible" << std::endl;
-		return ;
+		case 0:
+		{
+			char_to_other(literal);
+			break;
+		}
+		case 1:
+		{
+			int_to_other(literal);
+			break;
+		}
+		case 2:
+		{
+			float_to_other(literal);
+			break;
+		}	
+		case 3:
+		{
+			double_to_other(literal);
+			break;
+		}
+		case 4:
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << literal << std::endl;
+			std::cout << "double: " << literal << std::endl;
+			break;
+		}
 	}
-		
-	if (!isprint(c))
-		std::cout << "char: Non displayable" << std::endl;
-	else 
-		std::cout << "char: '" << c << "'" << std::endl; 
+	
 }
 
-void ScalarConverter::to_int(int type, std::string literal)
+
+
+void ScalarConverter::char_to_other(std::string literal)
+{
+	char c = literal[0];
+	int i = static_cast<int>(c);
+	float f = static_cast<float>(c);
+	double d = static_cast<double>(c);
+	
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+}
+
+void ScalarConverter::int_to_other(std::string literal)
 {
 	int i;
-
-	if (type == CHAR)
-		i = static_cast<int>(literal[0]);
-	else if (type == INT)
-		i = stoi(literal);
-	else if (type == FLOAT)
-		i = static_cast<int>(stof(literal));
-	else if (type == DOUBLE)
-		i = static_cast<int>(std::stod(literal));
-	else 
+	char c;
+	double d;
+	float f;
+	
+	try
 	{
-		std::cout << "int: impossible" << std::endl;
+		c = static_cast<char>(std::stoi(literal));
+		i = static_cast<int>(std::stoi(literal));
+		f = static_cast<float>(std::stoi(literal));
+		d = static_cast<double>(std::stoi(literal));
+	}
+	catch(const std::invalid_argument)
+	{
+		std::cerr << "Error: invalid argument" << std::endl;
 		return ;
 	}
-	std::cout <<"int: " << i << std::endl;
+	catch(const std::out_of_range)
+	{
+		std::cerr << "Error: out of range" << std::endl;
+		return ;
+	}
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
-void ScalarConverter::to_float(int type, std::string literal)
+void ScalarConverter::float_to_other(std::string literal)
 {
+	int i;
+	char c;
+	double d;
 	float f;
 
-	if (type == CHAR)
-		f = static_cast<float>(literal[0]);
-	else if (type == FLOAT)
-		f = stof(literal);
-	else if (type == DOUBLE)
-		f = static_cast<float>(std::stod(literal));
-	else if (type == INT)
-		f = static_cast<float>(stoi(literal));
-	else 
+	try
 	{
-		std::cout << "float: nanf" << std::endl;
+		c = static_cast<char>(std::stof(literal));
+		i = static_cast<int>(std::stof(literal));
+		f = static_cast<float>(std::stof(literal));
+		d = static_cast<double>(std::stof(literal));
+	}
+	catch(const std::invalid_argument)
+	{
+		std::cerr << "Error: invalid argument" << std::endl;
 		return ;
 	}
+	catch(const std::out_of_range)
+	{
+		std::cerr << "Error: out of range" << std::endl;
+		return ;
+	}
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	
 }
 
-void ScalarConverter::to_double(int type, std::string literal)
+void ScalarConverter::double_to_other(std::string literal)
 {
+	int i;
+	char c;
 	double d;
+	float f;
 
-	if (type == CHAR)
-		d = static_cast<double>(literal[0]);
-	else if (type == INT)
-		d = static_cast<double>(stoi(literal));
-	else if (type == FLOAT)
-		d = static_cast<double>(stof(literal));
-	else if (type == DOUBLE)
-		d = std::stod(literal);
-	else 
+	try
 	{
-		std::cout << "double: nan" << std::endl;
+		c = static_cast<char>(std::stod(literal));
+		i = static_cast<int>(std::stod(literal));
+		f = static_cast<float>(std::stod(literal));
+		d = static_cast<double>(std::stod(literal));
+	}
+	catch(const std::invalid_argument)
+	{
+		std::cerr << "Error: invalid argument" << std::endl;
 		return ;
 	}
-	std::cout << "doubel: " << std::fixed << std::setprecision(1) << d << std::endl;
+	catch(const std::out_of_range)
+	{
+		std::cerr << "Error: out of range" << std::endl;
+		return ;
+	}
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
 void ScalarConverter::convert(char *argv)
