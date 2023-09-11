@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:35:16 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/11 15:31:34 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/11 16:26:34 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main(int argc, char** argv)
     if (!btc.init_csv_data(data_file))
         return 1;
     btc.print_price(input_txt_ifs);
+    data_file.close();
     input_txt_ifs.close();
     return (0);
     
