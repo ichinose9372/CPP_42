@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/12 14:39:05 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 14:56:04 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,5 @@ int main(void)
 		Test_signeform(42,41,40);
 		Test_signeform(42, 42, 41);
 	}
-	
-	
-	
-
-	
-
-	
-
 	return (0);
 }

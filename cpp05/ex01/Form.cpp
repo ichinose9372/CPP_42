@@ -6,21 +6,17 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:08:33 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/12 14:24:37 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 15:47:41 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
-{
-	std::cout << "Form constructor called" << std::endl;
-}
+{}
 
 Form::Form(const Form &other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
-{
-	std::cout << "Form copy constructor called" << std::endl;
-}
+{}
 
 Form::Form(std::string name, int gradeTosin, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeTosin), gradeToExecute(gradeToExecute)
 {
@@ -28,13 +24,10 @@ Form::Form(std::string name, int gradeTosin, int gradeToExecute) : name(name), i
 		throw GradeTooHighException();
 	else if (gradeTosin > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
-	std::cout << "Form constructor called" << std::endl;
 }
 
 Form::~Form()
-{
-	std::cout << "Form destructor called" << std::endl;
-}
+{}
 
 Form &Form::operator=(const Form &other)
 {

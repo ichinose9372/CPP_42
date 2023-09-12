@@ -6,20 +6,17 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/12 14:30:52 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 15:47:15 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : grade(0), name("default") 
-{
-	std::cout << "Bureaucrat default constructor called" << std::endl;	
-}
+{}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) 
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -30,12 +27,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 	else if (grade > 150)
 		throw GradeTooHighException();
 	this->grade = grade;
-	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;	
 }
 
 
@@ -66,7 +61,6 @@ void Bureaucrat::decrementGrade(void)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-	std::cout << "Bureaucrat assignation operator called" << std::endl;
 	if (this != &other)
 	{
 		this->grade = other.getGrade();

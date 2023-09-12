@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/12 12:34:34 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:48:14 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : grade(150), name("default")
-{
-	std::cout << "Bureaucrat default constructor called" << std::endl;	
-}
+{}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) 
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -30,13 +27,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 	else if (grade > 150)
 		throw GradeTooLowException();
 	this->grade = grade;
-	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Bureaucrat destructor called" << std::endl;	
-}
+{}
 
 
 int Bureaucrat::getGrade(void) const
