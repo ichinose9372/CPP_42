@@ -21,6 +21,6 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
-	if [ -f "Shrubbery_shrubbery" ]; then $(RM) Shrubbery_shrubbery; fi
+	$(RM) *_shrubbery; 
 
 re : fclean all

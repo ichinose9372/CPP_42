@@ -1,8 +1,8 @@
-NAME = btn
+NAME = RPN
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp BitcoinExchange.cpp
-INCLUDE = BitcoinExchange.hpp
+SRC = main.cpp RPN.cpp
+INCLUDE = RPN.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))

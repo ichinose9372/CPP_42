@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:11:28 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/12 16:59:35 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 17:10:06 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ AForm *Intern::makeForm(std::string formName, std::string target)
 			return ((this->*createForms[i])(target));
 		}
 	}
-	std::cout << "I don't created form, sorry " << std::endl;
+	std::cout << "Error: Failed to create Form object. Invalid parameters." << std::endl;
 	return (NULL); 
 }
