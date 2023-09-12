@@ -3,31 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/12 12:50:15 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:16:44 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main(void)
+void Test_constructor(int grade)
 {
-	std::cout << "<<<<<<<<<<<<<< Test Constractor >>>>>>>>>>>>\n" << std::endl;
+	std::cout << "\n<<<<<<<<<<<<<< Test Constractor (  Case " << grade << " ) >>>>>>>>>>>>\n" << std::endl;
 	try
 	{
-		Bureaucrat Bob;
-		Bureaucrat Bobb("Bobb", 42);
-		Bureaucrat Bobbb("Bobbb", 0);
-		Bureaucrat Bobbbb("Bobbbb", -1);
-		Bureaucrat Bobbbbb("Bobbbbb", 150);
-		Bureaucrat Bobbbbbb("Bobbbbbb", 160);
+		Bureaucrat tester("tester", grade);
 	}
 	catch(const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << "<<<<<<<<<<<<<< Test increment >>>>>>>>>>>>>>>>>\n" << std::endl;
+}
+
+int main(void)
+{
+	{
+		//constructor test
+		Test_constructor(42);
+		Test_constructor(1);
+		Test_constructor(0);
+		Test_constructor(-1);
+		Test_constructor(150);
+		Test_constructor(151);
+	}
+	{
+		std::cout << "------------- incriment test ----------------" << std::endl;
+		Bureaucrat tester("tester", 3);
+		try
+		{
+			std::cout << tester << std::endl;
+			tester.incrementGrade();
+			std::cout << tester << std::endl;
+			tester.incrementGrade();
+			std::cout << tester << std::endl;
+			tester.incrementGrade();
+			std::cout << tester << std::endl;
+		}
+		catch(const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		std::cout << "---------------decriment test --------------------" << std::endl;
+		Bureaucrat tester("tester", 148);
+		try
+		{
+			std::cout << tester << std::endl;
+			tester.decrementGrade();
+			std::cout << tester << std::endl;
+			tester.decrementGrade();
+			std::cout << tester << std::endl;
+			tester.decrementGrade();
+			std::cout << tester << std::endl;
+		}
+		catch(const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	
 	return (0);
 }
