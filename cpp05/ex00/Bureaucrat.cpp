@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/07 21:55:33 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 12:34:34 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 {
 	if (grade < 1)
-		throw GradeTooLowException();
-	else if (grade > 150)
 		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
 	this->grade = grade;
 	std::cout << "Bureaucrat constructor called" << std::endl;
 }

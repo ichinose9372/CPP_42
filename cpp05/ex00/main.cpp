@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/07 22:02:24 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 12:50:15 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,104 +14,20 @@
 
 int main(void)
 {
-	
+	std::cout << "<<<<<<<<<<<<<< Test Constractor >>>>>>>>>>>>\n" << std::endl;
+	try
 	{
-		try
-		{
-			std::cout << "<<<<<<<<<<<<<< grade increment  decrement >>>>>>>>>>>>>>" << std::endl;
-			Bureaucrat bob("bob", 50);
-			std::cout << bob << std::endl;
-			bob.incrementGrade();
-			std::cout << bob << std::endl;
-			bob.incrementGrade();
-			std::cout << bob << std::endl;
-			bob.decrementGrade();
-			std::cout << bob << std::endl;
-			bob.decrementGrade();
-			std::cout << bob << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		Bureaucrat Bob;
+		Bureaucrat Bobb("Bobb", 42);
+		Bureaucrat Bobbb("Bobbb", 0);
+		Bureaucrat Bobbbb("Bobbbb", -1);
+		Bureaucrat Bobbbbb("Bobbbbb", 150);
+		Bureaucrat Bobbbbbb("Bobbbbbb", 160);
 	}
+	catch(const std::exception &e)
 	{
-		std::cout << "<<<<<<<<<<<<<<<<<<<<<<< grade too low >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-		try
-		{
-			Bureaucrat bob("bob", 42);
-			std::cout << bob << std::endl;
-			Bureaucrat bob1("bob", 0);
-			std::cout << bob1 << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		std::cerr << e.what() << '\n';
 	}
-	{
-		std::cout << "<<<<<<<<<<<<<<< grade too hight >>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-		try
-		{
-			Bureaucrat bob("bob", 42);
-			std::cout << bob << std::endl;
-			Bureaucrat bob1("bob", -1);
-			std::cout << bob1 << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		
-	}
-	{
-		std::cout << "<<<<<<<<<<<<< construction error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-		try
-		{
-			Bureaucrat bob("bob", 42);
-			std::cout << bob << std::endl;
-			Bureaucrat bob1("bob1", 151);
-			std::cout << bob1 << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	{
-		std::cout << "<<<<<<<<<<<<<<<< grade increment >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-		try
-		{
-			Bureaucrat bob("bob", 3);
-			std::cout << bob << std::endl;
-			bob.incrementGrade();
-			std::cout << bob << std::endl;
-			bob.incrementGrade();
-			std::cout << bob << std::endl;
-			bob.incrementGrade();
-			std::cout << bob << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
-	{
-		std::cout << "<<<<<<<<<<<<<<<< grade decrement >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
-		try
-		{
-			Bureaucrat bob("bob", 148);
-			bob.decrementGrade();
-			std::cout << bob << std::endl;
-			bob.decrementGrade();
-			std::cout << bob << std::endl;
-			bob.decrementGrade();
-			std::cout << bob << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}	
+	std::cout << "<<<<<<<<<<<<<< Test increment >>>>>>>>>>>>>>>>>\n" << std::endl;
 	return (0);
 }
