@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:06:01 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/02 16:24:15 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:37:10 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 class Bureaucrat;
 

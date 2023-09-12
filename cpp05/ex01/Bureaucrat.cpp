@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/02 15:35:22 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:30:52 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 	else if (grade > 150)
 		throw GradeTooHighException();
 	this->grade = grade;
-	if (name.empty())
-		this->name = "default";
 	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
@@ -72,7 +70,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 	if (this != &other)
 	{
 		this->grade = other.getGrade();
-		this->name = other.getName();
 	}
 	return (*this);
 }
@@ -96,10 +93,10 @@ void Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->name << " signs " << form.getName() << std::endl;
+		std::cout << GREEN << this->name << " signs " << form.getName() << NORMAL << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout<< RED << this->name << " couldn't sign " << form.getName() << " because " << e.what() << NORMAL << std::endl;
 	}
 }

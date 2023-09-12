@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:08:33 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/03 12:12:34 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 14:24:37 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ std::ostream &operator<<(std::ostream &os, const Form &other)
 {
 	os << "Form name: " << other.getName() << std::endl;
 	if (other.getIsSigned())
-		os << "Form signed : Sined" << std::endl;
+		os << GREEN <<"Form signed : Sined" << NORMAL << std::endl;
 	else
-		os << "Form signed : Not signed" << std::endl;
+		os << RED << "Form signed : Not signed" << NORMAL<< std::endl;
 	os << "Form gradeToSign: " << other.getGradeToSign() << std::endl;
 	os << "Form gradeToExecute: " << other.getGradeToExecute();
 	return (os);

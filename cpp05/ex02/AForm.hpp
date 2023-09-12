@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:06:01 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/03 17:00:06 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 14:54:34 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define AFORM_HPP
 
 #include "Bureaucrat.hpp"
-#include <random>
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 class Bureaucrat;
 

@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/03 13:04:47 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 13:19:41 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat
 		void executeForm(AForm const &form);
 	private:
 		int grade;
-		std::string name;
+		const std::string name;
 };
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other);
 #endif

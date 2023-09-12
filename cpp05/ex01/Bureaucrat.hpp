@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/07/29 12:22:01 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 14:37:14 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <iostream>
 #include <exception>
 #include "Form.hpp"
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 class Form;
 
@@ -44,7 +49,7 @@ class Bureaucrat
 		void signForm(Form &form);
 	private:
 		int grade;
-		std::string name;
+		const std::string name;
 };
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other);
 #endif
