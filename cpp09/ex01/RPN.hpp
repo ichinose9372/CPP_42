@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:36:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/11 17:18:15 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 18:00:14 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 #include <stack>
 #include <string>
 #include <sstream>
+#include <iostream>
 
 
 class RPN
 {
-    public:
-        RPN();
-        RPN(const RPN &other);
-        RPN(std::string literal);
-        RPN& operator=(const RPN &other);
-        ~RPN();
-    private:
-        std::stack<int> data;
+	public:
+		RPN();
+		RPN(const RPN &other);
+		RPN(std::string literal);
+		RPN& operator=(const RPN &other);
+		~RPN();
+	private:
+		std::stack<int> data;
 };
 
 #endif
