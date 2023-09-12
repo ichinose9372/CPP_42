@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:08:24 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/04 13:15:48 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:31:01 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,5 @@ class Intern
 		AForm *createPresidentialForm(const std::string target) const;
 		AForm *createRobotomyForm(const std::string target) const;
 		AForm *createShrubberyForm(const std::string target) const;
-		class InvalidFormException : public std::exception 
-		{
-			public:
-				const char* what(void) const throw();
-		};
 };
 #endif

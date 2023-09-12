@@ -6,21 +6,17 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:08:33 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/08/03 12:42:24 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:55:10 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
-{
-	std::cout << "Form constructor called" << std::endl;
-}
+{}
 
 AForm::AForm(const AForm &other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
-{
-	std::cout << "Form copy constructor called" << std::endl;
-}
+{}
 
 AForm::AForm(std::string name, int gradeTosin, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeTosin), gradeToExecute(gradeToExecute)
 {
@@ -28,17 +24,13 @@ AForm::AForm(std::string name, int gradeTosin, int gradeToExecute) : name(name),
 		throw GradeTooHighException();
 	else if (gradeTosin > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
-	std::cout << "Form constructor called" << std::endl;
 }
 
 AForm::~AForm()
-{
-	std::cout << "Form destructor called" << std::endl;
-}
+{}
 
 AForm &AForm::operator=(const AForm &other)
 {
-	std::cout << "Form assignation operator called" << std::endl;
 	if (this != &other)
 		this->isSigned = other.isSigned;
 	return (*this);

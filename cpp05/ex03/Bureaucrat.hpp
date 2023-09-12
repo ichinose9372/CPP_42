@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:31:20 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/12 13:19:41 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:38:57 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <iostream>
 #include <exception>
 #include "AForm.hpp"
+
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 class AForm;
 

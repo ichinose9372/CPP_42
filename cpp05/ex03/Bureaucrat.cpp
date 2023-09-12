@@ -6,20 +6,17 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:36:40 by yichinos          #+#    #+#             */
-/*   Updated: 2023/08/03 16:54:09 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:21:09 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : grade(0), name("default") 
-{
-	std::cout << "Bureaucrat default constructor called" << std::endl;	
-}
+{}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) 
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -30,15 +27,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 	else if (grade > 150)
 		throw GradeTooHighException();
 	this->grade = grade;
-	if (name.empty())
-		this->name = "default";
-	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Bureaucrat destructor called" << std::endl;	
-}
+{}
 
 
 int Bureaucrat::getGrade(void) const
@@ -68,11 +60,9 @@ void Bureaucrat::decrementGrade(void)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-	std::cout << "Bureaucrat assignation operator called" << std::endl;
 	if (this != &other)
 	{
 		this->grade = other.getGrade();
-		this->name = other.getName();
 	}
 	return (*this);
 }
@@ -106,15 +96,22 @@ void Bureaucrat::signForm(AForm &form)
 
 void Bureaucrat::executeForm(AForm const &form)
 {
-	try
+	if (!form.getIsSigned())
 	{
-		if (!form.getIsSigned())
-			throw AForm::FormNotSignedException();
-		form.execute(*this);
-		std::cout << this->name << " executes " << form.getName() << std::endl;
+		std::cout << "Not Signed form" << std::endl;
+		return ;
 	}
-	catch(const std::exception& e)
+	else
 	{
-		std::cout << this->name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+		try
+		{
+			form.execute(*this);
+			std::cout << this->name << " executes " << form.getName() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+				std::cout << this->name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+		}
+		
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 13:58:12 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/04 13:28:25 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 17:07:44 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,34 @@
 #include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
 
+void test_intern_makeform(std::string formname, std::string target)
+{
+	Intern student;
+	AForm *p_form;
+
+	p_form = student.makeForm(formname, target);
+	if (p_form == NULL)
+		std::cout<< RED << "Not Create From " << NORMAL << std::endl;
+	else 
+	{
+		std::cout << GREEN "Success !!" << NORMAL << std::endl;
+		delete p_form;
+	}
+}
+
+
 int main()
 {
-	Intern intern;
-	try
-	{
-		AForm *form = intern.makeForm("RobotomyRequest", "Bender");
-		form->execute(Bureaucrat("Bender", 1));
+	//test intern make form
+	test_intern_makeform("RobotomyRequest", "target");
+	test_intern_makeform("PresidentialPardon", "target");
+	test_intern_makeform("ShrubberyCreation", "target");
+	test_intern_makeform("NOT-IN-FORM", "target");
+	
+	return (0);    
+}
 
-		AForm *form2 = intern.makeForm("PresidentialPardon", "Bender");
-		form2->execute(Bureaucrat("Bender", 1));
-
-		AForm *form3 = intern.makeForm("ShrubberyCreation", "Bender");
-		form3->execute(Bureaucrat("Bender", 1));
-
-		AForm *form4 = intern.makeForm("-----------------", "Bender");
-		form4->execute(Bureaucrat("Bender", 1));
-		
-	}
-	catch(const std::exception& e)
-	{
-    	std::cerr << "Failed to create form." << e.what()<< std::endl;
-	}
-	return (0);
+__attribute__((destructor)) static void destructor ()
+{
+	system("leaks -q a.out ");
 }

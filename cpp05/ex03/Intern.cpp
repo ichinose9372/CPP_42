@@ -6,34 +6,28 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:11:28 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/04 13:21:54 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/12 16:59:35 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
 Intern::Intern()
-{
-	std::cout << "Intern constructor called" << std::endl;
-}
+{}
 
 Intern::Intern(const Intern &other)
 {
-	std::cout << "Intern copy constructor called" << std::endl;
 	*this = other;
 }
 
 Intern &Intern::operator=(const Intern &other)
 {
-	std::cout << "Intern assignation operator called" << std::endl;
 	(void)other;
 	return (*this);
 }
 
 Intern::~Intern()
-{
-	std::cout << "Intern destructor called" << std::endl;
-}
+{}
 
 AForm *Intern::createPresidentialForm(const std::string target) const
 {
@@ -63,11 +57,6 @@ AForm *Intern::makeForm(std::string formName, std::string target)
 			return ((this->*createForms[i])(target));
 		}
 	}
-	throw InvalidFormException();
+	std::cout << "I don't created form, sorry " << std::endl;
 	return (NULL); 
-}
-
-const char* Intern::InvalidFormException::what(void) const throw()
-{
-	return ("Intern can't create this form");
 }
