@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 16:21:06 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/10 14:27:04 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/13 11:54:22 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 typedef enum	e_type
 {

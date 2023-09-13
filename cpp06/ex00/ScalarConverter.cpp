@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/10 14:43:07 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/13 16:40:34 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ ScalarConverter::ScalarConverter()
 
 ScalarConverter::~ScalarConverter()
 {}
+
+void print_char(char c)
+{
+	if (c < 32 || c > 126)
+	{
+		std::cout << "char: Non displayable" << std::endl;
+		return ;
+	}
+	std::cout << "char: '" << c << "'" <<std::endl;	
+}
 
 int ScalarConverter::desicion_type(std::string literal)
 {
@@ -113,7 +123,8 @@ void ScalarConverter::int_to_other(std::string literal)
 		std::cerr << "Error: out of range" << std::endl;
 		return ;
 	}
-	std::cout << "char: '" << c << "'" << std::endl;
+	
+	print_char(c);
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
@@ -143,7 +154,7 @@ void ScalarConverter::float_to_other(std::string literal)
 		std::cerr << "Error: out of range" << std::endl;
 		return ;
 	}
-	std::cout << "char: '" << c << "'" << std::endl;
+	print_char(c);
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
@@ -174,7 +185,7 @@ void ScalarConverter::double_to_other(std::string literal)
 		std::cerr << "Error: out of range" << std::endl;
 		return ;
 	}
-	std::cout << "char: '" << c << "'" << std::endl;
+	print_char(c);
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
