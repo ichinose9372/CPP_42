@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:40:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/01 18:19:43 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/14 16:47:50 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Array<T>::Array(void) : array(NULL), array_size(0)
 template <typename T>
 Array<T>::~Array()
 {
-	std::cout << "destructor called" << std::endl;
 	if (array)
 		delete[] array;
 }
@@ -37,13 +36,13 @@ Array<T>::Array(T num)
 template <typename T>
 Array<T>::Array(const Array &other)
 {
-	size_t size = other.getsize();
-	
+	size_t size = other.getsize();	
 	array = new T[size];
 	for(size_t i = 0; i < size; i++)
 	{
 		array[i] = other.array[i];
 	}
+	this->array_size = size;
 }
 
 template <typename T>
@@ -51,9 +50,7 @@ Array<T>& Array<T>::operator=(const Array &other)
 {
 	if (this != &other)
 	{
-		delete[] array;
 		size_t size = other.getsize();
-	
 		array = new T[size];
 		for(size_t i = 0; i < size; i++)
 		{
