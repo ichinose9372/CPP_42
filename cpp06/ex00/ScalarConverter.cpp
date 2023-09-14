@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:20:22 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/13 16:40:34 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:04:39 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,40 @@ void print_char(char c)
 		return ;
 	}
 	std::cout << "char: '" << c << "'" <<std::endl;	
+}
+
+void unknown_print(std::string literal)
+{
+	if (literal == "nan")
+	{
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan " << std::endl;
+	}
+	else if (literal == "nanf")
+	{
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl; 
+	}
+	else if (literal == "inff")
+	{
+		std::cout << "float: inff" << std::endl;
+		std::cout << "double: inf" << std::endl;
+	}
+	else if (literal == "+inff")
+	{
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
+	else if (literal == "-inff")
+	{
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	else 
+	{
+		std::cout << "float: " << literal << std::endl;
+		std::cout << "double: " << literal << std::endl;
+	}
 }
 
 int ScalarConverter::desicion_type(std::string literal)
@@ -76,8 +110,7 @@ void ScalarConverter::print_all(int type, std::string literal)
 		{
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << literal << std::endl;
-			std::cout << "double: " << literal << std::endl;
+			unknown_print(literal);
 			break;
 		}
 	}

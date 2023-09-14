@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 07:31:27 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/13 22:59:31 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/14 14:11:04 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ Base* generate(void)
 		return new C;
 }
 
-void test_generate_ptr(Base *base)
+void identify(Base* p)
 {
-	if (dynamic_cast<A*>(base))
+	if (dynamic_cast<A*>(p))
 		std::cout << GREEN << " This is an A object." << NORMAL << std::endl;
-	else if (dynamic_cast<B*>(base))
+	else if (dynamic_cast<B*>(p))
 		std::cout << GREEN << " This is an B object." << NORMAL << std::endl;
-	else if (dynamic_cast<C*>(base))
+	else if (dynamic_cast<C*>(p))
 		std::cout << GREEN << " This is an C object." << NORMAL << std::endl;
 	else 
 		std::cout << RED << "Unknown type!" << NORMAL << std::endl;
 }
 
-void test_generate_ref(Base &base)
+void identify(Base& p)
 {	
 	try
 	{
-		A& a = dynamic_cast<A&>(base);
+		A& a = dynamic_cast<A&>(p);
 		(void) a;
 		std::cout << GREEN << " This is an A object." << NORMAL << std::endl;
 		return ;
@@ -53,7 +53,7 @@ void test_generate_ref(Base &base)
 	catch (const std::bad_cast&) {}
 	try
 	{
-		B& b = dynamic_cast<B&>(base);
+		B& b = dynamic_cast<B&>(p);
 		(void) b;
 		std::cout << GREEN  << " This is an B object." << NORMAL << std::endl;
 		return ;
@@ -61,7 +61,7 @@ void test_generate_ref(Base &base)
 	catch (const std::bad_cast&) {}
 	try
 	{
-		C& c= dynamic_cast<C&>(base);
+		C& c= dynamic_cast<C&>(p);
 		(void) c;
 		std::cout << GREEN  << " This is an C object." << NORMAL << std::endl;
 		return ;
@@ -76,12 +76,11 @@ int main(void)
 	Base *base = generate();
 
 	std::cout << "Base pointer = "  << base << std::endl;
-	test_generate_ptr(base);
+	identify(base);
 	
 	std::cout << "Base reference = " << &base << std::endl;
-	test_generate_ref(*base);
-	
-	
+	identify(*base);
+
 	return (0);
 	
 }
