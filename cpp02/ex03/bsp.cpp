@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:38:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 19:29:05 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:06:53 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "Fixed.hpp"
 
 class Point;
+
+//ptint triangle
+
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
