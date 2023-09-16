@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 11:41:41 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 18:31:30 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:08:36 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 	{
 		std::cout << YELLOW << "-------int_arry-------" << NORMAL << std::endl;
 		const int int_arry[5] = {0, 2147483647, -1, 1000000000, -2147483648};
-		iter(int_arry, 5, priantarry<int>);
+		iter(int_arry, 5, printarry<int>);
 		
 		std::cout << YELLOW << "-------str_arry--------" << NORMAL << std::endl;
 		const std::string str_arry[5] = {"42", "Tokyo", "is", "in", "Roppongi"};

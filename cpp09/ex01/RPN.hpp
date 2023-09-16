@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:36:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/12 18:00:14 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:22:38 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <stdexcept>
+#include <exception>
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 
 class RPN
@@ -27,6 +34,11 @@ class RPN
 		RPN(std::string literal);
 		RPN& operator=(const RPN &other);
 		~RPN();
+		class My_exception : public std::exception
+		{
+			virtual const char * what() const throw();				
+		};
+		
 	private:
 		std::stack<int> data;
 };

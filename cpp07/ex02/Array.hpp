@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:34:47 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 14:45:45 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:09:32 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Array
 	public:
 		Array();
 		~Array();
-		Array(T num);
+		Array(unsigned int num);
 		Array(const Array &other);
 		Array& operator=(const Array &other);
 		T& operator[](unsigned long index);

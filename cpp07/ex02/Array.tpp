@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:40:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 16:47:50 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:08:49 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-Array<T>::Array(T num)
+Array<T>::Array(unsigned int num)
 {
 	array = new T[num];
 	array_size = num;
