@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:39:11 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/04 11:43:40 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/17 15:26:22 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <stack>
 #include <iostream>
 #include <deque>
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
 
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
