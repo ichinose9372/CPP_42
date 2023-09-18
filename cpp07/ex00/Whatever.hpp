@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:20:22 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/18 16:07:50 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:56:55 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ template <typename T>
 T min(T& a, T& b)
 {
 	if (a >= b)
+	{
 		return b;
+	}
 	return a;
 }
 

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:16:43 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 14:35:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:56:19 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int main( void )
 	{
 		std::cout << YELLOW << " Test case ( double ) " << NORMAL <<std::endl;
 		double a = 42.42;
-		double b = 84.8444444444444444;
+		double b = 42.42;
+		std::cout << &b << std::endl;
 		std::cout << "initialize  a = " << a << " b = " << b << std::endl;
 		::swap( a, b );
 		std::cout << "a = " << a << ", b = " << b << std::endl;
