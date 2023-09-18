@@ -6,17 +6,22 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+    Array<int> copy(MAX_VAL);
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
+        copy[i]= value;
+
     }
     //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+        copy = tmp;
+        (void) copy;
     }
 
     for (int i = 0; i < MAX_VAL; i++)

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:40:19 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/16 18:08:49 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:39:45 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,40 @@ Array<T>::Array(void) : array(NULL), array_size(0)
 template <typename T>
 Array<T>::~Array()
 {
-	if (array)
-		delete[] array;
+	delete[] array;
 }
 
 template <typename T>
 Array<T>::Array(unsigned int num)
 {
-	array = new T[num];
+	try
+	{	
+		array = new T[num];
+	}
+	catch(const std::bad_alloc &e)
+	{
+		std::cerr<< e.what();
+	}
+	for(unsigned int i = 0; i < num; i++)
+	{
+		array[i] = 0;
+	}
 	array_size = num;
 }
 
 template <typename T>
 Array<T>::Array(const Array &other)
 {
-	size_t size = other.getsize();	
-	array = new T[size];
-	for(size_t i = 0; i < size; i++)
+	unsigned int size = other.getsize();	
+	try
+	{	
+		array = new T[size];
+	}
+	catch(const std::bad_alloc &e)
+	{
+		std::cerr<< e.what();
+	}
+	for(unsigned int i = 0; i < size; i++)
 	{
 		array[i] = other.array[i];
 	}
@@ -50,18 +67,27 @@ Array<T>& Array<T>::operator=(const Array &other)
 {
 	if (this != &other)
 	{
-		size_t size = other.getsize();
+		unsigned int size = other.getsize();
+		if (array)
+			delete[] array;
+	}
+	try
+	{	
 		array = new T[size];
-		for(size_t i = 0; i < size; i++)
-		{
+	}
+	catch(const std::bad_alloc &e)
+	{
+		std::cerr<< e.what();
+	}
+	for(unsigned int i = 0; i < size; i++)
+	{
 			array[i] = other.array[i];
-		}
 	}
 	return *this;
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned long index)
+T& Array<T>::operator[](unsigned int index)
 {
 	if (array_size <= index)
 	{
@@ -71,15 +97,10 @@ T& Array<T>::operator[](unsigned long index)
 }
 
 template <typename T>
-size_t Array<T>::getsize(void) const
+unsigned int Array<T>::getsize(void) const
 {
 	return array_size;
 }
 
-template <typename T>
-const char* Array<T>::OutOfRangeException::what() const throw()
-{
-	return "Index out of range";
-}
 
 #endif

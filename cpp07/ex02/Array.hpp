@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:34:47 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/16 18:09:32 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:18:21 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,11 @@ class Array
 		Array(unsigned int num);
 		Array(const Array &other);
 		Array& operator=(const Array &other);
-		T& operator[](unsigned long index);
-		size_t getsize(void) const;
-		class OutOfRangeException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
+		T& operator[](unsigned int index);
+		unsigned int getsize(void) const;
 	private:
 		T *array;
-		size_t array_size;
+		unsigned int array_size;
 };
 
 #include "Array.tpp"
