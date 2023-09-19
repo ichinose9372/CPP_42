@@ -5,6 +5,7 @@
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
+    Array<int> zero_array(0);
     int* mirror = new int[MAX_VAL];
     Array<int> copy(MAX_VAL);
     srand(time(NULL));
@@ -14,7 +15,6 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
         copy[i]= value;
-
     }
     //SCOPE
     {

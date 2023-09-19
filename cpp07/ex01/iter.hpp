@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 11:41:46 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/14 18:19:34 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:47:41 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 template <typename T>
 void iter(T* arry, size_t length, void(*func)(T&))
 {
-	if (!arry || !*func)
+	if (!arry || !func)
 		return ;
 	for (size_t i = 0; i < length; i++)
 	{
@@ -34,7 +34,7 @@ void iter(T* arry, size_t length, void(*func)(T&))
 template <typename T>
 void iter(const T* arry, size_t length, void(*func)(const T&))
 {
-	if (!arry || !*func)
+	if (!arry || !func)
 		return ;
 	for (size_t i = 0; i < length; i++)
 	{

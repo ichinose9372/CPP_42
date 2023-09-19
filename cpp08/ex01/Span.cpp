@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/03 13:17:24 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/18 14:54:51 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ int Span::shortestSpan(void)
 {
 	std::sort(data.begin(), data.end());
 
-	 if (data.size() < 2 || currentIndex < maxsize) {
-        throw std::runtime_error("Not enough numbers to calculate span.");
-    }
+	if (data.size() < 2 || currentIndex < maxsize)
+	{	
+		throw std::runtime_error("Not enough numbers to calculate span.");
+	}
 
 	int minDifference = std::numeric_limits<int>::max();
 	
@@ -74,13 +75,24 @@ int Span::shortestSpan(void)
 
 int Span::longestSpan(void)
 {
-	 if (data.size() < 2 || currentIndex < maxsize) {
-        throw std::runtime_error("Not enough numbers to calculate span.");
-    }
-    std::sort(data.begin(), data.end());
+	if (data.size() < 2 || currentIndex < maxsize) 
+	{
+		throw std::runtime_error("Not enough numbers to calculate span.");
+	}
+	std::sort(data.begin(), data.end());
 	int min = data.front();
 	int max = data.back();
 
 	return (max - min);
 	
+}
+
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	srand(time(NULL));
+	while (begin != end)
+	{
+		this->addNumber(rand());
+		begin++;
+	}	
 }

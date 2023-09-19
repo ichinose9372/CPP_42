@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:59:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/03 16:49:10 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/18 14:58:12 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,9 @@ int main(void)
 	{
 		std::cout << "------over 10k numbers---------------------\n";
 		Span sp = Span(12000);
-	    srand(time(NULL));
 		try
 		{
-			for (size_t i = 0; i < 12000; i++)
-			{
-				sp.addNumber(rand());
-			}
+			sp.addNumber(begin(),end());
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;	
 		}
