@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:53:12 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/02 15:07:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:09:13 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,31 @@
 #include <deque>
 #include "easyfind.hpp"
 
-void printVector(std::vector<int> vec)
+
+template <typename Container>
+void print_data(const Container& container) {
+    int i = 0;
+    typename Container::const_iterator it;
+    for (it = container.begin(); it != container.end(); ++it) {
+        std::cout << "index [ " << i << " ]  = " << *it << std::endl; // *it で要素の値を表示
+        i++;
+    }
+    std::cout << "--------------------------------------------" << std::endl;
+}
+
+template <typename Container>
+void test_func(int num, const Container &conteiner)
 {
-	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-		std::cout << *it << std::endl;
+	int result;
+
+	result = easyfind(conteiner, num);
+	if (result == -1)
+	{
+		std::cout << RED << num << " is not found." << NORMAL << std::endl;
+		return ;
+	}
+	std::cout << GREEN <<num << " is found at index " << result << NORMAL << std::endl;
+	
 }
 
 int main(void)
@@ -45,78 +66,58 @@ int main(void)
 	// 	printVector(vec);
 	// }
 	{
+		std::cout << YELLOW <<"----- Test case (  vector  ) array_size = 10 -----" << NORMAL <<std::endl;
 		std::vector<int> vec(10);
-		std::list<int> list;
-		std::deque<int> deq;
+
+		//initialize 8 no baisuu
 		for (int i = 0; i < 10; i++)
 			vec[i] = i * 8;
+		print_data(vec);
+		
+		std::cout << "\n";
+		//test
+		test_func(16, vec);
+		test_func(1024 , vec);
+		test_func(-1, vec);
+		test_func(0, vec);
+		
+		std::cout << "\n";
+		
+		std::cout << YELLOW << "----- Test case (  list  ) list_size = 10 -----" << NORMAL <<std::endl;
+		std::list<int> list;
+		
+		//initialize 4 baisuu
 		for (int i = 0; i < 10; i++)
 			list.push_back(i * 4);
+
+		//print list			
+		print_data(list);
+		std::cout << "\n";
+
+		//test
+		test_func(16, list);
+		test_func(1024 , list);
+		test_func(-1, list);
+		test_func(0, list);
+
+		std::cout << "\n";
+
+	
+		std::cout << YELLOW << "----- Test case (  deque  ) deque_size = 10 -----" << NORMAL <<std::endl;
+
+		//initialize 2 no baisuu
+		
+		std::deque<int> deq;
 		for (int i = 0; i < 10; i++)
-			deq.push_back(i * 2);
-		std::cout << "-------------vec-------------" << std::endl;
-		for(std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-			std::cout << *it << std::endl;
-		int target1 = 64;
-		int result1 = easyfind(vec, target1);
-		if (result1 != -1) 
-			std::cout << target1 << " is found at index " << result1 << std::endl;
-		else 
-			std::cout << target1 << " is not found." << std::endl;
-		int target2 = 0;
-		int result2 = easyfind(vec, target2);
-		if (result2 != -1) 
-			std::cout << target1 << " is found at index " << result2 << std::endl;
-		else 
-			std::cout << target1 << " is not found." << std::endl;
-		int target3 = 320;
-		int result3 = easyfind(vec, target3);
-		if (result3 != -1) 
-			std::cout << target1 << " is found at index " << result3 << std::endl;
-		else 
-			std::cout << target1 << " is not found." << std::endl;
-		std::cout << "-----------list--------------" << std::endl;
-		for(std::list<int>::iterator it = list.begin(); it != list.end(); it++)
-			std::cout << *it << std::endl;
-		int target4 = 20;
-		int result4 = easyfind(list, target4);
-		if (result4 != -1) 
-			std::cout << target4 << " is found at index " << result4 << std::endl;
-		else 
-			std::cout << target4 << " is not found." << std::endl;
-		int target5 = 0;
-		int result5 = easyfind(list, target5);
-		if (result5 != -1) 
-			std::cout << target5 << " is found at index " << result5 << std::endl;
-		else 
-			std::cout << target5 << " is not found." << std::endl;
-		int target6 = 320;
-		int result6 = easyfind(list, target6);
-		if (result6 != -1) 
-			std::cout << target6 << " is found at index " << result6 << std::endl;
-		else 
-			std::cout << target6 << " is not found." << std::endl;
-		std::cout << "-----------deque--------------" << std::endl;
-		for(std::deque<int>::iterator it = deq.begin(); it != deq.end(); it++)
-			std::cout << *it << std::endl;
-		int target7 = 12;
-		int result7 = easyfind(deq, target7);
-		if (result7 != -1) 
-			std::cout << target7 << " is found at index " << result7 << std::endl;
-		else 
-			std::cout << target7 << " is not found." << std::endl;
-		int target8 = 0;
-		int result8 = easyfind(deq, target8);
-		if (result8 != -1) 
-			std::cout << target8 << " is found at index " << result8 << std::endl;
-		else 
-			std::cout << target8 << " is not found." << std::endl;
-		int target9 = 320;
-		int result9 = easyfind(deq, target9);
-		if (result9 != -1) 
-			std::cout << target9 << " is found at index " << result9 << std::endl;
-		else 
-			std::cout << target9 << " is not found." << std::endl;
+			deq.push_back(i * 11);
+
+		print_data(deq);
+		std::cout << "\n";
+
+		test_func(11, deq);
+		test_func(2147483647 , deq);
+		test_func(-1, deq);
+		test_func(0, deq);
 	}
 	return (0);
 }
