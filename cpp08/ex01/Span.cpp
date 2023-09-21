@@ -6,38 +6,29 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/21 11:51:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:04:07 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() : maxsize(0), data(0), currentIndex(0)
+Span::Span()
 {}
 
-Span::Span(unsigned int size) : maxsize(size), data(maxsize), currentIndex(0)
+Span::Span(unsigned int size) : size(size)
 {}
 
 Span::Span(const Span &other)
 {
-	this->currentIndex = other.currentIndex;
-	this->maxsize = other.data.size();
-	data[maxsize];
-	for(size_t i = 0; i < other.data.size(); ++i)
-	{	
-		this->data[i] = other.data[i];
-	}
+	data = other.data;
 }
 
 Span& Span::operator=(const Span &other)
 {
-	this->currentIndex = other.currentIndex;
-	this->maxsize = other.data.size();
-	data.clear();
-	data.resize(this->maxsize);
-	for(size_t i = 0; i < other.data.size(); ++i)
-	{	
-		this->data[i] = other.data[i];
+	if (this != &other)
+	{
+		size = other.size;
+		data = other.data;
 	}
 	return (*this);
 }
@@ -47,19 +38,21 @@ Span::~Span()
 
 void Span::addNumber(int num)
 {
-	if (currentIndex >= maxsize)
+	if (data.size() < this->size)
 	{
-		throw std::runtime_error("Array is full!");
-    }
-	data[currentIndex] = num;
-	currentIndex++;
+		data.push_back(num);
+	}
+	else
+		throw std::runtime_error("Array is full!");	
 }
 
-int Span::shortestSpan(void)
+
+//shortest にcurrentIndexの条件式はいらない。
+unsigned int Span::shortestSpan(void)
 {
 	std::sort(data.begin(), data.end());
 
-	if (data.size() < 2 || currentIndex < maxsize)
+	if (data.size() < 2)
 	{	
 		throw std::runtime_error("Not enough numbers to calculate span. (shortest)");
 	}
@@ -71,13 +64,13 @@ int Span::shortestSpan(void)
 		if (difference < minDifference) {
 			minDifference = difference;
 		}
-    }	
+	}	
 	return minDifference;
 }
 
-int Span::longestSpan(void)
+unsigned int Span::longestSpan(void)
 {
-	if (data.size() < 2 || currentIndex < maxsize) 
+	if (data.size() < 2) 
 	{
 		throw std::runtime_error("Not enough numbers to calculate span. (longest)");
 	}
@@ -89,19 +82,19 @@ int Span::longestSpan(void)
 	
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-	srand(time(NULL));
-	while (begin != end)
-	{
-		if (currentIndex <= maxsize)
-		{
-			data[currentIndex] = rand();
-			currentIndex++;
-			begin++;
-		}
-	}
-}
+// void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+// {
+// 	srand(time(NULL));
+// 	while (begin != end)
+// 	{
+// 		if (currentIndex <= maxsize)
+// 		{
+// 			data[currentIndex] = rand();
+// 			currentIndex++;
+// 			begin++;
+// 		}
+// 	}
+// }
 
 std::vector<int>::iterator Span::begin()
 {

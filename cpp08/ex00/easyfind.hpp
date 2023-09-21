@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 18:32:36 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/19 13:21:28 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:22:47 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
 #define YELLOW "\x1b[33m"
 
 # include <stdexcept>
+# include <algorithm>
+
+
+//use std find()を使う
+//return exception or iterato.begin() or NULL
+// return iterator が正解　かもしれない
 
 template <typename T>
-int easyfind(const T& container, int num)
+typename T::const_iterator easyfind(const T& container, int num)
 {
-	int index = 0;
-	for(typename T::const_iterator it = container.begin(); it != container.end(); it++)
-	{
-		if (*it == num)
-			return (index);
-		index++;
-	}
-	return (-1);
+	return 	std::find(container.begin(), container.end(), num);
 }
 #endif

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:53:12 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/19 14:09:13 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:37:42 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,43 +28,21 @@ void print_data(const Container& container) {
     std::cout << "--------------------------------------------" << std::endl;
 }
 
-template <typename Container>
-void test_func(int num, const Container &conteiner)
-{
-	int result;
 
-	result = easyfind(conteiner, num);
-	if (result == -1)
-	{
-		std::cout << RED << num << " is not found." << NORMAL << std::endl;
-		return ;
-	}
-	std::cout << GREEN <<num << " is found at index " << result << NORMAL << std::endl;
-	
+template <typename Container>
+void test_func(const int num, const Container& container)
+{
+	typename Container::const_iterator it = easyfind(container, num);
+	if (it != container.end())
+		std::cout<< GREEN << num << " is found " << NORMAL <<std::endl ;
+	else
+		std::cout << RED << num <<  " is not found\n" << NORMAL;
 }
+
+
 
 int main(void)
 {
-	// {
-	// 	std::vector<int> vec(5, 8);// 5個の8で初期化
-	// 	std::cout << "vec(5, 8)" << std::endl;
-	// 	printVector(vec);
-	// 	vec.insert(vec.begin(), 3, 2);// 3個の2を先頭に挿入
-	// 	std::cout << "insert" << std::endl;
-	// 	printVector(vec);
-	// 	vec.pop_back(); // 末尾を削除
-	// 	std::cout << "pop_back" << std::endl;
-	// 	printVector(vec);
-	// 	vec.resize(5); // 5個に縮小
-	// 	std::cout << "resize(5)" << std::endl;
-	// 	printVector(vec);
-	// 	vec.resize(8, 3);// 8個に拡張し、3で埋める
-	// 	std::cout << "resize(8, 3)" << std::endl;
-	// 	printVector(vec);
-	// 	vec.clear(); // 全削除
-	// 	std::cout << "clear" << std::endl;
-	// 	printVector(vec);
-	// }
 	{
 		std::cout << YELLOW <<"----- Test case (  vector  ) array_size = 10 -----" << NORMAL <<std::endl;
 		std::vector<int> vec(10);
@@ -76,11 +54,8 @@ int main(void)
 		
 		std::cout << "\n";
 		//test
-		test_func(16, vec);
-		test_func(1024 , vec);
-		test_func(-1, vec);
-		test_func(0, vec);
-		
+		test_func(72, vec);
+		test_func(10000, vec);
 		std::cout << "\n";
 		
 		std::cout << YELLOW << "----- Test case (  list  ) list_size = 10 -----" << NORMAL <<std::endl;
@@ -90,7 +65,7 @@ int main(void)
 		for (int i = 0; i < 10; i++)
 			list.push_back(i * 4);
 
-		//print list			
+		//print list
 		print_data(list);
 		std::cout << "\n";
 
