@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/18 14:54:51 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:51:28 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Span::Span(const Span &other)
 {
 	this->currentIndex = other.currentIndex;
 	this->maxsize = other.data.size();
-	data.resize(this->maxsize);
+	data[maxsize];
 	for(size_t i = 0; i < other.data.size(); ++i)
 	{	
 		this->data[i] = other.data[i];
@@ -33,6 +33,7 @@ Span& Span::operator=(const Span &other)
 {
 	this->currentIndex = other.currentIndex;
 	this->maxsize = other.data.size();
+	data.clear();
 	data.resize(this->maxsize);
 	for(size_t i = 0; i < other.data.size(); ++i)
 	{	
@@ -46,8 +47,9 @@ Span::~Span()
 
 void Span::addNumber(int num)
 {
-	if (currentIndex >= maxsize) {
-        throw std::runtime_error("Array is full!");
+	if (currentIndex >= maxsize)
+	{
+		throw std::runtime_error("Array is full!");
     }
 	data[currentIndex] = num;
 	currentIndex++;
@@ -59,7 +61,7 @@ int Span::shortestSpan(void)
 
 	if (data.size() < 2 || currentIndex < maxsize)
 	{	
-		throw std::runtime_error("Not enough numbers to calculate span.");
+		throw std::runtime_error("Not enough numbers to calculate span. (shortest)");
 	}
 
 	int minDifference = std::numeric_limits<int>::max();
@@ -77,7 +79,7 @@ int Span::longestSpan(void)
 {
 	if (data.size() < 2 || currentIndex < maxsize) 
 	{
-		throw std::runtime_error("Not enough numbers to calculate span.");
+		throw std::runtime_error("Not enough numbers to calculate span. (longest)");
 	}
 	std::sort(data.begin(), data.end());
 	int min = data.front();
@@ -92,7 +94,21 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 	srand(time(NULL));
 	while (begin != end)
 	{
-		this->addNumber(rand());
-		begin++;
-	}	
+		if (currentIndex <= maxsize)
+		{
+			data[currentIndex] = rand();
+			currentIndex++;
+			begin++;
+		}
+	}
+}
+
+std::vector<int>::iterator Span::begin()
+{
+	return data.begin();
+}
+
+std::vector<int>::iterator Span::end()
+{
+	return data.end();
 }

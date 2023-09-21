@@ -69,6 +69,7 @@
 		"variant": "cpp",
 		"compare": "cpp",
 		"concepts": "cpp",
-		"numeric": "cpp"
+		"numeric": "cpp",
+		"stack": "cpp"
 	}
 }

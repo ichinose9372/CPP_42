@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:13:01 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/18 14:49:24 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:01:30 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <algorithm>
 #include <iostream>
 #include <stdexcept>
+
+#define RED "\x1b[31m"
+#define NORMAL "\033[0m"
+#define GREEN "\x1b[32m" 
+#define YELLOW "\x1b[33m"
+
 
 class Span
 {
@@ -34,7 +40,8 @@ class Span
 		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int shortestSpan(void);
 		int longestSpan(void);
-		
+		std::vector<int>::iterator begin();
+		std::vector<int>::iterator end();
 };
 
 #endif

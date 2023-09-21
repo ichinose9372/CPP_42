@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:59:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/18 14:58:12 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:51:09 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	{
-		std::cout << "-------------corect array--------------\n";
+		std::cout << YELLOW << "------------- Correct Array --------------\n\n" << NORMAL;
 		Span sp = Span(5);
 	
 		try
@@ -33,8 +33,8 @@ int main(void)
     	}
 	}
 	{
-		std::cout << "---------array overt index --------------\n";
-		Span sp = Span(5);
+		std::cout << YELLOW << "\n--------- Array Out of Bounds -----------\n\n" << NORMAL;
+		Span sp(5);
 	
 		try
 		{
@@ -51,10 +51,41 @@ int main(void)
     	    std::cerr << e.what() << std::endl;
     	}
 	}
-
 	{
-		std::cout << "-----------arrya less index ----------------\n";
-		Span sp = Span(2);
+		std::cout << YELLOW << "\n--------- invalid input (string) -----------\n\n" << NORMAL;
+		Span sp(5);
+		try
+		{
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber('a');
+			sp.addNumber(9);
+			sp.addNumber(11);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (const std::exception& e) {
+    	    std::cerr << e.what() << std::endl;
+    	}
+	}
+	{
+		std::cout << YELLOW << "\n--------- int max and int min  -----------\n\n" << NORMAL;
+		Span sp(2);
+	
+		try
+		{
+			sp.addNumber(-2147483648);
+			sp.addNumber(2147483647);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (const std::exception& e) {
+    	    std::cerr << e.what() << std::endl;
+    	}
+	}
+	{
+		std::cout << YELLOW << "\n------ Insufficient Data for Array Size -------\n\n" << NORMAL;
+		Span sp(2);
 
 		try
 		{
@@ -68,8 +99,27 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "----------corect array --------------------\n";
-		Span sp = Span(2);
+		std::cout << YELLOW << "\n------------ Array same numbers -------------\n\n" << NORMAL;
+		Span sp(5);
+
+		try
+		{
+			sp.addNumber(8);
+			sp.addNumber(8);
+			sp.addNumber(4);
+			sp.addNumber(4);
+			sp.addNumber(0);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;			
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	{
+		std::cout << YELLOW << "\n------------- Smallest Array Size ---------------\n\n" << NORMAL;
+		Span sp(2);
 
 		try
 		{
@@ -84,11 +134,13 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "------over 10k numbers---------------------\n";
-		Span sp = Span(12000);
+		std::cout << YELLOW << "\n----------- Over 10,000 Numbers -----------------\n\n" << NORMAL;
+		Span sp(12000);
 		try
 		{
-			sp.addNumber(begin(),end());
+			std::vector<int>::iterator it = sp.begin();
+			std::vector<int>::iterator ite = sp.end();
+			sp.addNumber(it, ite);
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;	
 		}
@@ -98,5 +150,6 @@ int main(void)
 		}
 		
 	}
+
 	return (0);
 }
