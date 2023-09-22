@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:53:12 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/21 17:37:42 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:48:23 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,27 @@ int main(void)
 {
 	{
 		std::cout << YELLOW <<"----- Test case (  vector  ) array_size = 10 -----" << NORMAL <<std::endl;
-		std::vector<int> vec(10);
+		std::vector<int> vec;
 
 		//initialize 8 no baisuu
 		for (int i = 0; i < 10; i++)
-			vec[i] = i * 8;
+			vec.push_back(i * 8);
 		print_data(vec);
 		
 		std::cout << "\n";
 		//test
-		test_func(72, vec);
-		test_func(10000, vec);
+		try
+		{
+			test_func(72, vec);
+			test_func(10000, vec);
+			test_func(-1, vec);
+			test_func(0, vec);
+			test_func(2147483647, vec);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 		std::cout << "\n";
 		
 		std::cout << YELLOW << "----- Test case (  list  ) list_size = 10 -----" << NORMAL <<std::endl;
@@ -70,10 +80,18 @@ int main(void)
 		std::cout << "\n";
 
 		//test
-		test_func(16, list);
-		test_func(1024 , list);
-		test_func(-1, list);
-		test_func(0, list);
+		try
+		{
+			test_func(16, list);
+			test_func(1024 , list);
+			test_func(-1, list);
+			test_func(0, list);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 
 		std::cout << "\n";
 
@@ -89,10 +107,52 @@ int main(void)
 		print_data(deq);
 		std::cout << "\n";
 
-		test_func(11, deq);
-		test_func(2147483647 , deq);
-		test_func(-1, deq);
-		test_func(0, deq);
+		//test
+		try
+		{
+			test_func(11, deq);
+			test_func(2147483647 , deq);
+			test_func(-1, deq);
+			test_func(0, deq);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 	}
+	{
+		std::cout << YELLOW << "----- Test case (  vector  ) array_size = 0 -----" << NORMAL <<std::endl;
+		std::vector<int> vec(0);
+		std::cout << "\n";
+		try
+		{
+			test_func(72, vec);
+			test_func(10000, vec);
+			test_func(-1, vec);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		std::cout << YELLOW << "----- Test case (  list  ) list_size = 2147483648 -----" << NORMAL <<std::endl;
+		std::list<int> list;
+		for (size_t i = 0; i < 20000; i++)
+			list.push_back(i * 1);
+		std::cout << "\n";
+		try
+		{
+			test_func(72, list);
+			test_func(10000, list);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
+	}
+	std::cout << '\n'<<std::endl;
 	return (0);
 }
