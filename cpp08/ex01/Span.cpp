@@ -6,13 +6,13 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/22 14:34:02 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/22 14:47:10 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span()
+Span::Span() : size(0)
 {}
 
 Span::Span(unsigned int size) : size(size)

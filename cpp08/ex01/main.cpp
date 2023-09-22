@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:59:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/22 14:45:49 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/22 14:48:56 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ int main(void)
 	}
 	{
 		std::cout << YELLOW << "\n--------- int max and int min  -----------\n\n" << NORMAL;
-		Span sp(2);
+		Span sp(3);
 	
 		try
 		{
 			sp.addNumber(-2147483648);
 			sp.addNumber(2147483647);
+			sp.addNumber(-1);
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
@@ -152,9 +153,7 @@ int main(void)
 		{
 			sp.addNumber(8);
 			sp.addNumber(0);
-			
-
-
+		
 			std::cout << sp.shortestSpan() << std::endl;
 			std	::cout << sp.longestSpan() << std::endl;
 		}
