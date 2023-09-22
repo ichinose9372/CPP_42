@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:13:01 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:05:13 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:44:21 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,18 @@ class Span
 		Span& operator=(const Span &other);
 		~Span();
 		void addNumber(int num);
-		
-		void addNumber(iterator begin, iterator end);
+		size_t getSize(void) const;
+		template <typename it>
+		void addNumber(it begin, it end)
+		{
+			for (;begin != end; ++begin)
+			{
+				addNumber(*begin);	
+			}
+			if (size == 0)
+				this->size = data.size();
+		}
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
-		std::vector<int>::iterator begin();
-		std::vector<int>::iterator end();
 };
-
 #endif

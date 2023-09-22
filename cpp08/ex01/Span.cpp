@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:04:07 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:34:02 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Span::~Span()
 
 void Span::addNumber(int num)
 {
-	if (data.size() < this->size)
+	if (data.size() < this->size || this->size == 0)
 	{
 		data.push_back(num);
 	}
@@ -82,26 +82,7 @@ unsigned int Span::longestSpan(void)
 	
 }
 
-// void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-// {
-// 	srand(time(NULL));
-// 	while (begin != end)
-// 	{
-// 		if (currentIndex <= maxsize)
-// 		{
-// 			data[currentIndex] = rand();
-// 			currentIndex++;
-// 			begin++;
-// 		}
-// 	}
-// }
-
-std::vector<int>::iterator Span::begin()
+size_t Span::getSize(void) const
 {
-	return data.begin();
-}
-
-std::vector<int>::iterator Span::end()
-{
-	return data.end();
+	return (size);
 }
