@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/22 14:47:10 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/23 12:00:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void Span::addNumber(int num)
 unsigned int Span::shortestSpan(void)
 {
 	std::sort(data.begin(), data.end());
-
 	if (data.size() < 2)
 	{	
 		throw std::runtime_error("Not enough numbers to calculate span. (shortest)");
@@ -82,6 +81,8 @@ unsigned int Span::longestSpan(void)
 	
 }
 
+
+//unused 
 size_t Span::getSize(void) const
 {
 	return (size);

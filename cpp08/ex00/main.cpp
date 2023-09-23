@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:53:12 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/22 13:48:23 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/23 11:54:52 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,32 @@
 
 
 template <typename Container>
-void print_data(const Container& container) {
-    int i = 0;
-    typename Container::const_iterator it;
-    for (it = container.begin(); it != container.end(); ++it) {
-        std::cout << "index [ " << i << " ]  = " << *it << std::endl; // *it で要素の値を表示
-        i++;
-    }
-    std::cout << "--------------------------------------------" << std::endl;
+void print_data(Container& container) 
+{
+	int i = 0;
+	typename Container::iterator it;
+	for (it = container.begin(); it != container.end(); ++it) 
+	{
+		std::cout << "index [ " << i << " ]  = " << *it << std::endl; // *it で要素の値を表示
+		i++;
+	}
+	std::cout << "--------------------------------------------" << std::endl;
 }
 
 
 template <typename Container>
-void test_func(const int num, const Container& container)
+void test_func(const int num, Container& container)
 {
-	typename Container::const_iterator it = easyfind(container, num);
-	if (it != container.end())
-		std::cout<< GREEN << num << " is found " << NORMAL <<std::endl ;
-	else
-		std::cout << RED << num <<  " is not found\n" << NORMAL;
+	typename Container::iterator it;
+	try
+	{
+		it = easyfind(container, num);
+		std::cout<< GREEN << num << " is found " << NORMAL << std::endl ;
+	}
+	catch(const std::runtime_error &e)
+	{
+		std::cerr << RED << e.what() << '\n' << NORMAL;
+	}
 }
 
 
@@ -54,18 +61,12 @@ int main(void)
 		
 		std::cout << "\n";
 		//test
-		try
-		{
-			test_func(72, vec);
-			test_func(10000, vec);
-			test_func(-1, vec);
-			test_func(0, vec);
-			test_func(2147483647, vec);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+	
+		test_func(72, vec);
+		test_func(10000, vec);
+		test_func(-1, vec);
+		test_func(0, vec);
+		test_func(2147483647, vec);
 		std::cout << "\n";
 		
 		std::cout << YELLOW << "----- Test case (  list  ) list_size = 10 -----" << NORMAL <<std::endl;
@@ -80,19 +81,10 @@ int main(void)
 		std::cout << "\n";
 
 		//test
-		try
-		{
-			test_func(16, list);
-			test_func(1024 , list);
-			test_func(-1, list);
-			test_func(0, list);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		
-
+		test_func(16, list);
+		test_func(1024 , list);
+		test_func(-1, list);
+		test_func(0, list);
 		std::cout << "\n";
 
 	
@@ -108,33 +100,20 @@ int main(void)
 		std::cout << "\n";
 
 		//test
-		try
-		{
-			test_func(11, deq);
-			test_func(2147483647 , deq);
-			test_func(-1, deq);
-			test_func(0, deq);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		
+		test_func(11, deq);
+		test_func(2147483647 , deq);
+		test_func(-1, deq);
+		test_func(0, deq);
 	}
 	{
 		std::cout << YELLOW << "----- Test case (  vector  ) array_size = 0 -----" << NORMAL <<std::endl;
 		std::vector<int> vec(0);
+		// print_data(vec);
 		std::cout << "\n";
-		try
-		{
-			test_func(72, vec);
-			test_func(10000, vec);
-			test_func(-1, vec);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		
+		test_func(72, vec);
+		test_func(10000, vec);
+		test_func(-1, vec);
 	}
 	{
 		std::cout << YELLOW << "----- Test case (  list  ) list_size = 2147483648 -----" << NORMAL <<std::endl;
@@ -142,15 +121,9 @@ int main(void)
 		for (size_t i = 0; i < 20000; i++)
 			list.push_back(i * 1);
 		std::cout << "\n";
-		try
-		{
-			test_func(72, list);
-			test_func(10000, list);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		
+		test_func(72, list);
+		test_func(10000, list);
 		
 	}
 	std::cout << '\n'<<std::endl;

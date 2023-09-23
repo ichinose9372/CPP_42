@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 18:32:36 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/22 13:39:24 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/23 11:36:10 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 // return iterator が正解　かもしれない
 
 template <typename T>
-typename T::const_iterator easyfind(const T& container, int num)
+typename T::iterator easyfind(T& container, int num)
 {
 	//iterator 
-	typename T::const_iterator it = std::find(container.begin(), container.end(), num);
+	typename T::iterator it = std::find(container.begin(), container.end(), num);
 	if (it == container.end())
 		throw std::runtime_error("not found");
 	return it;

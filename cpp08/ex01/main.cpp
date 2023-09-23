@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:59:00 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/22 14:48:56 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/23 11:56:15 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(void)
     	}
 	}
 	{
-		std::cout << YELLOW << "\n--------- invalid input (string) -----------\n\n" << NORMAL;
+		std::cout << YELLOW << "\n--------- input char  -----------\n\n" << NORMAL;
 		Span sp(5);
 		try
 		{
