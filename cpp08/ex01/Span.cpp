@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:38:39 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/23 12:00:10 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/09/24 10:08:11 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Span::Span(unsigned int size) : size(size)
 
 Span::Span(const Span &other)
 {
-	data = other.data;
+	*this = other;
 }
 
 Span& Span::operator=(const Span &other)
