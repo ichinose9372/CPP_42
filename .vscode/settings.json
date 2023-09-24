@@ -69,6 +69,12 @@
 		"random": "cpp",
 		"__tree": "cpp",
 		"list": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"__bits": "cpp",
+		"__verbose_abort": "cpp",
+		"clocale": "cpp",
+		"variant": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp"
 	}
 }
