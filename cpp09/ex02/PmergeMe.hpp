@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/24 12:31:54 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/29 15:56:51 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ class PmergeMe
 		std::vector<unsigned int> sorted_vector_data;
 		std::list<std::pair<unsigned int, unsigned int> > list_pair;
 		std::vector<std::pair<unsigned int, unsigned int> > vector_pair;
-	public:
 		PmergeMe();
+	public:
 		PmergeMe(const PmergeMe &other);
 		PmergeMe &operator=(const PmergeMe &other);
 		~PmergeMe();

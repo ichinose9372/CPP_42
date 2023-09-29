@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/24 12:49:00 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/09/29 15:58:38 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void PmergeMe::merge_insert_sort_list(std::list<unsigned int> &list)
 	// Base case: If the list size is small, consider it sorted.
     
 }
+
 void PmergeMe::sort(void)
 {
 	merge_insert_sort_list(list_data);
