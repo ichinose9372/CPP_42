@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/29 15:56:51 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/01 17:05:23 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 #include <list>
 #include <vector>
 #include <exception>
+#include <algorithm>
+#include <ctime>
+#include <iomanip>
+
 
 class PmergeMe
 {
@@ -41,8 +45,12 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &other);
 		~PmergeMe();
 		PmergeMe(char **argv);
-		void print_data(void);
 		void sort(void);
-		void merge_insert_sort_list(std::list<unsigned int> &list);
+		double merge_insert_sort_list(std::list<unsigned int> &list);
+		double merge_insert_sort_vector(std::vector<unsigned int> &vector);
+		void insert_sort_list(std::list<std::pair<unsigned int, unsigned int> >::reverse_iterator it);	
+		void insert_sort_vector(std::vector<std::pair<unsigned int, unsigned int> >::reverse_iterator it);	
+		void print_before(void);
+		void print_after(void);
 };
 #endif
