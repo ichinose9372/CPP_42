@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:11 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/11 16:22:34 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/02 12:19:34 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,7 @@ bool BitcoinExchange::init_csv_data(std::ifstream &ifs)
         std::string price;
         std::getline(stream, date, ',');
         std::getline(stream, price, '\n');
-        try
-        {
-            btc_data[date] = std::stod(price);
-        }
-        catch(const std::out_of_range)
-        {
-            std::cerr << "Error: out of range." << std::endl;
-            return false;
-        }
+        std::istringstream(price) >> btc_data[date];
     }
     return true;
 }
@@ -73,9 +65,10 @@ void BitcoinExchange::print_price(std::ifstream &ifs)
         std::string date;
         std::string count;
         std::getline(stream, date, '|');
-        std::getline(stream, count, '\n');  
-        double cnt = std::stod(count);
-        if (!this->varid(date, cnt))
+        std::getline(stream, count, '\n');
+        double cnt;
+        std::istringstream(count) >> cnt;
+        if (!varidate(date, cnt))
             continue;
         if (serch_price(date, cnt) < 0)
            continue;
@@ -84,38 +77,93 @@ void BitcoinExchange::print_price(std::ifstream &ifs)
     }
 }
 
-bool BitcoinExchange::varid(std::string data, double count)
+bool BitcoinExchange::varidate(std::string date, double cnt)
 {
-    if (count < 0)
+    if (!date_check(date))
+    {
+        std::cout << "Error: bad input => " << date <<std::endl;
+        return false;
+    }
+    if (cnt < 0)
     {
         std::cout << "Error: not a positive number." << std::endl;
         return false;
     }
-    if (count > INT_MAX)
+    if (cnt > 1000)
     {
         std::cout << "Error: too large a number." << std::endl;
         return false;
-    }
-    (void) data;
-    // if (this->data_check(data))
-    // {
-    //     std::count << "Error : bad input => " << data << std::endl;
-    // }
+    } 
+    
     return true;
 }
 
 
 double BitcoinExchange::serch_price(std::string date, double &cnt)
 {
-    
-    std::map<std::string, double>::iterator it = this->btc_data.lower_bound(date);
+    std::map<std::string, double>::iterator it = btc_data.lower_bound(date);
     if (it != btc_data.begin()) 
-        {
-            --it;
-            double bitcoin_price = it->second;
-            double result = bitcoin_price * cnt;
-            return (result);
-        } 
+    {
+        --it;
+        double bitcoin_price = it->second;
+        double result = bitcoin_price * cnt;
+        return (result);
+    } 
     else 
         return -1;   
+}
+
+bool BitcoinExchange::date_check(std::string date)
+{
+    //もし無効な日付であればfalseを返す
+    if (date.length() != 11)
+        return false;
+    for (int i = 0; i < 10; i++)
+	{
+		if (i == 4 || i == 7)
+		{
+			if (date[i] != '-' || date[i] != '-')
+            {
+				return false;
+            }
+		}
+		else
+		{
+			if (!std::isdigit(date[i]))
+				return false;
+		}
+	}
+    int year, month, day;
+	std::istringstream issYear(date.substr(0, 4));
+	std::istringstream issMonth(date.substr(5, 2));
+	std::istringstream issDay(date.substr(8, 2));
+    issYear >> year;
+    issMonth >> month;
+    issDay >> day;
+    if (year < 2000 || year > 2021)
+        return false;
+    if (month < 1 || month > 12)
+        return false;
+    if (day < 1 || day > 31)
+        return false;
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+    {
+        if (day > 30)
+            return false;
+    }
+    if ((month == 2) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
+    {
+        
+        if (year % 4 == 0)
+        {
+            if (day > 29)
+                return false;
+        }
+        else
+        {
+            if (day > 28)
+                return false;
+        }
+    }
+    return true;
 }

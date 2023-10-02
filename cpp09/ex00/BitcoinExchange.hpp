@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:15:41 by yichinos          #+#    #+#             */
-/*   Updated: 2023/09/11 16:03:44 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/02 11:37:18 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ class BitcoinExchange
         ~BitcoinExchange();
         bool init_csv_data(std::ifstream &ifs);
         void print_price(std::ifstream &ifs);
-        bool varid(std::string data, double count);
+        bool varidate(std::string date, double cnt);
         double serch_price(std::string date, double &cnt);
+        bool date_check(std::string date);
     private:
         std::map <std::string, double> btc_data;
 };
