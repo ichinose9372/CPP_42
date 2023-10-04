@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:51:15 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/03 19:16:07 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:20:39 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void test_func(std::string test_string)
 		RPN test_RPN(test_string);
 		std::cout << "\n";
 	}
-	catch (const std::invalid_argument &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << RED << e.what() << NORMAL << std::endl;
 	}
@@ -55,4 +55,7 @@ int main(void)
 	test_func("8 9 * 9 - 9 - 9 - 4 - 1 +");
 	test_func("7 7 * 7 -");
 	test_func("0.1 1 9 - +");
+	test_func("10 8 -");
+	test_func("1 1 1 1 1 - - 1 1 1* * / + / -");
+	test_func("2 0 /");
 }

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:36:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/03 19:17:26 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:12:31 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,8 @@ class RPN
 		RPN(std::string literal);
 		RPN& operator=(const RPN &other);
 		~RPN();
-		class My_exception : public std::exception
-		{
-			virtual const char * what() const throw();				
-		};
-		
 	private:
-		std::stack<unsigned int> data;
+		std::stack<int> data;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:48:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/04 11:33:47 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:22:35 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,38 @@
 
 RPN::RPN(){}
 
-int calucration(int num1, int num2, std::string &token)
+int calucration(int num1, int num2, char token)
 {
-	if (token[0] == '+' )
+	long long result;
+
+	switch (token)
 	{
-		return (num2 + num1);
+		case '+':
+			result = static_cast<long long>(num2) + static_cast<long long>(num1);
+			break;
+		case '-':
+			 result = static_cast<long long>(num2) - static_cast<long long>(num1);
+			break;
+		case '*':
+			 result = static_cast<long long>(num2) * static_cast<long long>(num1);
+			break;
+		case '/':
+			if (num1 != 0)
+				 result = static_cast<long long>(num2) / static_cast<long long>(num1);
+			else
+				throw std::invalid_argument("Division by Zero");
+			break;
+		default:
+			throw std::invalid_argument("Invalid operator");
 	}
-	else if (token[0] == '-')
-	{
-		return (num2 - num1);
-	}
-	else if (token[0] == '*')
-	{
-		return (num2 * num1);
-	}
-	else
-	{
-		if (num1 != 0)
-			return (num2 / num1);
-		else
-			throw std::invalid_argument("Division by Zero");
-	}
+	if (result > INT_MAX)
+		throw std::overflow_error(" overflow ");
+	else if (result < INT_MIN)
+		throw std::underflow_error(" underflow");
+	else 
+		return static_cast<int>(result);
 }
+
 
 RPN::RPN(std::string literal)
 {
@@ -43,38 +53,32 @@ RPN::RPN(std::string literal)
 	std::string token;
 	while (std::getline(stream, token, ' '))
 	{
-		if (isdigit(token[0]) || (token[0] == '-' && token.length() > 1 && isdigit(token[1]))) 
+		for (size_t i = 0; token[i]; i++)
 		{
-			data.push(std::stoi(token));
-		} 	
-		else if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/')
+			if (token[i] == '.')
+				throw std::invalid_argument(" not integer \n");
+			else if (token[i] == '(' || token[i] == ')')
+				throw std::invalid_argument("Error \n");
+		}
+		if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/')
 		{
 			int num1 = data.top();
 			data.pop();
 			int num2 = data.top();
 			data.pop();
-			try
-			{
-				data.push(calucration(num1, num2, token));
-			}
-			catch(const std::invalid_argument& e)
-			{
-				while (!data.empty()) 
-				{
-					data.pop();
-				}
-				throw std::invalid_argument("Invaid argument ( Devion by Zero )\n");
-			}
+			data.push(calucration(num1, num2, token[0]));
 		}
-		else if (token [0] == '(' || token[0] == '(' || token[1] == ')' || token[1] == ')') 
+		else 
 		{
-			throw std::invalid_argument("Invalid argument \n");
+			int num;
+			std::istringstream(token) >> num;
+			if (num >= 10)
+				throw std::invalid_argument(" over 10 \n");
+			data.push(num);
 		}
 	}
 	if (data.size() > 1) 
-	{
-		std::cout << "Error:  " << data.size() << std::endl;
-	}
+		throw std::length_error("data_size over \n");
 	else 
 	{
 		std::cout << data.top() << std::endl;
@@ -97,7 +101,3 @@ RPN& RPN::operator=(const RPN &other)
 
 RPN::~RPN(){}
 
-
-const char* RPN::My_exception::what() const throw() {
-	return "ERROR : Devion by zero";
-}
