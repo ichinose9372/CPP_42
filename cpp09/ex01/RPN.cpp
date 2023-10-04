@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:48:07 by ichinoseyuu       #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/10/02 10:24:43 by ichinoseyuu      ###   ########.fr       */
-=======
-/*   Updated: 2023/10/03 19:25:35 by yichinos         ###   ########.fr       */
->>>>>>> refs/remotes/origin/master
+/*   Updated: 2023/10/04 11:33:47 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
