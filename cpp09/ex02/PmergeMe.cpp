@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/01 17:20:41 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/03 19:38:11 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void PmergeMe::insert_sort_vector(std::vector<std::pair<unsigned int, unsigned i
 	}
 	else
 	{
-		if (sorted_vector_data.empty() ||it->second > sorted_vector_data.back())
+		if (sorted_vector_data.empty() || it->second > sorted_vector_data.back())
 		{
 			sorted_vector_data.push_back(it->second);
 			sorted_vector_data.insert(sorted_vector_data.begin(), it->first);
@@ -249,8 +249,8 @@ void PmergeMe::sort(void)
 	time_list = merge_insert_sort_list(list_data);
 	time_vector = merge_insert_sort_vector(vector_data);
 	print_after();
-	std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[..] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
-	std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[..] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
+	std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
+	std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
 	
 	
 	//time check

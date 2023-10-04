@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:36:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/15 15:22:38 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:17:26 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class RPN
 		};
 		
 	private:
-		std::stack<int> data;
+		std::stack<unsigned int> data;
 };
 
 #endif
