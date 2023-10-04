@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:48:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/09/15 15:19:25 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:24:43 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ RPN::RPN(std::string literal)
 	}
 }
 
-RPN::RPN(const RPN &other) : data(other.data){}
+RPN::RPN(const RPN &other) 
+{
+	*this = other;
+}
 
 RPN& RPN::operator=(const RPN &other)
 {
