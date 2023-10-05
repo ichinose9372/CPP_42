@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/03 19:38:11 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:54:40 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &other)
 
 void PmergeMe::print_before(void)
 {
-	std::vector<unsigned int>::iterator it = vector_data.begin();
+	std::vector<int>::iterator it = vector_data.begin();
 	std::cout << "Beforr: ";
 	while (it != vector_data.end())
 	{
@@ -42,11 +42,14 @@ void PmergeMe::print_before(void)
 
 void PmergeMe::print_after(void)
 {
-	std::vector<unsigned int>::iterator it = sorted_vector_data.begin();
+	std::list<int>::iterator it = sorted_list_data.begin();
 	std::cout << "After:  ";
-	while (it != sorted_vector_data.end())
+	while (it != sorted_list_data.end())
 	{
-		std::cout << *it << " ";
+		if (*it >= 0)
+		{
+			std::cout << *it << " ";
+		}
 		it++;
 	}
 	std::cout << std::endl;
@@ -68,31 +71,32 @@ PmergeMe::PmergeMe(char **argv)
 			throw std::invalid_argument("Error");
 		}
 	}
-
 }
 
 
-double PmergeMe::merge_insert_sort_list(std::list<unsigned int> &list)
+double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 {
 	//make pair
-    std::list<unsigned int>::iterator it = list.begin();
+    std::list<int>::iterator it = list.begin();
     while (it != list.end()) 
 	{
-        unsigned int element1 = *it;
+        int element1 = *it;
         ++it;
         if (it != list.end())
 		{
-            unsigned int element2 = *it;
+            int element2 = *it;
             list_pair.push_back(std::make_pair(element1, element2));
             ++it;
         } 
 		else
-			sorted_list_data.push_back(element1);
+		{
+			list_pair.push_back(std::make_pair(element1, -1));
+		}
     }
 	
 	std::clock_t start = clock();
 	//swap
-	std::list<std::pair<unsigned int, unsigned int> >::iterator it2 = list_pair.begin();
+	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
 	for(; it2 != list_pair.end(); it2++)
 	{
 		if (it2->first > it2->second)
@@ -107,77 +111,56 @@ double PmergeMe::merge_insert_sort_list(std::list<unsigned int> &list)
 	
 	// sort
 	list_pair.sort();
-	insert_sort_list(list_pair.rbegin());	
+	insert_sort_list();	
 	std::clock_t end = clock();
 	return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
 }
 
 
-void PmergeMe::insert_sort_list(std::list<std::pair<unsigned int, unsigned int> >::reverse_iterator it)
+void PmergeMe::insert_sort_list(void)
 {
-	// std::cout << "insert_sort_list" << std::endl;
-	if (it == list_pair.rend())
+	if (sorted_list_data.empty())
 	{
-		return ;
+		sorted_list_data.push_front(list_pair.front().second);
+		// std::cout << "sorted_  = " << list_pair.front().second << std::endl;
+		list_pair.pop_front();	
+		// std::cout << "after pop = " << list_pair.front().first << " " << list_pair.front().second << std::endl;
 	}
-	else
+	for(std::list<std::pair<int, int> >::iterator it = list_pair.begin(); it != list_pair.end(); ++it)
 	{
-		if (it->second > sorted_list_data.back())
-		{
-			sorted_list_data.push_back(it->second);
-			sorted_list_data.push_front(it->first);
-			it++;
-			insert_sort_list(it);
-		}
-		else 
-		{
-			if (it->second > sorted_list_data.front())
-			{
-				std::list<unsigned int>::iterator it2 = sorted_list_data.begin();
-			 	while (it2 != sorted_list_data.end())
-            	{
-	
-                	if (it->second < *it2)
-                	{
-                    	sorted_list_data.insert(it2, it->second);
-                    	break;
-                	}
-					it2++;
-            	}
-			}
-			else 
-			{
-				sorted_list_data.push_front(it->second);
-			}
-			sorted_list_data.push_front(it->first);
-			it++;
-			insert_sort_list(it);	
-		}
+		// std::cout << "in for loop it = " << it->first << " " << it->second << std::endl;
+		std::list<int>::iterator itSorted;
 		
+		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->first);
+		sorted_list_data.insert(itSorted++, it->first);
+		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->second);
+		sorted_list_data.insert(itSorted++, it->second);
 	}
 }
 
 
-double PmergeMe::merge_insert_sort_vector(std::vector<unsigned int> &vector)
+double PmergeMe::merge_insert_sort_vector(std::vector<int> &vector)
 {
 	//make pair
-    std::vector<unsigned int>::iterator it = vector.begin();
+    std::vector<int>::iterator it = vector.begin();
     while (it != vector.end()) 
 	{
-        unsigned int element1 = *it;
+        int element1 = *it;
         ++it;
         if (it != vector.end())
 		{
-            unsigned int element2 = *it;
+            int element2 = *it;
             vector_pair.push_back(std::make_pair(element1, element2));
             ++it;
         } 
 		else
-			sorted_vector_data.push_back(element1);
+		{
+			vector_pair.push_back(std::make_pair(element1, -1));
+		}	
     }
 	//swap
 	std::clock_t start = clock();
-	std::vector<std::pair<unsigned int, unsigned int> >::iterator it2 =vector_pair.begin();
+	std::vector<std::pair<int, int> >::iterator it2 =vector_pair.begin();
 	for(; it2 != vector_pair.end(); it2++)
 	{
 		if (it2->first > it2->second)
@@ -191,50 +174,26 @@ double PmergeMe::merge_insert_sort_vector(std::vector<unsigned int> &vector)
 	}	
 	// sort　paire vector
 	std::sort(vector_pair.begin(), vector_pair.end());
-	insert_sort_vector(vector_pair.rbegin());	
+	insert_sort_vector();	
 	std::clock_t end = clock();
 	return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
 }
 
-void PmergeMe::insert_sort_vector(std::vector<std::pair<unsigned int, unsigned int> >::reverse_iterator it)
+void PmergeMe::insert_sort_vector(void)
 {
-	if (it == vector_pair.rend())
+	if (sorted_vector_data.empty())
 	{
-		return ;
+		sorted_vector_data.push_back(vector_pair.front().second);
+		vector_pair.erase(vector_pair.begin());	
 	}
-	else
+	for(std::vector<std::pair<int, int> >::iterator it = vector_pair.begin(); it != vector_pair.end(); ++it)
 	{
-		if (sorted_vector_data.empty() || it->second > sorted_vector_data.back())
-		{
-			sorted_vector_data.push_back(it->second);
-			sorted_vector_data.insert(sorted_vector_data.begin(), it->first);
-			it++;
-			insert_sort_vector(it);
-		}
-		else 
-		{
-			if (it->second > sorted_vector_data.front())
-			{
-				std::vector<unsigned int>::iterator it2 = sorted_vector_data.begin();
-			 	while (it2 != sorted_vector_data.end())
-            	{
-	
-                	if (it->second < *it2)
-                	{
-                    	sorted_vector_data.insert(it2, it->second);
-                    	break;
-                	}
-					it2++;
-            	}
-			}
-			else 
-			{
-				sorted_vector_data.insert(sorted_vector_data.begin(), it->second);
-			}
-			sorted_vector_data.insert(sorted_vector_data.begin(), it->first);	
-			it++;
-			insert_sort_vector(it);	
-		}
+		std::vector<int>::iterator itSorted;
+		
+		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->first);
+		sorted_vector_data.insert(itSorted, it->first);
+		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->second);
+		sorted_vector_data.insert(itSorted, it->second);
 	}
 }
 
