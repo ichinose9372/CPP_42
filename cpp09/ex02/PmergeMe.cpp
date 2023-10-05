@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/05 15:54:40 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/05 17:31:44 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,22 @@ PmergeMe::PmergeMe(char **argv)
 double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 {
 	//make pair
-    std::list<int>::iterator it = list.begin();
-    while (it != list.end()) 
+	std::list<int>::iterator it = list.begin();
+	while (it != list.end()) 
 	{
-        int element1 = *it;
-        ++it;
-        if (it != list.end())
+		int element1 = *it;
+		++it;
+		if (it != list.end())
 		{
-            int element2 = *it;
-            list_pair.push_back(std::make_pair(element1, element2));
-            ++it;
-        } 
+			int element2 = *it;
+			list_pair.push_back(std::make_pair(element1, element2));
+			++it;
+		} 
 		else
 		{
 			list_pair.push_back(std::make_pair(element1, -1));
 		}
-    }
-	
+	}
 	std::clock_t start = clock();
 	//swap
 	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
@@ -101,9 +100,7 @@ double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 	{
 		if (it2->first > it2->second)
 		{
-			int tmp = it2->first;
-			it2->first = it2->second;
-			it2->second = tmp;
+			std::swap(it2->first, it2->second);
 		}
 		else if (it2->second == 0)
 			continue;
@@ -122,15 +119,13 @@ void PmergeMe::insert_sort_list(void)
 	if (sorted_list_data.empty())
 	{
 		sorted_list_data.push_front(list_pair.front().second);
-		// std::cout << "sorted_  = " << list_pair.front().second << std::endl;
+		sorted_list_data.push_front(list_pair.front().first);
+
 		list_pair.pop_front();	
-		// std::cout << "after pop = " << list_pair.front().first << " " << list_pair.front().second << std::endl;
 	}
 	for(std::list<std::pair<int, int> >::iterator it = list_pair.begin(); it != list_pair.end(); ++it)
 	{
-		// std::cout << "in for loop it = " << it->first << " " << it->second << std::endl;
 		std::list<int>::iterator itSorted;
-		
 		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->first);
 		sorted_list_data.insert(itSorted++, it->first);
 		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->second);
@@ -142,22 +137,22 @@ void PmergeMe::insert_sort_list(void)
 double PmergeMe::merge_insert_sort_vector(std::vector<int> &vector)
 {
 	//make pair
-    std::vector<int>::iterator it = vector.begin();
-    while (it != vector.end()) 
+	std::vector<int>::iterator it = vector.begin();
+	while (it != vector.end()) 
 	{
-        int element1 = *it;
-        ++it;
-        if (it != vector.end())
+		int element1 = *it;
+		++it;
+		if (it != vector.end())
 		{
-            int element2 = *it;
-            vector_pair.push_back(std::make_pair(element1, element2));
-            ++it;
-        } 
+			int element2 = *it;
+			vector_pair.push_back(std::make_pair(element1, element2));
+			++it;
+		} 
 		else
 		{
 			vector_pair.push_back(std::make_pair(element1, -1));
 		}	
-    }
+	}
 	//swap
 	std::clock_t start = clock();
 	std::vector<std::pair<int, int> >::iterator it2 =vector_pair.begin();
@@ -165,9 +160,7 @@ double PmergeMe::merge_insert_sort_vector(std::vector<int> &vector)
 	{
 		if (it2->first > it2->second)
 		{
-			int tmp = it2->first;
-			it2->first = it2->second;
-			it2->second = tmp;
+			std::swap(it2->first, it2->second);
 		}
 		else if (it2->second == 0)
 			continue;
@@ -184,12 +177,12 @@ void PmergeMe::insert_sort_vector(void)
 	if (sorted_vector_data.empty())
 	{
 		sorted_vector_data.push_back(vector_pair.front().second);
+		sorted_vector_data.insert(sorted_vector_data.begin(),vector_pair.front().first);
 		vector_pair.erase(vector_pair.begin());	
 	}
 	for(std::vector<std::pair<int, int> >::iterator it = vector_pair.begin(); it != vector_pair.end(); ++it)
 	{
 		std::vector<int>::iterator itSorted;
-		
 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->first);
 		sorted_vector_data.insert(itSorted, it->first);
 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->second);

@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:48:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/04 13:22:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:25:33 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int calucration(int num1, int num2, char token)
 		return static_cast<int>(result);
 }
 
-
 RPN::RPN(std::string literal)
 {
 	std::istringstream stream(literal);
 	std::string token;
+	
 	while (std::getline(stream, token, ' '))
 	{
 		for (size_t i = 0; token[i]; i++)
@@ -58,10 +58,14 @@ RPN::RPN(std::string literal)
 			if (token[i] == '.')
 				throw std::invalid_argument(" not integer \n");
 			else if (token[i] == '(' || token[i] == ')')
-				throw std::invalid_argument("Error \n");
+				throw std::invalid_argument(" ( )\n");
+			else if (token[i] == '-' && token[i + 1] && token[i + 1] >= '0' && token[i + 1] <= '9')
+				throw std::invalid_argument("not positive integer\n");
 		}
 		if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/')
 		{
+			if (data.size() < 2)
+				throw std::invalid_argument("end is integer\n");
 			int num1 = data.top();
 			data.pop();
 			int num2 = data.top();
