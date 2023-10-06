@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:11 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/04 11:13:06 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:45:54 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,16 +154,13 @@ bool BitcoinExchange::date_check(std::string date)
 	}
 	if ((month == 2) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
 	{
-		if (year % 4 == 0)
-		{
-			if (day > 29)
-				return false;
-		}
-		else
-		{
-			if (day > 28)
-				return false;
-		}
+		if (day > 29)
+			return false;	
+	}
+	else
+	{
+		if (day > 28)
+			return false;
 	}
 	return true;
 }
