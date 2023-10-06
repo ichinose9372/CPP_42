@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:48:07 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/05 17:25:33 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:19:15 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,16 @@ int calucration(int num1, int num2, char token)
 
 RPN::RPN(std::string literal)
 {
-	std::istringstream stream(literal);
-	std::string token;
+	if (literal.empty())
+		throw std::invalid_argument("empty\n");
 	
+	// std::cout << "test" << std::endl;
+	std::istringstream stream(literal);
+	// std::cout << "test" << std::endl;
+	std::string token;
 	while (std::getline(stream, token, ' '))
 	{
+	// std::cout << "test" << std::endl;
 		for (size_t i = 0; token[i]; i++)
 		{
 			if (token[i] == '.')
@@ -64,6 +69,8 @@ RPN::RPN(std::string literal)
 		}
 		if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/')
 		{
+			if (token.size() > 1)
+				throw std::invalid_argument(" invalid argument ");
 			if (data.size() < 2)
 				throw std::invalid_argument("end is integer\n");
 			int num1 = data.top();

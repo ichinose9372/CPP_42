@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:51:15 by ichinoseyuu       #+#    #+#             */
-/*   Updated: 2023/10/05 17:25:42 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:49:02 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 	{
 		RPN rpn(literal);
 	}
-	catch (const std::invalid_argument &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Error: " <<e.what();
 	}
