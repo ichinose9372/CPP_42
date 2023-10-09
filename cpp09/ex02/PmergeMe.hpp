@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
+/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 14:58:35 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/09 15:13:53 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ class PmergeMe
 		void list_make_pair(void);
 		
 		template <typename T> 
-		void list_make_pairtopair(std::list<std::pair<T, T> > &pairlist)
+		void list_make_pairtopair(std::list<std::pair<T, T> > &pairlist, size_t size)
 		{
-			if (pairlist.size() < 2)
+			std::cout << size << std::endl;
+			if (size < 2)
 				return ;
 			else
 			{
@@ -67,13 +68,10 @@ class PmergeMe
 						++it;
 						tmplist.push_back(std::make_pair(tmp_pair1, tmp_pair2));
 					}
-					else
-					{
-						break ;
-					}
 				}
 				std::cout << tmplist.size() << std::endl;
-				// list_make_pairtopair(tmplist);
+				// list_make_pairtopair(tmplist, tmplist.size());
+				list_make_pairtopair(tmplist, tmplist.size());
 			}	
 		}
 		
