@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 13:07:23 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:34:46 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void PmergeMe::list_make_pair(void)
 			list_pair.push_back(std::make_pair(element1, -1));
 		}
 	}
-	std::cout << "ended @@@ \n";
 }
 // double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 // {

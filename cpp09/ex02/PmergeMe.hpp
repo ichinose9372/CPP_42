@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 14:08:35 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:58:35 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class PmergeMe
 		PmergeMe(char **argv);
 		void sort(void);
 		void list_make_pair(void);
+		
 		template <typename T> 
 		void list_make_pairtopair(std::list<std::pair<T, T> > &pairlist)
 		{
@@ -66,10 +67,16 @@ class PmergeMe
 						++it;
 						tmplist.push_back(std::make_pair(tmp_pair1, tmp_pair2));
 					}
+					else
+					{
+						break ;
+					}
 				}
-			}
-			
+				std::cout << tmplist.size() << std::endl;
+				// list_make_pairtopair(tmplist);
+			}	
 		}
+		
 		double merge_insert_sort_vector(std::vector<int> &vector);
 		void insert_sort_list(void);	
 		void insert_sort_vector(void);	
