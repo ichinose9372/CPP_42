@@ -6,7 +6,7 @@
 /*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/05 17:31:44 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:07:23 by yichinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,14 @@ PmergeMe::PmergeMe(char **argv)
 }
 
 
-double PmergeMe::merge_insert_sort_list(std::list<int> &list)
+void PmergeMe::list_make_pair(void)
 {
-	//make pair
-	std::list<int>::iterator it = list.begin();
-	while (it != list.end()) 
+	std::list<int>::iterator it = list_data.begin();
+	while (it != list_data.end()) 
 	{
 		int element1 = *it;
 		++it;
-		if (it != list.end())
+		if (it != list_data.end())
 		{
 			int element2 = *it;
 			list_pair.push_back(std::make_pair(element1, element2));
@@ -93,25 +92,46 @@ double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 			list_pair.push_back(std::make_pair(element1, -1));
 		}
 	}
-	std::clock_t start = clock();
-	//swap
-	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
-	for(; it2 != list_pair.end(); it2++)
-	{
-		if (it2->first > it2->second)
-		{
-			std::swap(it2->first, it2->second);
-		}
-		else if (it2->second == 0)
-			continue;
-	}
+	std::cout << "ended @@@ \n";
+}
+// double PmergeMe::merge_insert_sort_list(std::list<int> &list)
+// {
+// 	//make pair
+// 	std::list<int>::iterator it = list.begin();
+// 	while (it != list.end()) 
+// 	{
+// 		int element1 = *it;
+// 		++it;
+// 		if (it != list.end())
+// 		{
+// 			int element2 = *it;
+// 			list_pair.push_back(std::make_pair(element1, element2));
+// 			++it;
+// 		} 
+// 		else
+// 		{
+// 			list_pair.push_back(std::make_pair(element1, -1));
+// 		}
+// 	}
+// 	std::clock_t start = clock();
+// 	//swap
+// 	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
+// 	for(; it2 != list_pair.end(); it2++)
+// 	{
+// 		if (it2->first > it2->second)
+// 		{
+// 			std::swap(it2->first, it2->second);
+// 		}
+// 		else if (it2->second == 0)
+// 			continue;
+// 	}
 	
 	// sort
-	list_pair.sort();
-	insert_sort_list();	
-	std::clock_t end = clock();
-	return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
-}
+	// list_pair.sort();
+	// insert_sort_list();	
+	// std::clock_t end = clock();
+	// return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
+// }
 
 
 void PmergeMe::insert_sort_list(void)
@@ -194,18 +214,19 @@ void PmergeMe::insert_sort_vector(void)
 
 void PmergeMe::sort(void)
 {
-	double time_list = 0;
-	double time_vector = 0;
+	// double time_list = 0;
+	// double time_vector = 0;
 	
-	print_before();	
-	time_list = merge_insert_sort_list(list_data);
-	time_vector = merge_insert_sort_vector(vector_data);
-	print_after();
-	std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
-	std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
-	
-	
-	//time check
+	// print_before();	
+	// // time_list = merge_insert_sort_list(list_data);
+	// // merge_insert_sort_list(list_data);
+	// // time_vector = merge_insert_sort_vector(vector_data);
+	// print_after();
+	// std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
+	// std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
+	// //time check
+	list_make_pair();
+	list_make_pairtopair(this->list_pair);
 }
 
 
