@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 15:13:53 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:44:55 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,35 +46,7 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe(char **argv);
 		void sort(void);
-		void list_make_pair(void);
-		
-		template <typename T> 
-		void list_make_pairtopair(std::list<std::pair<T, T> > &pairlist, size_t size)
-		{
-			std::cout << size << std::endl;
-			if (size < 2)
-				return ;
-			else
-			{
-				std::list<std::pair<std::pair<T, T> ,std::pair<T, T> > > tmplist;
-				typename std::list<std::pair<T, T> >::iterator it = pairlist.begin();
-				while (it != pairlist.end()) 
-				{
-					std::pair<T, T> tmp_pair1 = *it;
-					++it;
-					if (it != pairlist.end()) 
-					{
-						std::pair<T, T> tmp_pair2 = *it;
-						++it;
-						tmplist.push_back(std::make_pair(tmp_pair1, tmp_pair2));
-					}
-				}
-				std::cout << tmplist.size() << std::endl;
-				// list_make_pairtopair(tmplist, tmplist.size());
-				list_make_pairtopair(tmplist, tmplist.size());
-			}	
-		}
-		
+		double merge_insert_sort_list(std::list<int> &list);
 		double merge_insert_sort_vector(std::vector<int> &vector);
 		void insert_sort_list(void);	
 		void insert_sort_vector(void);	

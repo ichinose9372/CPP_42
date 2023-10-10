@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 15:05:29 by yichinos         ###   ########.fr       */
+/*   Updated: 2023/10/10 22:56:09 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,20 @@ PmergeMe::PmergeMe(char **argv)
 	}
 }
 
+bool descendingOrder(int a, int b) {
+    return a > b;
+}
 
-void PmergeMe::list_make_pair(void)
+
+double PmergeMe::merge_insert_sort_list(std::list<int> &list)
 {
-	std::list<int>::iterator it = list_data.begin();
-	while (it != list_data.end()) 
+	//make pair
+	std::list<int>::iterator it = list.begin();
+	while (it != list.end()) 
 	{
 		int element1 = *it;
 		++it;
-		if (it != list_data.end())
+		if (it != list.end())
 		{
 			int element2 = *it;
 			list_pair.push_back(std::make_pair(element1, element2));
@@ -92,64 +97,82 @@ void PmergeMe::list_make_pair(void)
 			list_pair.push_back(std::make_pair(element1, -1));
 		}
 	}
-}
-// double PmergeMe::merge_insert_sort_list(std::list<int> &list)
-// {
-// 	//make pair
-// 	std::list<int>::iterator it = list.begin();
-// 	while (it != list.end()) 
-// 	{
-// 		int element1 = *it;
-// 		++it;
-// 		if (it != list.end())
-// 		{
-// 			int element2 = *it;
-// 			list_pair.push_back(std::make_pair(element1, element2));
-// 			++it;
-// 		} 
-// 		else
-// 		{
-// 			list_pair.push_back(std::make_pair(element1, -1));
-// 		}
-// 	}
-// 	std::clock_t start = clock();
-// 	//swap
-// 	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
-// 	for(; it2 != list_pair.end(); it2++)
-// 	{
-// 		if (it2->first > it2->second)
-// 		{
-// 			std::swap(it2->first, it2->second);
-// 		}
-// 		else if (it2->second == 0)
-// 			continue;
-// 	}
+	std::clock_t start = clock();
+	//swap
+	std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
+	for(; it2 != list_pair.end(); it2++)
+	{
+		if (it2->first > it2->second)
+		{
+			std::swap(it2->first, it2->second);
+		}
+		else if (it2->second == 0)
+			continue;
+	}
 	
-	// sort
-	// list_pair.sort();
-	// insert_sort_list();	
-	// std::clock_t end = clock();
-	// return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
-// }
+	list_pair.sort();
+	insert_sort_list();	
+	std::clock_t end = clock();
+	return(static_cast<double>(end - start) / CLOCKS_PER_SEC);
+}
+
+int Jacobsthal(int n)
+{
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	return Jacobsthal(n - 1) + 2 * Jacobsthal(n - 2);
+}
 
 
 void PmergeMe::insert_sort_list(void)
 {
-	if (sorted_list_data.empty())
-	{
-		sorted_list_data.push_front(list_pair.front().second);
-		sorted_list_data.push_front(list_pair.front().first);
+	size_t pair_list_size = list_pair.size();
 
-		list_pair.pop_front();	
-	}
-	for(std::list<std::pair<int, int> >::iterator it = list_pair.begin(); it != list_pair.end(); ++it)
+	std::list<int> jacobList;
+
+	while (jacobList.size() < pair_list_size) 
 	{
-		std::list<int>::iterator itSorted;
-		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->first);
-		sorted_list_data.insert(itSorted++, it->first);
-		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it->second);
-		sorted_list_data.insert(itSorted++, it->second);
+        jacobList.push_back(Jacobsthal(jacobList.size()));
+    }
+	std::list<std::pair<int, int> >::iterator it = list_pair.begin();
+	for(; it != list_pair.end(); it++)
+	{
+		sorted_list_data.push_back(it->first);
 	}
+	std::list<int>::iterator itJacob = jacobList.begin();
+	std::list<std::pair<int, int> >::iterator itPair = list_pair.begin();
+	while (itJacob != jacobList.end())
+	{
+		int index = *itJacob;
+		// int prev_index = 0;	
+		for(int i = 0; i < index; i++)
+		{
+			itPair++;
+		}
+		itJacob++;
+	}
+	
+	//first is list_pair most bask input sorted list
+	// std::cout << list_pair.back().first <<  "     "  << list_pair.back().second << std::endl;
+	// sorted_list_data.push_back(list_pair.back().second);
+
+// std::vector<int>::iterator itSorted;
+// 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->first);
+// 		sorted_vector_data.insert(itSorted, it->first);
+// 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->second);
+// 		sorted_vector_data.insert(itSorted, it->second);
+
+
+	
+	std::list<int>::iterator it2 = sorted_list_data.begin();
+	for(; it2 != sorted_list_data.end(); it2++)
+	{
+		if (*it2 >= 0)
+			std::cout << *it2 << std::endl;
+	}
+	
+	
+	//Insert sort by order of Jacob number.
 }
 
 
@@ -218,14 +241,12 @@ void PmergeMe::sort(void)
 	
 	// print_before();	
 	// // time_list = merge_insert_sort_list(list_data);
-	// // merge_insert_sort_list(list_data);
+	merge_insert_sort_list(list_data);
 	// // time_vector = merge_insert_sort_vector(vector_data);
 	// print_after();
 	// std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
 	// std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
 	// //time check
-	list_make_pair();
-	list_make_pairtopair(this->list_pair, this->list_pair.size());
 }
 
 
