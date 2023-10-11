@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/10 22:56:09 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/11 15:52:33 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,53 +126,76 @@ int Jacobsthal(int n)
 
 void PmergeMe::insert_sort_list(void)
 {
-	size_t pair_list_size = list_pair.size();
-
-	std::list<int> jacobList;
-
-	while (jacobList.size() < pair_list_size) 
-	{
-        jacobList.push_back(Jacobsthal(jacobList.size()));
-    }
 	std::list<std::pair<int, int> >::iterator it = list_pair.begin();
 	for(; it != list_pair.end(); it++)
 	{
 		sorted_list_data.push_back(it->first);
 	}
-	std::list<int>::iterator itJacob = jacobList.begin();
-	std::list<std::pair<int, int> >::iterator itPair = list_pair.begin();
-	while (itJacob != jacobList.end())
+	std::list <int> jacobNumbers;
+	while (jacobNumbers.size() <= list_pair.size())
 	{
-		int index = *itJacob;
-		// int prev_index = 0;	
-		for(int i = 0; i < index; i++)
+		int jacobNumber = Jacobsthal(jacobNumbers.size());
+		jacobNumbers.push_back(jacobNumber);
+	}
+	if (list_pair.size() == 2)
+	{
+		jacobNumbers.back() = 2;
+	}
+	std::list <int> jacobList;
+	std::list <int>::iterator itJacob = jacobNumbers.begin();
+	int index;
+	int prev_index = 0;
+	while (itJacob != jacobNumbers.end())
+	{
+		index = *itJacob;
+		if (index == 0)
 		{
-			itPair++;
+			itJacob++;
+			continue;
 		}
+		if (index == 1 && prev_index == 1)
+		{
+			itJacob++;
+			continue;
+		}
+		jacobList.push_back(index);
+		while (jacobList.back() - 1 != prev_index)
+		{
+			jacobList.push_back(jacobList.back() - 1);
+		}	
+		prev_index = index;
 		itJacob++;
 	}
 	
-	//first is list_pair most bask input sorted list
-	// std::cout << list_pair.back().first <<  "     "  << list_pair.back().second << std::endl;
-	// sorted_list_data.push_back(list_pair.back().second);
-
-// std::vector<int>::iterator itSorted;
-// 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->first);
-// 		sorted_vector_data.insert(itSorted, it->first);
-// 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it->second);
-// 		sorted_vector_data.insert(itSorted, it->second);
+	std::list<int>::iterator itJacobList = jacobList.begin();
+	while(itJacobList != jacobList.end())
+	{
+		int index = *itJacobList;
+		std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
+		for(int i = 1; i < index; i++)
+		{
+			it2++;
+		}
+		std::list<int>::iterator itSorted;
+		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it2->second);
+		if (itSorted == end(sorted_list_data))
+			sorted_list_data.push_back(it2->second);
+		else if (itSorted == begin(sorted_list_data))
+			sorted_list_data.insert(itSorted, it2->second);
+		else if (*itSorted != it2->second)
+			sorted_list_data.insert(itSorted, it2->second);
+		itJacobList++;
+	}
 
 
 	
-	std::list<int>::iterator it2 = sorted_list_data.begin();
-	for(; it2 != sorted_list_data.end(); it2++)
+	std::list<int>::iterator it3 = sorted_list_data.begin();
+	for(; it3 != sorted_list_data.end(); it3++)
 	{
-		if (*it2 >= 0)
-			std::cout << *it2 << std::endl;
+		if (*it3 > 0)
+			std::cout << *it3 << "  ";
 	}
 	
-	
-	//Insert sort by order of Jacob number.
 }
 
 
