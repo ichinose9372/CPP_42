@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/11 17:28:37 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/12 13:16:43 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,34 +173,25 @@ void PmergeMe::insert_sort_list(void)
 	std::list<int>::iterator itJacobList = jacobList.begin();
 	while(itJacobList != jacobList.end())
 	{	
-		int index = *itJacobList;	
-		// std::cout << index << std::endl;
+		unsigned int index = *itJacobList;
+		if (index > list_pair.size())
+		{
+			itJacobList++;
+			continue ;
+		}
 		std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
-		for(int i = 1; i < index; i++)
+		for(unsigned int i = 1; i < index; i++)
 		{ 
 			it2++;
 		}
 		std::list<int>::iterator itSorted;
 		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it2->second);
-		if (itSorted == end(sorted_list_data))
+		if (itSorted == sorted_list_data.end())
 			sorted_list_data.push_back(it2->second);
-		else if (itSorted == begin(sorted_list_data))
+		else
 			sorted_list_data.insert(itSorted, it2->second);
-		else if (*itSorted != it2->second && it2->second != 0) 
-		{
-			std::cout << it2->second << std::endl;
-			sorted_list_data.insert(itSorted, it2->second);
-		}
 		itJacobList++;
 	}
-	
-	//print
-	// std::list<int>::iterator itSorted = sorted_list_data.begin();
-	// for (; itSorted != sorted_list_data.end(); itSorted++)
-	// {
-	// 	std::cout << *itSorted << " ";
-	// }
-	
 }
 
 
@@ -293,9 +284,14 @@ void PmergeMe::insert_sort_vector(void)
 	std::vector<int>::iterator itJacobList = jacobList.begin();
 	while(itJacobList != jacobList.end())
 	{
-		int index = *itJacobList;
+		unsigned int index = *itJacobList;
+		if (index > vector_pair.size())
+		{
+			itJacobList++;
+			continue ;
+		}
 		std::vector<std::pair<int, int> >::iterator it2 = vector_pair.begin();
-		for(int i = 1; i < index; i++)
+		for(unsigned int i = 1; i < index; i++)
 		{ 
 			it2++;
 		}
@@ -303,9 +299,7 @@ void PmergeMe::insert_sort_vector(void)
 		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it2->second);
 		if (itSorted == end(sorted_vector_data))
 			sorted_vector_data.push_back(it2->second);
-		else if (itSorted == begin(sorted_vector_data))
-			sorted_vector_data.insert(itSorted, it2->second);
-		else if (*itSorted != it2->second && it2->second != 0)
+		else
 			sorted_vector_data.insert(itSorted, it2->second);
 		itJacobList++;
 	}
