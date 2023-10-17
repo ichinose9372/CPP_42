@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/12 13:16:43 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/17 21:51:26 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,10 @@ void PmergeMe::insert_sort_list(void)
 	std::list<std::pair<int, int> >::iterator it = list_pair.begin();
 	for(; it != list_pair.end(); it++)
 	{
+		if (it->first == -1)
+		{
+			continue;
+		}
 		sorted_list_data.push_back(it->first);
 	}
 	std::list<int> jacobList = create_jacoblist(list_pair.size());
@@ -180,12 +184,16 @@ void PmergeMe::insert_sort_list(void)
 			continue ;
 		}
 		std::list<std::pair<int, int> >::iterator it2 = list_pair.begin();
+		std::list<int>::iterator itSorted = sorted_list_data.begin();
 		for(unsigned int i = 1; i < index; i++)
 		{ 
 			it2++;
+			itSorted++;
 		}
-		std::list<int>::iterator itSorted;
-		itSorted = std::lower_bound(sorted_list_data.begin(), sorted_list_data.end(), it2->second);
+		while (itSorted != sorted_list_data.end() && *itSorted < it2->second)
+		{
+			itSorted++;
+		}
 		if (itSorted == sorted_list_data.end())
 			sorted_list_data.push_back(it2->second);
 		else
@@ -278,6 +286,10 @@ void PmergeMe::insert_sort_vector(void)
 	std::vector<std::pair<int, int> >::iterator it = vector_pair.begin();
 	for(; it != vector_pair.end(); it++)
 	{
+		if (it->first == -1)
+		{
+			continue;
+		}
 		sorted_vector_data.push_back(it->first);
 	}
 	std::vector<int> jacobList = create_jacobvector(vector_pair.size());
@@ -291,12 +303,16 @@ void PmergeMe::insert_sort_vector(void)
 			continue ;
 		}
 		std::vector<std::pair<int, int> >::iterator it2 = vector_pair.begin();
+		std::vector<int>::iterator itSorted = sorted_vector_data.begin();
 		for(unsigned int i = 1; i < index; i++)
 		{ 
 			it2++;
+			itSorted++;
 		}
-		std::vector<int>::iterator itSorted;
-		itSorted = std::lower_bound(sorted_vector_data.begin(), sorted_vector_data.end(), it2->second);
+		while (itSorted != sorted_vector_data.end() && *itSorted < it2->second)
+		{
+			itSorted++;
+		}
 		if (itSorted == end(sorted_vector_data))
 			sorted_vector_data.push_back(it2->second);
 		else
