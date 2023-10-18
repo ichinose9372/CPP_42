@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Jacobsthal.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 11:32:56 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/18 16:58:51 by ichinoseyuu      ###   ########.fr       */
+/*   Created: 2023/10/18 16:07:41 by ichinoseyuu       #+#    #+#             */
+/*   Updated: 2023/10/18 16:09:19 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
-#include "Jacobsthal.hpp"
+#ifndef JACOBSTHAL_HPP
+# define JACOBSTHAL_HPP
 
-int main(int argc, char **argv)
-{
-	if  (argc <= 2)
-	{
-		std::cout << RED << "Error: " << NORMAL << std::endl;
-		return (1);
-	}
-	try
-	{
-		PmergeMe pmerge(argv);
-		pmerge.sort();
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << RED << e.what() << NORMAL << std::endl;
-		return (1);
-	}
-	return (0);
-}
+#include <iostream>
+#include <list>
+
+std::list<int> create_jacoblist(unsigned long size);
+int Jacob_make(int n);
+
+#endif
