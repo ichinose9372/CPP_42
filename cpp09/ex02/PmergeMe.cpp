@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:19:16 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/18 21:49:50 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/19 10:29:03 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ PmergeMe::PmergeMe(char **argv)
 		{
 			init_list_data.push_back(num);
 			init_vector_data.push_back(num);
+            // check_list_data.push_back(num);
 		}
 		else
 		{
 			throw std::invalid_argument("Error");
 		}
 	}
+    // check_list_data.sort();
 }
 
 PmergeMe::~PmergeMe(){}
@@ -170,27 +172,45 @@ std::list<t_Pair>  make_pair_func_list(std::list<t_Pair> &list_pair, bool *flag)
     return (return_list);
 }
 
-std::list<int> inseration_func_list(std::list<t_Pair> list_pair ,std::list<int> sorted_list, bool *flag)
+void jacob_insert_list(std::list<t_Pair> list_pair, std::list<int>& sorted_list, unsigned int pos)
 {
     std::list<t_Pair>::iterator it_pair = list_pair.begin();
+    for(unsigned int i = 1; i < pos; i++)
+    {
+        it_pair++;
+    }
+    if (it_pair->second == -1)
+        return;
+    std::list<int>::iterator it_sorted = sorted_list.begin();
+    while (it_sorted != sorted_list.end() && *it_sorted < it_pair->second)
+    {
+        it_sorted++;
+    }
+    if (it_sorted == sorted_list.end())
+        sorted_list.push_back(it_pair->second);
+    else
+        sorted_list.insert(it_sorted, it_pair->second);
+}
+
+std::list<int> inseration_func_list(std::list<t_Pair> list_pair ,std::list<int> sorted_list, bool *flag)
+{
     if (*flag == true)
     {
         int num = list_pair.back().first;
         insert_num_list(num, sorted_list);
     }
-    for(; it_pair != list_pair.end(); ++it_pair)
+    std::list<int> jacoblist = create_jacoblist(list_pair.size());
+    std::list<int>::iterator it_jacob = jacoblist.begin();
+    while(it_jacob != jacoblist.end())
     {
-        if (it_pair->second == -1)
-            continue;
-        std::list<int>::iterator it_sorted = sorted_list.begin();
-        while (it_sorted != sorted_list.end() && *it_sorted < it_pair->second)
+        unsigned int pos = *it_jacob;
+        if (pos > list_pair.size())
         {
-            it_sorted++;
-        }        
-        if (it_sorted == sorted_list.end())
-            sorted_list.push_back(it_pair->second);
-        else
-            sorted_list.insert(it_sorted, it_pair->second);
+            it_jacob++;
+            continue;
+        }
+        jacob_insert_list(list_pair, sorted_list, pos);
+        it_jacob++;
     }
     return (sorted_list);
 }
@@ -264,27 +284,47 @@ std::vector<t_Pair>  make_pair_func_vector(std::vector<t_Pair> &vector_pair, boo
     return (return_vector);
 }
 
-std::vector<int> inseration_func_vector(std::vector<t_Pair> vector_pair ,std::vector<int> sorted_vector, bool *flag)
+
+void jacob_insert_vector(std::vector<t_Pair> vector_pair, std::vector<int>& sorted_vector, unsigned int pos)
 {
     std::vector<t_Pair>::iterator it_pair = vector_pair.begin();
+    for(unsigned int i = 1; i < pos; i++)
+    {
+        it_pair++;
+    }
+    if (it_pair->second == -1)
+        return;
+    std::vector<int>::iterator it_sorted = sorted_vector.begin();
+    while (it_sorted != sorted_vector.end() && *it_sorted < it_pair->second)
+    {
+        it_sorted++;
+    }
+    if (it_sorted == sorted_vector.end())
+        sorted_vector.push_back(it_pair->second);
+    else
+        sorted_vector.insert(it_sorted, it_pair->second);
+}
+
+
+std::vector<int> inseration_func_vector(std::vector<t_Pair> vector_pair ,std::vector<int> sorted_vector, bool *flag)
+{
     if (*flag == true)
     {
         int num = vector_pair.back().first;
         insert_num_vector(num, sorted_vector);
     }
-    for(; it_pair != vector_pair.end(); ++it_pair)
+    std::list<int> jacoblist = create_jacoblist(vector_pair.size());
+    std::list<int>::iterator it_jacob = jacoblist.begin();
+    while(it_jacob != jacoblist.end())
     {
-        if (it_pair->second == -1)
-            continue;
-        std::vector<int>::iterator it_sorted = sorted_vector.begin();
-        while (it_sorted != sorted_vector.end() && *it_sorted < it_pair->second)
+        unsigned int pos = *it_jacob;
+        if (pos > vector_pair.size())
         {
-            it_sorted++;
-        }        
-        if (it_sorted == sorted_vector.end())
-            sorted_vector.push_back(it_pair->second);
-        else
-            sorted_vector.insert(it_sorted, it_pair->second);
+            it_jacob++;
+            continue;
+        }
+        jacob_insert_vector(vector_pair, sorted_vector, pos);
+        it_jacob++;
     }
     return (sorted_vector);
 }
@@ -306,14 +346,50 @@ std::vector<int> PmergeMe::merge_insert_sort_vector(std::vector<t_Pair>  vector_
 }
 
 
+// void PmergeMe::check(void)
+// {
+//     std::cout << "Check:  ";
+//     std::list<int>::iterator it = check_list_data.begin();
+//     std::list<int>::iterator it2 = sorted_list_data.begin();
+//     std::vector<int>::iterator it3 = sorted_vector_data.begin();
+//     while (it != check_list_data.end())
+//     {
+//         if (*it != *it2)
+//         {
+//             std::cout << RED << "KO" << NORMAL << std::endl;
+//             return;
+//         }
+//         else if (*it != *it3)
+//         {
+//             std::cout << YELLOW << "KO" << NORMAL << std::endl;
+//             return;
+//         }
+//         it++;
+//         it2++;
+//         it3++;
+//     }
+//     std::cout << GREEN << "OK" << NORMAL << std::endl;
+// }
+
+
 void PmergeMe::sort(void)
 {
+    double time_list;
+    double time_vector;
 	print_before();
+    clock_t start_list = clock();
 	sorted_list_data = merge_insert_sort_list(list_to_pair(init_list_data));
+    clock_t end_list = clock();
+    time_list = static_cast<double>(end_list - start_list) / CLOCKS_PER_SEC;
+    clock_t start_vector = clock();
+    sorted_vector_data = merge_insert_sort_vector(vector_to_pair(init_vector_data));
+    clock_t end_vector = clock();
+    time_vector = static_cast<double>(end_vector - start_vector) / CLOCKS_PER_SEC;
 	sorted_vector_data = merge_insert_sort_vector(vector_to_pair(init_vector_data));
 	print_after();
-	// std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
-	// std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
+    // check();
+	std::cout << "Time to process a range of " << sorted_list_data.size() <<" elements with std::[list] : " << std::fixed << std::setprecision(6) << time_list << " sec"<<std::endl;
+	std::cout << "Time to process a range of " << sorted_vector_data.size() <<" elements with std::[vector] : " << std::fixed << std::setprecision(6) << time_vector << " sec" << std::endl;
 }
 
 

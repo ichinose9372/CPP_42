@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/18 21:39:30 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/19 10:28:40 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ class PmergeMe
 		std::list<int> sorted_list_data;
 		std::vector<int> sorted_vector_data;
 
+		// std::list<int> check_list_data;
+
 		PmergeMe();
 	public:
 		PmergeMe(const PmergeMe &other);
@@ -59,6 +61,8 @@ class PmergeMe
 		std::vector<t_Pair> vector_to_pair(std::vector<int> vector);
 		void print_before(void);
 		void print_after(void);
+
+		// void check(void);
 		
 };
 #endif
