@@ -6,7 +6,7 @@
 /*   By: ichinoseyuuki <ichinoseyuuki@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:10:17 by yichinos          #+#    #+#             */
-/*   Updated: 2023/10/09 19:44:55 by ichinoseyuu      ###   ########.fr       */
+/*   Updated: 2023/10/19 10:28:40 by ichinoseyuu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,26 @@
 #include <algorithm>
 #include <ctime>
 #include <iomanip>
+#include "Jacobsthal.hpp"
+
+
+typedef struct s_Pair
+{
+	int first;
+	int second;
+} t_Pair;
 
 
 class PmergeMe
 {
 	private:
-		std::list<int> list_data;
-		std::vector<int> vector_data;
+		std::list<int> init_list_data;
+		std::vector<int> init_vector_data;
 		std::list<int> sorted_list_data;
 		std::vector<int> sorted_vector_data;
-		std::list<std::pair<int, int> > list_pair;
-		std::vector<std::pair<int, int> > vector_pair;
+
+		// std::list<int> check_list_data;
+
 		PmergeMe();
 	public:
 		PmergeMe(const PmergeMe &other);
@@ -46,11 +55,14 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe(char **argv);
 		void sort(void);
-		double merge_insert_sort_list(std::list<int> &list);
-		double merge_insert_sort_vector(std::vector<int> &vector);
-		void insert_sort_list(void);	
-		void insert_sort_vector(void);	
+		std::list<int> merge_insert_sort_list(std::list<t_Pair> list_pair);
+		std::list<t_Pair> list_to_pair(std::list<int> list);
+		std::vector<int>merge_insert_sort_vector(std::vector<t_Pair> vector_pair);
+		std::vector<t_Pair> vector_to_pair(std::vector<int> vector);
 		void print_before(void);
 		void print_after(void);
+
+		// void check(void);
+		
 };
 #endif

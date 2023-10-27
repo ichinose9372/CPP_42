@@ -1,8 +1,8 @@
 NAME = PmergeMe
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp PmergeMe.cpp
-INCLUDE = PmergeMe.hpp
+SRC = main.cpp PmergeMe.cpp Jacobsthal.cpp
+INCLUDE = PmergeMe.hpp Jacobsthal.hpp
 RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
