@@ -6,7 +6,7 @@
 #    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 12:27:54 by yichinos          #+#    #+#              #
-#    Updated: 2023/10/29 16:19:23 by yichinos         ###   ########.fr        #
+#    Updated: 2023/10/29 16:28:43 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,3 +32,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+
+.PHONEY : re all clean fclean
