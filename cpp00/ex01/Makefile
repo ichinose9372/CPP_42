@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yichinos <$yichinos@student.42tokyo.jp>    +#+  +:+       +#+         #
+#    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:04:11 by yichinos          #+#    #+#              #
-#    Updated: 2023/07/01 13:04:05 by yichinos         ###   ########.fr        #
+#    Updated: 2023/10/29 16:19:29 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-ALL : $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@

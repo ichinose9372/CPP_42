@@ -6,7 +6,7 @@
 #    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 12:04:49 by yichinos          #+#    #+#              #
-#    Updated: 2023/07/13 11:52:12 by yichinos         ###   ########.fr        #
+#    Updated: 2023/10/29 16:19:09 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM = rm -rf
 OBJS_DIR= objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-ALL : $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@

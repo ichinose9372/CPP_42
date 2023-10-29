@@ -6,7 +6,7 @@
 #    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 12:27:54 by yichinos          #+#    #+#              #
-#    Updated: 2023/07/11 12:20:22 by yichinos         ###   ########.fr        #
+#    Updated: 2023/10/29 16:19:23 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = megaphone.cpp
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 
-ALL : $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
