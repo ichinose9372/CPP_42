@@ -6,7 +6,7 @@
 #    By: yichinos <yichinos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:04:11 by yichinos          #+#    #+#              #
-#    Updated: 2023/10/29 16:28:39 by yichinos         ###   ########.fr        #
+#    Updated: 2023/10/30 13:02:28 by yichinos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 $(OBJS_DIR)%.o : %.cpp $(INCLUDE)
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
@@ -35,6 +35,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
-
 
 .PHONEY : re all clean fclean
